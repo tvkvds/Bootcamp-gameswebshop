@@ -27,4 +27,9 @@ class Product extends Model
         'timestamps',
         'deleted'
     ];
+
+    public function images()
+    {
+        return $this->hasMany(Image::class);
+    }
 }

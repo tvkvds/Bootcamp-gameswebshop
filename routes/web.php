@@ -22,3 +22,6 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+Route::get('/products' , [App\Http\Controllers\ProductController::class, 'index']);
+Route::get('/products/{slug}', [App\Http\Controllers\ProductController::class, 'show']);

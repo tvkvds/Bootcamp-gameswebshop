@@ -13,17 +13,28 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+       
+        \App\Models\User::factory(10)->create()->each(function ($u){
+           
+            \App\Models\Address::factory(1)->create([
+                'user_id' => $u
+            ]);
+        });
+
+
         \App\Models\User::factory(1)->create([
             'username' => 'admin',
             'password' => bcrypt('admin'),
             'email' => 'admin@webshop.com'
         ]);
-        \App\Models\Address::factory(10)->create();
+        
 
-        \App\Models\Product::factory(100)->create();
+        \App\Models\Product::factory(50)->create()->each(function ($u){
 
-        \App\Models\Image::factory(10)->create();
-
+            \App\Models\Image::factory(3)->create([
+                'product_id' => $u
+            ]);
+        }); 
         \App\Models\Category::factory(5)->create();
 
         \App\Models\Rating::factory(5)->create();
