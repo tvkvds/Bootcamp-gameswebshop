@@ -17,10 +17,15 @@ class ProductController extends Controller
         ]);
     }
 
-    public function show()
+    public function show($slug)
     {
+        $product = Product::where('slug', $slug)->firstOrFail();
+        $product->with('images')->get();
+
+        return view('products/show', [
+            'product' => $product,       
         
-        return 'test';
+        ]);
     }
 
 

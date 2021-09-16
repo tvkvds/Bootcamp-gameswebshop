@@ -11,5 +11,8 @@ class Category extends Model
 {
     use HasFactory, SoftDeletes;
 
-    
+    public function products()
+    {
+        return $this->belongsToMany(Product::class);
+    }
 }

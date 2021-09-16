@@ -35,7 +35,10 @@ class DatabaseSeeder extends Seeder
                 'product_id' => $u
             ]);
         }); 
-        \App\Models\Category::factory(5)->create();
+
+        \App\Models\Category::factory(5)->hasAttached(\App\Models\Product::factory(10))->create();
+        
+       
 
         \App\Models\Rating::factory(5)->create();
 
