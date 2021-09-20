@@ -15,4 +15,10 @@ class Category extends Model
     {
         return $this->belongsToMany(Product::class);
     }
+
+    public function productImages()
+    {
+        return $this->hasManyThrough(Image::class, Product::class);
+    }
+
 }

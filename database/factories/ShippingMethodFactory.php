@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Platform;
+use App\Models\ShippingMethod;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class PlatformFactory extends Factory
+class ShippingMethodFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Platform::class;
+    protected $model = ShippingMethod::class;
 
     /**
      * Define the model's default state.
@@ -21,10 +21,11 @@ class PlatformFactory extends Factory
      */
     public function definition()
     {
-        $platforms = ['Playstation 4', 'PC', 'Nintendo Switch', 'Xbox'];
 
+       
         return [
-            'platform' => $platforms[rand(0,3)]
+            'shipping_method' => $this->faker->word(),
+            'shipping_cost' => $this->faker->randomNumber(4, true)
         ];
     }
 }

@@ -36,11 +36,62 @@ class DatabaseSeeder extends Seeder
             ]);
         }); 
 
+        //   category data
         \App\Models\Category::factory(5)->hasAttached(\App\Models\Product::factory(10))->create();
         
        
 
         \App\Models\Rating::factory(5)->create();
+
+        //   platform data 
+
+        \App\Models\Platform::factory()->create([
+            'platform' => 'Xbox'
+        ]);
+        \App\Models\Platform::factory()->create([
+            'platform' => 'Playstation 5'
+        ]);
+        \App\Models\Platform::factory()->create([
+            'platform' => 'PC'
+        ]);
+        \App\Models\Platform::factory()->create([
+            'platform' => 'Nintendo Switch'
+        ]);
+
+        //   paymentmethod data
+
+        \App\Models\PaymentMethod::factory()->create([
+            'payment_method' => 'ideal'
+        ]);
+
+        \App\Models\PaymentMethod::factory()->create([
+            'payment_method' => 'paypal'
+        ]);
+        \App\Models\PaymentMethod::factory()->create([
+            'payment_method' => 'creditcard'
+        ]);
+
+        //   shippingmethod data
+
+        \App\Models\ShippingMethod::factory()->create([
+            'shipping_method' => 'Free',
+            'shipping_cost' => 0
+        ]);
+
+        \App\Models\ShippingMethod::factory()->create([
+            'shipping_method' => 'Standard',
+            'shipping_cost' => 8.00
+        ]);
+
+        \App\Models\ShippingMethod::factory()->create([
+            'shipping_method' => 'Express',
+            'shipping_cost' => 12.00
+        ]);
+        
+        //   order data
+
+        \App\Models\Order::factory(5)->create();
+
 
 
     }
