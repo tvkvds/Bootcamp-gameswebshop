@@ -37,7 +37,47 @@ class DatabaseSeeder extends Seeder
         }); 
 
         //   category data
-        \App\Models\Category::factory(5)->hasAttached(\App\Models\Product::factory(10))->create();
+        
+        \App\Models\Category::factory()->hasAttached(\App\Models\Product::factory(10))->create(
+            [
+                'name' => 'Action',
+                'slug' => 'action'
+            ]
+        );
+
+        \App\Models\Category::factory()->hasAttached(\App\Models\Product::factory(10))->create(
+            [
+                'name' => 'Adventure',
+                'slug' => 'adventure'
+            ]
+        );
+
+        \App\Models\Category::factory()->hasAttached(\App\Models\Product::factory(10))->create(
+            [
+                'name' => 'RPG',
+                'slug' => 'rpg'
+            ]
+        );
+
+        \App\Models\Category::factory()->hasAttached(\App\Models\Product::factory(10))->create(
+            [
+                'name' => 'Sim',
+                'slug' => 'sim'
+            ]
+        );
+
+        \App\Models\Category::factory()->hasAttached(\App\Models\Product::factory(10))->create(
+            [
+                'name' => 'Strategy',
+                'slug' => 'strategy'
+            ]
+        );
+        \App\Models\Category::factory()->hasAttached(\App\Models\Product::factory(10))->create(
+            [
+                'name' => 'Sports',
+                'slug' => 'sports'
+            ]
+        );
         
        
 

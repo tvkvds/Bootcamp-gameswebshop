@@ -14,6 +14,9 @@ class CategoryController extends Controller
         # figure out how to load only 5 products per category
 
         $categories = Category::with('products')->get();
+       
+        
+        
         
         return view('categories/index', [
             'categories' => $categories,       
@@ -29,9 +32,12 @@ class CategoryController extends Controller
         # figure out how to load the images for the products
 
         $category = Category::where('slug', $slug)->with('products')->firstOrFail();
-        $category->productImages;
+    
 
-        dd($category->productImages);
+       
+
+        
+
         return view('categories/show', [
             
             'category' => $category, 

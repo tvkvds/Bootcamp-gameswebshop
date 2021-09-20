@@ -21,4 +21,15 @@ class Category extends Model
         return $this->hasManyThrough(Image::class, Product::class);
     }
 
+    public function scopeFiveProducts($query)
+    {
+        return $query->whereIn('product.id', function($query) {
+            return $query->fromSub(function($subQuery) {
+                $query->select('id')
+                    ->from('products gameswebshop_products')
+                    ->limit(5);
+            }, 'sq');
+        });
+    }
+
 }

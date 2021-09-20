@@ -6,8 +6,11 @@
     <div>
         <ul>
             @foreach ($category->products as $product )
-                <li>{{$product->name}}</li>
+                @if ($loop->iteration <= 5)
+                    <li>{{$product->name}}</li>
+                @endif
             @endforeach
+
         </ul>
     </div>
 
