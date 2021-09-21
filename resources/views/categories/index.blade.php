@@ -4,7 +4,7 @@
     
     <div>
 
-    {{$category->slug}}
+    
     <a href="categories/{{$category->slug}}">
     <h1>{{$category->name}}</h1>
     </a>

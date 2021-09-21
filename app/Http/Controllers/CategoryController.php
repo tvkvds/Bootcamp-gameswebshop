@@ -14,6 +14,16 @@ class CategoryController extends Controller
         # figure out how to load only 5 products per category
 
         $categories = Category::with('products')->get();
+        foreach ($categories as $category)
+        {
+            $products = $category->products;
+            foreach ($products as $product)
+            {
+                $product->images;
+            }
+        }
+
+
        
         
         

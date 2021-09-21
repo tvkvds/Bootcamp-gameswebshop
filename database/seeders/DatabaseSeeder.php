@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
        
         \App\Models\User::factory(10)->create()->each(function ($u){
            
-            \App\Models\Address::factory(1)->create([
+            \App\Models\Address::factory(rand(0,2))->create([
                 'user_id' => $u
             ]);
         });
@@ -29,50 +29,45 @@ class DatabaseSeeder extends Seeder
         ]);
         
 
-        \App\Models\Product::factory(50)->create()->each(function ($u){
-
-            \App\Models\Image::factory(3)->create([
-                'product_id' => $u
-            ]);
-        }); 
+       \App\Models\Product::factory(100)->create();
 
         //   category data
         
-        \App\Models\Category::factory()->hasAttached(\App\Models\Product::factory(10))->create(
+        \App\Models\Category::factory()->create(
             [
                 'name' => 'Action',
                 'slug' => 'action'
             ]
         );
 
-        \App\Models\Category::factory()->hasAttached(\App\Models\Product::factory(10))->create(
+        \App\Models\Category::factory()->create(
             [
                 'name' => 'Adventure',
                 'slug' => 'adventure'
             ]
         );
 
-        \App\Models\Category::factory()->hasAttached(\App\Models\Product::factory(10))->create(
+        \App\Models\Category::factory()->create(
             [
                 'name' => 'RPG',
                 'slug' => 'rpg'
             ]
         );
 
-        \App\Models\Category::factory()->hasAttached(\App\Models\Product::factory(10))->create(
+        \App\Models\Category::factory()->create(
             [
                 'name' => 'Sim',
                 'slug' => 'sim'
             ]
         );
 
-        \App\Models\Category::factory()->hasAttached(\App\Models\Product::factory(10))->create(
+        \App\Models\Category::factory()->create(
             [
                 'name' => 'Strategy',
                 'slug' => 'strategy'
             ]
         );
-        \App\Models\Category::factory()->hasAttached(\App\Models\Product::factory(10))->create(
+        \App\Models\Category::factory()->create(
             [
                 'name' => 'Sports',
                 'slug' => 'sports'
@@ -81,7 +76,7 @@ class DatabaseSeeder extends Seeder
         
        
 
-        \App\Models\Rating::factory(5)->create();
+        \App\Models\Rating::factory(10)->create();
 
         //   platform data 
 
