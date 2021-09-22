@@ -9,4 +9,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class ShippingMethod extends Model
 {
     use HasFactory, SoftDeletes;
+
+    public function orders()
+    {
+        return $this->hasMany(Orders::class);
+    }
 }

@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -27,12 +28,10 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('admin'),
             'email' => 'admin@webshop.com'
         ]);
-        
-
-       \App\Models\Product::factory(100)->create();
 
         //   category data
         
+
         \App\Models\Category::factory()->create(
             [
                 'name' => 'Action',
@@ -73,10 +72,53 @@ class DatabaseSeeder extends Seeder
                 'slug' => 'sports'
             ]
         );
-        
-       
 
-        \App\Models\Rating::factory(10)->create();
+
+
+       \App\Models\Product::factory(50)->create()->each(function ($p){
+
+            \App\Models\Image::factory(3)->create([
+                'product_id' => $p
+            ]);
+
+            \App\Models\Rating::factory(rand(0,10))->create([
+                'product_id' => $p,
+                'user_id' => rand(1, 10)
+            ]);
+
+            $catprod = [
+
+                [
+                    'product_id' => $p->id,
+                    'category_id' => 1, 
+                ],
+                [
+                    'product_id' => $p->id,
+                    'category_id' => 2, 
+                ],
+                [
+                    'product_id' => $p->id,
+                    'category_id' => 3, 
+                ],
+                [
+                    'product_id' => $p->id,
+                    'category_id' => 4, 
+                ],
+                [
+                    'product_id' => $p->id,
+                    'category_id' => 5, 
+                ],
+                [
+                    'product_id' => $p->id,
+                    'category_id' => 6, 
+                ],
+        
+            ];
+
+            DB::table('category_product')->insert($catprod);
+
+       });
+
 
         //   platform data 
 

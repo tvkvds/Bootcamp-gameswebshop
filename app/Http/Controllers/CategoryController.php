@@ -10,26 +10,23 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        # TODO 
-        # figure out how to load only 5 products per category
 
         $categories = Category::with('products')->get();
+
+        //would be nice to have this as a single request too 
         foreach ($categories as $category)
         {
-            $products = $category->products;
-            foreach ($products as $product)
+
+            //dd($category->onlyFiveProducts);
+            foreach ($category->products as $product)
             {
                 $product->images;
             }
         }
-
-
-       
-        
-        
         
         return view('categories/index', [
-            'categories' => $categories,       
+            'categories' => $categories, 
+            
         
         ]);
     
@@ -38,16 +35,13 @@ class CategoryController extends Controller
     public function show($slug)
     {
 
-        # TODO
-        # figure out how to load the images for the products
-
         $category = Category::where('slug', $slug)->with('products')->firstOrFail();
-    
 
-       
-
+        foreach ($category->products as $product)
+        {
+            $product->images;
+        }
         
-
         return view('categories/show', [
             
             'category' => $category, 

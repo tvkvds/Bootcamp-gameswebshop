@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\DB;
 
 
 class Category extends Model
@@ -19,17 +20,21 @@ class Category extends Model
     public function productImages()
     {
         return $this->hasManyThrough(Image::class, Product::class);
+    } 
+
+    public function onlyFiveProducts()
+    {
+            //return five product results from pivot table per category
+            //
+            //return $this->products()->limit(5)->where('category_id, $categoryId); ??
+
+            return $this->products()->limit(5);
+            //this returns five result from pivot table, period.
     }
 
-    public function scopeFiveProducts($query)
-    {
-        return $query->whereIn('product.id', function($query) {
-            return $query->fromSub(function($subQuery) {
-                $query->select('id')
-                    ->from('products gameswebshop_products')
-                    ->limit(5);
-            }, 'sq');
-        });
-    }
+    
+
+    
+    
 
 }

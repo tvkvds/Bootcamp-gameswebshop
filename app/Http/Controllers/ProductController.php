@@ -9,7 +9,15 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::with('images')->get();
+        try
+        {
+            $products = Product::with('images')->get();
+        }
+        catch(Exception $e)
+        {
+            return back()->withError($e->getMessage())->withInput();
+        }
+        
         
         return view('products/index', [
             'products' => $products,       
@@ -19,8 +27,15 @@ class ProductController extends Controller
 
     public function show($slug)
     {
-        $product = Product::where('slug', $slug)->firstOrFail();
-        $product->with('images')->get();
+        try 
+        {
+            $product = Product::where('slug', $slug)->firstOrFail();
+            $product->with('images')->get();
+        }
+        catch(Exception $e)
+        {
+            return back()->withError($e->getMessage())->withInput();
+        }
 
         return view('products/show', [
             'product' => $product,       

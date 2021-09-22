@@ -29,7 +29,7 @@ class UserFactory extends Factory
             
             'first_name' => $this->faker->firstName(),
             'last_name' => $this->faker->lastName(),
-            'username' => $this->faker->word() . Str::random(2),
+            'username' => $this->faker->word() . Str::random(5),
             'slug' => $this->faker->slug(1, false),
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
