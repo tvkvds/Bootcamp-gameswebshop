@@ -75,11 +75,37 @@ class DatabaseSeeder extends Seeder
 
 
 
-       \App\Models\Product::factory(50)->create()->each(function ($p){
+        \App\Models\Product::factory(50)->create()->each(function ($p){
 
-            \App\Models\Image::factory(3)->create([
+
+            // product images 
+
+            \App\Models\Image::factory()->create([
+                'location' => '/images/' . 'box-art.png',
+                'box' => 0,
                 'product_id' => $p
             ]);
+
+            \App\Models\Image::factory()->create([
+                'location' => '/images/' . 'carl-raw-m3hn2Kn5Bns-unsplash.jpg', 
+                'box' => 1,
+                'product_id' => $p
+            ]);
+
+
+            \App\Models\Image::factory()->create([
+                'location' => '/images/' . 'fabio-silva-nmTm7knUnqs-unsplash.jpg',
+                'box' => 1,
+                'product_id' => $p
+            ]);
+
+            \App\Models\Image::factory()->create([
+                'location' => '/images/' . 'jakub-sisulak-L1AEdl-iLL4-unsplash.jpg',
+                'box' => 1,
+                'product_id' => $p
+            ]);
+
+            // product ratings
 
             \App\Models\Rating::factory(rand(0,10))->create([
                 'product_id' => $p,
@@ -117,7 +143,7 @@ class DatabaseSeeder extends Seeder
 
             DB::table('category_product')->insert($catprod);
 
-       });
+        });
 
 
         //   platform data 
@@ -167,7 +193,7 @@ class DatabaseSeeder extends Seeder
         
         //   order data
 
-        \App\Models\Order::factory(5)->create();
+        \App\Models\Order::factory(25)->create();
 
 
 

@@ -10,18 +10,24 @@ class CategoryController extends Controller
 {
     public function index()
     {
-
-        $categories = Category::with('products')->get();
-
-        //would be nice to have this as a single request too 
-        foreach ($categories as $category)
+        try
         {
+            $categories = Category::with('products')->get();
 
-            //dd($category->onlyFiveProducts);
-            foreach ($category->products as $product)
+            //would be nice to have this as a single request too 
+            foreach ($categories as $category)
             {
-                $product->images;
+
+                //dd($category->onlyFiveProducts);
+                foreach ($category->products as $product)
+                {
+                    $product->images;
+                }
             }
+        }
+        catch(Exception $e)
+        {
+            return back()->withError($e->getMessage())->withInput();
         }
         
         return view('categories/index', [
@@ -34,13 +40,20 @@ class CategoryController extends Controller
 
     public function show($slug)
     {
-
-        $category = Category::where('slug', $slug)->with('products')->firstOrFail();
-
-        foreach ($category->products as $product)
+        try
         {
-            $product->images;
+            $category = Category::where('slug', $slug)->with('products')->firstOrFail();
+
+            foreach ($category->products as $product)
+            {
+                $product->images;
+            }
         }
+        catch(Exception $e)
+        {
+            return back()->withError($e->getMessage())->withInput();
+        }
+       
         
         return view('categories/show', [
             

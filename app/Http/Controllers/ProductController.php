@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 
+
 class ProductController extends Controller
 {
     public function index()
@@ -30,11 +31,16 @@ class ProductController extends Controller
         try 
         {
             $product = Product::where('slug', $slug)->firstOrFail();
-            $product->with('images')->get();
+           
+            $product->images;
+            $product->categories;
+            $product->ratings->lazy();
+            $product->avgRatings;
+            
         }
         catch(Exception $e)
         {
-            return back()->withError($e->getMessage())->withInput();
+           return back()->withError($e->getMessage())->withInput();
         }
 
         return view('products/show', [

@@ -20,6 +20,7 @@ class CreateImageTable extends Migration
             $table->string('location');
             $table->integer('width');
             $table->string('height');
+            $table->boolean('box');
             $table->timestamps();
             $table->softdeletes();
         });

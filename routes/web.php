@@ -28,3 +28,5 @@ Route::get('/products/{slug}', [App\Http\Controllers\ProductController::class, '
 
 Route::get('/categories', [App\Http\Controllers\CategoryController::class, 'index']);
 Route::get('/categories/{slug}', [App\Http\Controllers\CategoryController::class, 'show']);
+
+Route::get('/search', [App\Http\Controllers\SearchController::class, 'index']);

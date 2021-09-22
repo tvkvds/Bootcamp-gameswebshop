@@ -26,7 +26,9 @@ class ImageFactory extends Factory
         $imgLocations = [
             '/images/' . 'carl-raw-m3hn2Kn5Bns-unsplash.jpg', 
             '/images/' . 'fabio-silva-nmTm7knUnqs-unsplash.jpg',
-            '/images/' . 'jakub-sisulak-L1AEdl-iLL4-unsplash.jpg'
+            '/images/' . 'jakub-sisulak-L1AEdl-iLL4-unsplash.jpg',
+            '/images/' . 'box-art.png',
+            
         ];
 
         return [
@@ -34,7 +36,8 @@ class ImageFactory extends Factory
             'product_id' => Product::factory()->create(),
             'alt' => $this->faker->word(),
             #'location' => $this->faker->imageUrl(640, 480, 'yeet', true),
-            'location' => $imgLocations[rand(0,2)],
+            'location' => $imgLocations[rand(0,3)],
+            'box' => $this->faker->boolean(),
             'width' => $this->faker->randomNumber(3, true),
             'height' => $this->faker->randomNumber(3, true),
         ];

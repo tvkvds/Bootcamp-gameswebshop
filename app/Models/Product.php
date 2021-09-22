@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes; 
 
+
 class Product extends Model
 {
     use HasFactory, SoftDeletes;
@@ -30,12 +31,12 @@ class Product extends Model
 
     public function images()
     {
-        return $this->hasMany(Image::class);
+        return $this->hasMany(Image::class, 'product_id');
     }
 
     public function categories()
     {
-        return $this->belongsToMany(Categories::class);
+        return $this->belongsToMany(Category::class);
     }
 
     public function platforms()
@@ -53,13 +54,14 @@ class Product extends Model
         return $this->belongsTo(Order::class)->withPivot('amount');
     }
 
-    public function avgRatings()
-    {
-        Post::withSum('rating', 'rating')->get();
-    }
+    // public function avgRatings()
+    // {
+        
+    //     return Rating::withSum('ratings', 'rating')->get();
+    // }
 
-    public function userRating($user_id)
-    {
-        return Rating::where('user_id', '=', $user_id)->get();  
-    }
+    // public function userRating($user_id)
+    // {
+    //     return Rating::where('user_id', '=', $user_id)->get();  
+    // }
 }
