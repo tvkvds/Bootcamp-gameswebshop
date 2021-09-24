@@ -49,6 +49,16 @@ class ProductController extends Controller
         ]);
     }
 
+    
+
+    public function scopeFilter($query)
+    {
+        return $query
+                    ->where('name', 'like', '%' . request('search') . '%');
+    }
+
+    
+
 
 }
 

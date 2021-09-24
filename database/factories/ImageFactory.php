@@ -33,7 +33,7 @@ class ImageFactory extends Factory
 
         return [
             
-            'product_id' => Product::factory()->create(),
+            'product_id' => rand(1,50),
             'alt' => $this->faker->word(),
             #'location' => $this->faker->imageUrl(640, 480, 'yeet', true),
             'location' => $imgLocations[rand(0,3)],

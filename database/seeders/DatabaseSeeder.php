@@ -116,27 +116,15 @@ class DatabaseSeeder extends Seeder
 
                 [
                     'product_id' => $p->id,
-                    'category_id' => 1, 
+                    'category_id' => rand(1,2), 
                 ],
                 [
                     'product_id' => $p->id,
-                    'category_id' => 2, 
+                    'category_id' => rand(3,4), 
                 ],
                 [
                     'product_id' => $p->id,
-                    'category_id' => 3, 
-                ],
-                [
-                    'product_id' => $p->id,
-                    'category_id' => 4, 
-                ],
-                [
-                    'product_id' => $p->id,
-                    'category_id' => 5, 
-                ],
-                [
-                    'product_id' => $p->id,
-                    'category_id' => 6, 
+                    'category_id' => rand(5,6), 
                 ],
         
             ];

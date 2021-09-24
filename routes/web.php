@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+Route::get('/' , [App\Http\Controllers\HomeController::class, 'index']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -30,3 +30,4 @@ Route::get('/categories', [App\Http\Controllers\CategoryController::class, 'inde
 Route::get('/categories/{slug}', [App\Http\Controllers\CategoryController::class, 'show']);
 
 Route::get('/search', [App\Http\Controllers\SearchController::class, 'index']);
+Route::post('/search', [App\Http\Controllers\SearchController::class, 'index']); 
