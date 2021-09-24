@@ -54,14 +54,35 @@ class Product extends Model
         return $this->belongsTo(Order::class)->withPivot('amount');
     }
 
-    // public function avgRatings()
-    // {
+    public function scopeFilter($query, array $filters)
+    {
+        if ($filters['search'] ?? false)
         
-    //     return Rating::withSum('ratings', 'rating')->get();
-    // }
+        {
+            #product name
+            $query
+                ->where('name', 'like', '%' . request('search') . '%')
+                ->limit(15);   
+            
+            #product price range
+            $query->when($filters['price_min'] ?? false, fn ($query, $price_min)=>
+                $query->where('price', '>', $price_min)
+            );
 
-    // public function userRating($user_id)
-    // {
-    //     return Rating::where('user_id', '=', $user_id)->get();  
-    // }
+            $query->when($filters['price_max'] ?? false, fn ($query, $price_max)=>
+                $query->where('price', '>', $price_max)
+            );
+            
+            #product category/categories (should take in an array and check for each category in array)
+            $query->when($filters['categories_filter'] ?? false , fn($query, $categories) =>
+                $query->whereHas('categories', fn ($query) => 
+                    $query->where('id', $categories)
+                )
+            );
+            
+            
+        }
+
+    }
+
 }
