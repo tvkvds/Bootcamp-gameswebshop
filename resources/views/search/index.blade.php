@@ -9,29 +9,40 @@
     </div>
 </form>
 
+<?php var_dump(request(['platforms'])) ?>
+
 
 <!-- show products -->
 @foreach ($products as $product)
-    <a href="/products/{{$product->slug}}">
+    
     <div class="m-4">
+    <a href="/products/{{$product->slug}}">
         <h1>{{$product->name}}</h1>
-        <span>Price: {{$product->price}}</span>   <span>Available: {{$product->stock}}</span>
-        <br>
+       
             @foreach ($product->images as $image)
                 @if ($image->box === 0)
                     <img width="150" src="{{asset($image->location)}}">
                 @endif
             @endforeach
+            </a>
+            <br>
+             <span>Price: {{$product->price}}</span>   <span>Available: {{$product->stock}}</span>
+       
             <br>
             Categories: 
             @foreach ($product->categories as $category)
                 {{$category->name}}
             @endforeach
+            <br>
+            Platforms: 
+            @foreach ($product->platforms as $platform)
+                {{$platform->platform}}
+            @endforeach
 
-            <span> Rating: {{$product->ratings_avg[0]}} Rated {{$product->ratings_count}} times</span>
+           
 
     </div>
-    </a>
+    
 @endforeach
 
 <!-- additional filters form -->
@@ -43,9 +54,18 @@
             <input type="hidden" value="{{request('search')}}" class="form-control form-control-lg" name="search" placeholder="search...">    
         </div>
 
+
+<h3> Categories </h3>
         @foreach ($categories as $category)
-        <input type="checkbox" id="filter_{{$category->id}}" name="categories_filter[{{$category->slug}}]" value="{{$category->id}}">
+        <input type="checkbox" id="filter_{{$category->id}}" name="categories[{{$category->slug}}]" value="{{$category->id}}">
         <label for="{{$category->slug}}">{{$category->slug}}</label><br>
+        @endforeach
+
+<h3> Platforms </h3>
+
+        @foreach ($platforms as $platform)
+        <input type="checkbox" id="filter_{{$platform->id}}" name="platforms[{{$platform->platform}}]" value="{{$platform->id}}">
+        <label for="{{$platform->platform}}">{{$platform->platform}}</label><br>
         @endforeach
 
         <div class="input-group mb-3">

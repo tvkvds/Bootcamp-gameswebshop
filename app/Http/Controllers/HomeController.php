@@ -12,10 +12,18 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $products = Product::inRandomOrder()->with(['categories', 'images', 'ratings', 'platforms'])
-        ->limit(20)
-        ->withAvg('ratings as ratings_avg', 'rating')
-        ->withCount('ratings');
+        try
+        {
+            $products = Product::inRandomOrder()->with(['categories', 'images', 'ratings', 'platforms'])
+            ->limit(20)
+            ->withAvg('ratings as ratings_avg', 'rating')
+            ->withCount('ratings');
+        }
+        catch(Exception $e)
+        {
+            return back()->withError($e->getMessage())->withInput();
+        }
+       
 
         return view('welcome', [
             'products' => $products->get(),

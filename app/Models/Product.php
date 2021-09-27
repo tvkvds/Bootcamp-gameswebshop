@@ -66,26 +66,39 @@ class Product extends Model
             #product name
             $query
                 ->where('name', 'like', '%' . request('search') . '%')
-                ->limit(15);   
-            
-            #product price range
-            $query->when($filters['price_min'] ?? false, fn ($query, $price_min)=>
-                $query->where('price', '>', $price_min)
-            );
-
-            $query->when($filters['price_max'] ?? false, fn ($query, $price_max)=>
-                $query->where('price', '>', $price_max)
-            );
-            
-            #product category/categories (should take in an array and check for each category in array)
-            $query->when($filters['categories_filter'] ?? false , fn($query, $categories) =>
+                ->limit(15);     
+        }
+        
+        if ($filters['categories'] ?? false)
+        {
+            foreach ($filters['categories'] as $category => $value)
+            {
                 $query->whereHas('categories', fn ($query) => 
-                    $query->where('id', $categories)
-                )
-            );
-            
+                    $query->where('categories.id', $value)
+                );
+                
+            }
             
         }
+        
+        if ($filters['platforms'] ?? false)
+        {
+            foreach ($filters['platforms'] as $platform => $value)
+            {
+                $query->whereHas('platforms', fn ($query) => 
+                    $query->where('platforms.id', $value)
+                );
+            }
+        }
+
+        #product price range
+        // $query->when($filters['price_min'] ?? false, fn ($query, $price_min)=>
+        //     $query->where('price', '>', $price_min)
+        // );
+
+        // $query->when($filters['price_max'] ?? false, fn ($query, $price_max)=>
+        //     $query->where('price', '>', $price_max)
+        // );
 
     }
 
