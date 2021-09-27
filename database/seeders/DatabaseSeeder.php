@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             \App\Models\Address::factory(rand(0,2))->create([
                 'user_id' => $u
             ]);
+
         });
 
 
@@ -73,6 +74,22 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
+        //   platform data 
+
+        \App\Models\Platform::factory()->create([
+            'platform' => 'Xbox'
+        ]);
+        \App\Models\Platform::factory()->create([
+            'platform' => 'Playstation 5'
+        ]);
+        \App\Models\Platform::factory()->create([
+            'platform' => 'PC'
+        ]);
+        \App\Models\Platform::factory()->create([
+            'platform' => 'Nintendo Switch'
+        ]);
+
+
 
 
         \App\Models\Product::factory(50)->create()->each(function ($p){
@@ -83,7 +100,8 @@ class DatabaseSeeder extends Seeder
             \App\Models\Image::factory()->create([
                 'location' => '/images/' . 'box-art.png',
                 'box' => 0,
-                'product_id' => $p
+                'product_id' => $p,
+               
             ]);
 
             \App\Models\Image::factory()->create([
@@ -111,7 +129,8 @@ class DatabaseSeeder extends Seeder
                 'product_id' => $p,
                 'user_id' => rand(1, 10)
             ]);
-
+            
+            // category_product pivot table
             $catprod = [
 
                 [
@@ -131,24 +150,45 @@ class DatabaseSeeder extends Seeder
 
             DB::table('category_product')->insert($catprod);
 
+            // platform_product pivot table
+            $platprod = [
+
+                [
+                    'product_id' => $p->id,
+                    'platform_id' => rand(1,2), 
+                ],
+                [
+                    'product_id' => $p->id,
+                    'platform_id' => rand(3,4), 
+                ],
+        
+            ];
+
+            DB::table('platform_product')->insert($platprod);
+
+            //product_user pivot table
+
+            $produser =[
+                [
+                    'product_id' => $p->id,
+                    'user_id' => rand(1,10), 
+                ],
+                [
+                    'product_id' => $p->id,
+                    'user_id' => rand(1,10), 
+                ],
+                [
+                    'product_id' => $p->id,
+                    'user_id' => rand(1,10), 
+                ],
+            ];
+            
+            DB::table('platform_product')->insert($platprod);
+
         });
 
 
-        //   platform data 
-
-        \App\Models\Platform::factory()->create([
-            'platform' => 'Xbox'
-        ]);
-        \App\Models\Platform::factory()->create([
-            'platform' => 'Playstation 5'
-        ]);
-        \App\Models\Platform::factory()->create([
-            'platform' => 'PC'
-        ]);
-        \App\Models\Platform::factory()->create([
-            'platform' => 'Nintendo Switch'
-        ]);
-
+        
         //   paymentmethod data
 
         \App\Models\PaymentMethod::factory()->create([

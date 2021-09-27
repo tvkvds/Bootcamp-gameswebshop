@@ -41,7 +41,7 @@ class Product extends Model
 
     public function platforms()
     {
-        return $this->belongsTo(Platform::class);
+        return $this->belongsToMany(Platform::class);
     }
 
     public function ratings()
@@ -53,6 +53,10 @@ class Product extends Model
     {
         return $this->belongsTo(Order::class)->withPivot('amount');
     }
+
+    
+
+    
 
     public function scopeFilter($query, array $filters)
     {

@@ -23,7 +23,7 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/products' , [App\Http\Controllers\ProductController::class, 'index']);
+
 Route::get('/products/{slug}', [App\Http\Controllers\ProductController::class, 'show']);
 
 Route::get('/categories', [App\Http\Controllers\CategoryController::class, 'index']);
