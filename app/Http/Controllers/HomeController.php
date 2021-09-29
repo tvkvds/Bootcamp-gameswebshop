@@ -26,7 +26,7 @@ class HomeController extends Controller
         }
        
 
-        return view('welcome', [
+        return view('home/index', [
             'products' => $products->get(),
             'categories' => Category::all()
         ]);

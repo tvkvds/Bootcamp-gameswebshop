@@ -30,7 +30,7 @@ require __DIR__.'/auth.php';
   
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 
 Route::get('/products/{slug}', [App\Http\Controllers\ProductController::class, 'show']);
 

@@ -35,14 +35,14 @@ class CheckoutController extends Controller
 
        
        Cart::cart($items);
-       dd(Cart::cart($moreItems));
+       #dd(Cart::cart($moreItems));
         
         
         
         return view('checkout/index',[
             'payment_methods' => PaymentMethod::all(),
             'shipping_methods' => ShippingMethod::all(),
-            'user' => $user,
+            
             
         ]);
     }
