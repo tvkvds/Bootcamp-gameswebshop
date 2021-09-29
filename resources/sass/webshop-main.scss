@@ -1,0 +1,177 @@
+/* checkout */
+.form-control,
+.table {
+    border-color: rgb(200, 200, 200);
+}
+
+.form-control:focus {
+    color: black;
+    background-color: white;
+    border-color: black;
+    box-shadow: none;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.btn {
+    color: white;
+    background-color: gray;
+    border-color: black;
+}
+
+.btn:focus {
+    box-shadow: none !important;
+    background-color: rgb(200, 200, 200);
+}
+
+.btn:hover {
+    color: white;
+    background-color: rgb(200, 200, 200);
+}
+
+#bankDropdown .btn {
+    min-width: 7rem !important;
+    background-color: white;
+    color: black;
+    border-color: rgb(200, 200, 200);
+}
+
+#bankDropdown .dropdown-menu {
+    min-width: 7rem !important;
+}
+
+.dropdown-menu li:hover {
+    background-color: rgb(200, 200, 200);
+}
+
+#idealLogo {
+    height: 18px;
+}
+
+/* navbar */
+nav {
+    background-color: black;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: gray;
+}
+
+nav .icon:hover {
+    fill: gray;
+}
+
+/* modal side animation */
+.modal .modal-dialog {
+    position: fixed;
+    margin: auto;
+    width: 320px;
+    height: 100%;
+    -webkit-transform: translate3d(0%, 0, 0);
+    -ms-transform: translate3d(0%, 0, 0);
+    -o-transform: translate3d(0%, 0, 0);
+    transform: translate3d(0%, 0, 0);
+}
+
+.modal .modal-content {
+    height: 100%;
+    overflow-y: auto;
+}
+
+.modal.fade .modal-dialog {
+    right: -320px;
+    -webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+    -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+    -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+    transition: opacity 0.3s linear, right 0.3s ease-out;
+}
+
+.modal.fade.show .modal-dialog {
+    right: 0;
+}
+
+/* modal */
+#modalClose {
+    position: absolute;
+    top: 1.5rem;
+    right: 1rem;
+}
+
+.close,
+.btn-counter,
+.counter {
+    all: unset;
+}
+
+.counter {
+    max-width: 3ch;
+}
+
+.modal svg:hover {
+    fill: gray;
+}
+
+/* images */
+.gallery-main-img,
+.gallery-img,
+.card-img,
+.cart-img,
+.carousel-main-img,
+.carousel-sec-img,
+.card-img-home,
+.checkout-img {
+    object-fit: contain !important;
+    max-height: 100% !important;
+}
+
+/* navigation */
+.accordion button {
+    color: black !important;
+    box-shadow: none !important;
+}
+
+.accordion-button:not(.collapsed)::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: rgb(200, 200, 200);
+}
+
+.form-check-input:checked {
+    background-color: black;
+}
+
+.form-check-input {
+    border-color: black !important;
+}
+
+.card-link,
+.card-link:hover {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* HOME PAGE */
+.carousel-control-next,
+.carousel-control-prev {
+    filter: invert(100%);
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+    position: relative;
+    opacity: 1;
+    width: fit-content;
+}
+
+.carousel-sec-div {
+    border-left: 1px rgb(200, 200, 200) solid;
+}

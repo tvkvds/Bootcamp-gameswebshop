@@ -20,39 +20,16 @@
             }
         </style>
     </head>
-    <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-            
-            <form class="mt-2" method="get" action="/search">
-            @csrf
-                <div  class="form-group">
-                    <div class="input-group mb-3">
-                        <input type="text" value="{{request('search')}}" class="form-control form-control-lg" name="search" placeholder="search...">
-                        <button type="submit" class="input-group-text btn-success"><i class="bi bi-search me-2"></i> Search</button>
-                    </div>
-                </div>
-            </form>
-            
-            @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                    @auth
-                        <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-            
-    </div>
-
-
-            
- </div>
-
+    <body>
+        <section class="container">
+            <div class="row">
+            <div class="col 6" style="background-color: red;">
+                bla bla
+            </div>
+        </div>
+        </section>
+        
 
     </body>
 </html>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Models\Product;
 use App\Models\Image;
 use App\Models\Rating;
@@ -29,5 +30,6 @@ class HomeController extends Controller
             'products' => $products->get(),
             'categories' => Category::all()
         ]);
+
     }
 }

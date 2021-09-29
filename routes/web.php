@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,7 +17,9 @@ use Illuminate\Support\Facades\Route;
 
 
 
+
 Route::get('/' , [App\Http\Controllers\HomeController::class, 'index']);
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -23,6 +27,10 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
+  
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/products/{slug}', [App\Http\Controllers\ProductController::class, 'show']);
 
@@ -30,3 +38,4 @@ Route::get('/search', [App\Http\Controllers\SearchController::class, 'index']);
 Route::post('/search', [App\Http\Controllers\SearchController::class, 'index']); 
 
 Route::get('/checkout', [App\Http\Controllers\CheckoutController::class, 'index']);
+

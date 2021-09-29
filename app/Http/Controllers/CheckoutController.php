@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Models\Order;
 use Session;
 use Auth;
@@ -46,3 +47,4 @@ class CheckoutController extends Controller
         ]);
     }
 }
+
