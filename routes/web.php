@@ -39,3 +39,5 @@ Route::post('/search', [App\Http\Controllers\SearchController::class, 'index']);
 
 Route::get('/checkout', [App\Http\Controllers\CheckoutController::class, 'index']);
 
+Route::get('product', [App\Http\Controllers\ProductController::class, 'product']);
+
