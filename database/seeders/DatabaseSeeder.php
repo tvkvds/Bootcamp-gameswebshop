@@ -15,10 +15,25 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
        
-        \App\Models\User::factory(10)->create()->each(function ($u){
+        \App\Models\User::factory(9)->create()->each(function ($u){
            
             \App\Models\Address::factory(rand(0,2))->create([
                 'user_id' => $u
+            ]);
+
+        });
+
+        \App\Models\User::factory(1)->create([
+
+            'username' => 'testuser',
+            'password' => bcrypt('password'),
+            'email' => 'test@mail.com'
+
+        ])->each(function ($u){
+           
+            \App\Models\Address::factory(2)->create([
+                'user_id' => $u,
+                
             ]);
 
         });

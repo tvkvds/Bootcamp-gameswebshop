@@ -14,14 +14,12 @@ class ProductController extends Controller
     {
         try 
         {
+            
             $product = Product::where('slug', $slug)
             ->with(['categories', 'images', 'ratings', 'platforms'])
             ->withAvg('ratings as ratings_avg', 'rating')
             ->withCount('ratings')
             ->firstOrFail();
-            
-
-            dd($product);
             
         }
         catch(Exception $e)

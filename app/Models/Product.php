@@ -66,7 +66,7 @@ class Product extends Model
             #product name
             $query
                 ->where('name', 'like', '%' . request('search') . '%')
-                ->limit(15);     
+                ->limit(15);    #paginate results?
         }
         
         if ($filters['categories'] ?? false)

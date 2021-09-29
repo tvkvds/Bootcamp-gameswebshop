@@ -26,8 +26,7 @@ require __DIR__.'/auth.php';
 
 Route::get('/products/{slug}', [App\Http\Controllers\ProductController::class, 'show']);
 
-Route::get('/categories', [App\Http\Controllers\CategoryController::class, 'index']);
-Route::get('/categories/{slug}', [App\Http\Controllers\CategoryController::class, 'show']);
-
 Route::get('/search', [App\Http\Controllers\SearchController::class, 'index']);
 Route::post('/search', [App\Http\Controllers\SearchController::class, 'index']); 
+
+Route::get('/checkout', [App\Http\Controllers\CheckoutController::class, 'index']);

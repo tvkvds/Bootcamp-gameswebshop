@@ -13,6 +13,11 @@ class Controller extends BaseController
 
     public function cart()
     {
-        
+        return Session::put('cart', []);
+    }
+
+    public function editCart()
+    {
+
     }
 }

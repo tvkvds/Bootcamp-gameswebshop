@@ -9,9 +9,6 @@
     </div>
 </form>
 
-<?php var_dump(request(['platforms'])) ?>
-
-
 <!-- show products -->
 @foreach ($products as $product)
     
@@ -54,18 +51,18 @@
             <input type="hidden" value="{{request('search')}}" class="form-control form-control-lg" name="search" placeholder="search...">    
         </div>
 
+        <h3> Categories </h3>
 
-<h3> Categories </h3>
         @foreach ($categories as $category)
-        <input type="checkbox" id="filter_{{$category->id}}" name="categories[{{$category->slug}}]" value="{{$category->id}}">
-        <label for="{{$category->slug}}">{{$category->slug}}</label><br>
+            <input type="checkbox" id="filter_{{$category->id}}" name="categories[{{$category->slug}}]" value="{{$category->id}}">
+            <label for="{{$category->slug}}">{{$category->slug}}</label><br>
         @endforeach
 
-<h3> Platforms </h3>
+        <h3> Platforms </h3>
 
         @foreach ($platforms as $platform)
-        <input type="checkbox" id="filter_{{$platform->id}}" name="platforms[{{$platform->platform}}]" value="{{$platform->id}}">
-        <label for="{{$platform->platform}}">{{$platform->platform}}</label><br>
+            <input type="checkbox" id="filter_{{$platform->id}}" name="platforms[{{$platform->platform}}]" value="{{$platform->id}}">
+            <label for="{{$platform->platform}}">{{$platform->platform}}</label><br>
         @endforeach
 
         <div class="input-group mb-3">
