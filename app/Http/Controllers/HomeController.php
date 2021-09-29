@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\Image;
 use App\Models\Rating;
 use App\Models\Category;
+use Exception;
 
 class HomeController extends Controller
 {
