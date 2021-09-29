@@ -22,7 +22,7 @@
 <body>
     <div id="app">
         <main >
-            @include('.partials.nav')
+            @include('layouts.navigation')
             @yield('content')
         </main>
     </div>
