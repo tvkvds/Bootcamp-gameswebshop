@@ -20,6 +20,7 @@
             }
         </style>
     </head>
+
     <body>
         <section class="container">
             <div class="row">
@@ -29,5 +30,6 @@
         </div>
         </section>
         
+
     </body>
 </html>

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateImageTable extends Migration
+class CreateShippingmethodTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,13 @@ class CreateImageTable extends Migration
      */
     public function up()
     {
-        Schema::create('images', function (Blueprint $table) {
+        Schema::create('shipping_methods', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product_id')->constrained();
-            $table->string('alt');
-            $table->string('location');
-            $table->integer('width');
-            $table->string('height');
-            $table->boolean('box');
+            $table->string('shipping_method');
+            $table->integer('shipping_cost');
             $table->timestamps();
             $table->softdeletes();
+       
         });
     }
 
@@ -33,6 +30,6 @@ class CreateImageTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('images');
+        Schema::dropIfExists('shipping_methods');
     }
 }

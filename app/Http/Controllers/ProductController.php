@@ -4,17 +4,36 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Product;
+
+
 class ProductController extends Controller
 {
+    
 
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function index()
+    public function show($slug)
     {
-        return view('product');
+        try 
+        {
+            
+            $product = Product::where('slug', $slug)
+            ->with(['categories', 'images', 'ratings', 'platforms'])
+            ->withAvg('ratings as ratings_avg', 'rating')
+            ->withCount('ratings')
+            ->firstOrFail();
+            
+        }
+        catch(Exception $e)
+        {
+           return back()->withError($e->getMessage())->withInput();
+        }
+
+        return view('products/show', [
+            'product' => $product,       
+        
+        ]);
     }
+
 }
+
+
