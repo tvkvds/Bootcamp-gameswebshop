@@ -21,10 +21,12 @@ class Rating extends Model
         
     ];
 
+
     public function product()
     {
         return $this->belongsTo(Rating::class);
     }
 
     
+
 }

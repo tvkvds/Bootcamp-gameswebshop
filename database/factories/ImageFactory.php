@@ -23,6 +23,7 @@ class ImageFactory extends Factory
      */
     public function definition()
     {
+
         $imgLocations = [
             '/images/' . 'carl-raw-m3hn2Kn5Bns-unsplash.jpg', 
             '/images/' . 'fabio-silva-nmTm7knUnqs-unsplash.jpg',

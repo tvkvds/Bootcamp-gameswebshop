@@ -29,6 +29,7 @@ class Product extends Model
         'deleted'
     ];
 
+
     public function images()
     {
         return $this->hasMany(Image::class, 'product_id');
@@ -101,5 +102,6 @@ class Product extends Model
         // );
 
     }
+
 
 }

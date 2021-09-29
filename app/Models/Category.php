@@ -5,12 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+
 use Illuminate\Support\Facades\DB;
+
 
 
 class Category extends Model
 {
     use HasFactory, SoftDeletes;
+
 
     public function products()
     {
@@ -36,5 +39,6 @@ class Category extends Model
 
     
     
+
 
 }

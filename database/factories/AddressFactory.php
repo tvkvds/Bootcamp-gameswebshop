@@ -24,7 +24,9 @@ class AddressFactory extends Factory
     {
 
         return [
+
             'user_id' => $this->faker->randomNumber(3, false),
+
             'country' => $this->faker->countryCode(),
             'street' => $this->faker->streetName(),
             'unit' => $this->faker->buildingNumber(),

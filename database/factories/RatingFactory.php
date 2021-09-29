@@ -25,8 +25,10 @@ class RatingFactory extends Factory
     {
         return [
 
+
             'user_id' => rand(1, 10),
             'product_id' => rand(1,50),
+
             'rating' => rand(1,5),
             'review' => $this->faker->paragraph()
             

@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+
        
         \App\Models\User::factory(9)->create()->each(function ($u){
            
@@ -39,11 +40,13 @@ class DatabaseSeeder extends Seeder
         });
 
 
+
         \App\Models\User::factory(1)->create([
             'username' => 'admin',
             'password' => bcrypt('admin'),
             'email' => 'admin@webshop.com'
         ]);
+
 
         //   category data
         

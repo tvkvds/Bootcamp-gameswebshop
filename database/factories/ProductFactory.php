@@ -34,6 +34,7 @@ class ProductFactory extends Factory
             'slug' => $this->faker->slug(3, false),
             'sold' => $this->faker->numberBetween(0, 200),
 
+
         ];
     }
 }

@@ -10,6 +10,7 @@ class Address extends Model
 {
     use HasFactory, SoftDeletes ;
 
+
     protected $fillable = [
         'country',
         'street',
@@ -19,8 +20,10 @@ class Address extends Model
         'unit_extra'
     ];
 
+
     public function user()
     {
         return $this->belongsTo(User::class);
     }
+
 }

@@ -21,10 +21,12 @@ class PlatformFactory extends Factory
      */
     public function definition()
     {
+
         $platforms = ['Playstation 4', 'PC', 'Nintendo Switch', 'Xbox'];
 
         return [
             'platform' => $platforms[rand(0,3)]
+
         ];
     }
 }
