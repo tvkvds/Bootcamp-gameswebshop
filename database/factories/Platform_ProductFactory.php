@@ -2,19 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Rating;
-use App\Models\User;
-use App\Models\Product;
+use App\Models\Model;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class RatingFactory extends Factory
+class Platform_ProductFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Rating::class;
+    protected $model = Model::class;
 
     /**
      * Define the model's default state.
@@ -24,14 +22,7 @@ class RatingFactory extends Factory
     public function definition()
     {
         return [
-
-
-            'user_id' => rand(1, 10),
-            'product_id' => rand(1,50),
-
-            'rating' => rand(1,5),
-            'review' => $this->faker->paragraph()
-            
+            //
         ];
     }
 }

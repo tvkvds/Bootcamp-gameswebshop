@@ -13,12 +13,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+Route::get('/' , [App\Http\Controllers\HomeController::class, 'index']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+
+Route::get('/products/{slug}', [App\Http\Controllers\ProductController::class, 'show']);
+
+Route::get('/search', [App\Http\Controllers\SearchController::class, 'index']);
+Route::post('/search', [App\Http\Controllers\SearchController::class, 'index']); 
+
+Route::get('/checkout', [App\Http\Controllers\CheckoutController::class, 'index']);
