@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Platform;
+use Exception;
 
 class SearchController extends Controller
 {
