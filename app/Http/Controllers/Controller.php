@@ -11,13 +11,5 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function cart()
-    {
-        return Session::put('cart', []);
-    }
-
-    public function editCart()
-    {
-
-    }
+    
 }

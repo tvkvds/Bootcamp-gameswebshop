@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Models\Product;
 use Exception;
+use Illuminate\Support\Facades\Session;
+use App\Models\Cart;
 
 
 class ProductController extends Controller
@@ -30,14 +32,9 @@ class ProductController extends Controller
         }
 
         return view('products/show', [
-            'product' => $product,       
-        
-        ]);
-    }
-
-    public function product()
-    {
-        return view('products/show', [      
+            'product' => $product,
+            'cart' => Session::get('cart'),
+            'cart_products' => Cart::products()      
         
         ]);
     }

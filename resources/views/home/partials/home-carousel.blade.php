@@ -5,63 +5,54 @@
         <span class="carousel-control-prev-icon"></span>
     </button>
 </div>
+
 <!-- CAROUSEL ITEMS -->
 <div id="carousel" class="carousel slide col-10" data-bs-ride="carousel" data-bs-interval="false">
     <div class="carousel-inner">
-        <div class="carousel-item active">
-            <a href="">
+
+        @foreach ($products as $product)
+            {{-- TODO:   figure out a way to make active for the product that's supposed to be shown --}}
+            <div class="carousel-item @if ($loop->first)active @endif">
+
+                <a href="/products/{{$product->slug}}">
                 <div class="row">
-                    <div class="carousel-main-div col-12 col-md-8 d-flex align-items-center justify-content-center">
-                        <img class="img-fluid carousel-main-img" src="https://www.liveabout.com/thmb/Nvi2qTRdhM6gNNTOptxr6HMqB10=/1250x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/halo-combat-evolved-game-57900ff03df78c09e9a2071e.jpg" alt="carousel img">
-                    </div>
-                    <div class="d-none d-md-block col-md-4 carousel-sec-div">
-                        <div class="row carousel-sec-row carousel-sec-row-1">
-                            <div class="carousel-sec-img-div carousel-sec-img-div-1 d-flex align-items-center justify-content-center">
-                                <img class="img-fluid carousel-sec-img img1" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1064221/ss_237c21c0824571f17ea6e286bfed88e83b0d1ac0.1920x1080.jpg?t=1589213788" alt="">
-                            </div>
+
+                        {{-- box image --}}
+                        @foreach ($product->images as $image)
+
+                            @if ($image->box === 1)
+                                <div class="carousel-main-div col-12 col-md-8 d-flex align-items-center justify-content-center">
+                                    <img class="img-fluid carousel-main-img" src="{{asset($image->location)}}" alt="{{asset($image->alt)}}">
+                                </div>
+                            @endif
+                            
+                        @endforeach
+                        
+                        {{-- gameplay images --}}
+                        <div class="d-none d-md-block col-md-4 carousel-sec-div">
+
+                            @foreach ($product->images as $image)
+                                @if ($image->box === 0)
+
+                                    <div class="row carousel-sec-row carousel-sec-row-{{$loop->iteration}}">
+                                        <div class="carousel-sec-img-div carousel-sec-img-div-{{$loop->iteration}} d-flex align-items-center justify-content-center">
+                                            <img class="img-fluid carousel-sec-img img1" src="{{asset($image->location)}}" alt="{{$image->alt}}">
+                                        </div>
+                                    </div>
+                                    
+                                @endif
+                            @endforeach
+
                         </div>
-                        <div class="row carousel-sec-row carousel-sec-row-2">
-                            <div class="carousel-sec-img-div carousel-sec-img-div-2 d-flex align-items-center justify-content-center">
-                                <img class="img-fluid carousel-sec-img img2" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1064221/ss_1df66dab41f25a49786f7e4c4555ee5f42dce35e.1920x1080.jpg?t=1589213788" alt="">
-                            </div>
-                        </div>
-                        <div class="row carousel-sec-row carousel-sec-row-3">
-                            <div class="carousel-sec-img-div carousel-sec-img-div-3 d-flex align-items-center justify-content-center">
-                                <img class="img-fluid carousel-sec-img img3" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1064221/ss_1e9953b94826bb4ad96bec1bfa581dab6a0a9832.1920x1080.jpg?t=1589213788" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="carousel-item">
-            <a href="">
-                <div class="row">
-                    <div class="carousel-main-div col-12 col-md-8 d-flex align-items-center justify-content-center">
-                        <img class="img-fluid carousel-main-img" src="https://i.redd.it/wiu3sxnjxwy51.jpg" alt="carousel img">
-                    </div>
-                    <div class="d-none d-md-block col-md-4 carousel-sec-div">
-                        <div class="row carousel-sec-row carousel-sec-row-1">
-                            <div class="carousel-sec-img-div carousel-sec-img-div-1 d-flex align-items-center justify-content-center">
-                                <img class="img-fluid carousel-sec-img img1" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Vombatus_ursinus_-Maria_Island_National_Park_Edit_2.jpg/1280px-Vombatus_ursinus_-Maria_Island_National_Park_Edit_2.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="row carousel-sec-row carousel-sec-row-2">
-                            <div class="carousel-sec-img-div carousel-sec-img-div-2 d-flex align-items-center justify-content-center">
-                                <img class="img-fluid carousel-sec-img img2" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Vombatus_ursinus_-Tasmania%2C_Australia_-front-8.jpg/1024px-Vombatus_ursinus_-Tasmania%2C_Australia_-front-8.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="row carousel-sec-row carousel-sec-row-3">
-                            <div class="carousel-sec-img-div carousel-sec-img-div-3 d-flex align-items-center justify-content-center">
-                                <img class="img-fluid carousel-sec-img img3" src="https://scitechdaily.com/images/Cubic-Wombat-Poop.jpg" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
+                </div> 
+                </a>
+
+            </div>
+        @endforeach
+     
     </div>        
 </div>
+
 <!-- right button -->
 <div class="col-1 d-flex align-items-center justify-content-center">
     <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">

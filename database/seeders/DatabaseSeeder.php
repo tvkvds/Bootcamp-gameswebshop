@@ -117,27 +117,27 @@ class DatabaseSeeder extends Seeder
 
             \App\Models\Image::factory()->create([
                 'location' => '/images/' . 'box-art.png',
-                'box' => 0,
+                'box' => 1,
                 'product_id' => $p,
                
             ]);
 
             \App\Models\Image::factory()->create([
                 'location' => '/images/' . 'carl-raw-m3hn2Kn5Bns-unsplash.jpg', 
-                'box' => 1,
+                'box' => 0,
                 'product_id' => $p
             ]);
 
 
             \App\Models\Image::factory()->create([
                 'location' => '/images/' . 'fabio-silva-nmTm7knUnqs-unsplash.jpg',
-                'box' => 1,
+                'box' => 0,
                 'product_id' => $p
             ]);
 
             \App\Models\Image::factory()->create([
                 'location' => '/images/' . 'jakub-sisulak-L1AEdl-iLL4-unsplash.jpg',
-                'box' => 1,
+                'box' => 0,
                 'product_id' => $p
             ]);
 
@@ -224,17 +224,20 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\ShippingMethod::factory()->create([
             'shipping_method' => 'Free',
-            'shipping_cost' => 0
+            'shipping_cost' => 0,
+            'time' => '7 to 14 days'
         ]);
 
         \App\Models\ShippingMethod::factory()->create([
             'shipping_method' => 'Standard',
-            'shipping_cost' => 8.00
+            'shipping_cost' => 8.00,
+            'time' => '2 to 3 days'
         ]);
 
         \App\Models\ShippingMethod::factory()->create([
             'shipping_method' => 'Express',
-            'shipping_cost' => 12.00
+            'shipping_cost' => 12.00,
+            'time' => 'same day delivery'
         ]);
         
         //   order data

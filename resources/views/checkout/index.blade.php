@@ -4,6 +4,7 @@
 
     <section>
         <div class="container">
+
             <div class="row">
                 <div class="col-12 text-center">
                     <h3 class="my-4">Checkout</h3>
@@ -12,73 +13,86 @@
                     </p>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-12 col-md-7 mb-4">
+                    
                     <form>
                         <h6 class="text-center my-4">Payment</h6>
                         <hr class="my-3">
                             <!-- PERSONAL INFO FORM -->
                             <div class="row mb-3">
+
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
                                         <label for="firstName">First Name *</label>
                                         <input class="form-control form-control-sm" id="firstName" type="text" placeholder="First Name" required="">
                                     </div>
                                 </div>
+
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
                                         <label for="lastName">Last Name *</label>
                                         <input class="form-control form-control-sm" id="lastName" type="text" placeholder="Last Name" required="">
                                     </div>
                                 </div>
+
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label for="email">Email *</label>
                                         <input class="form-control form-control-sm" id="email" type="email" placeholder="Email" required="">
                                     </div>
                                 </div>
+
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label for="company">Company name *</label>
                                         <input class="form-control form-control-sm" id="company" type="text" placeholder="Company name (optional)">
                                     </div>
                                 </div>
+
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label for="country">Country *</label>
                                         <input class="form-control form-control-sm" id="country" type="text" placeholder="Country" required="">
                                     </div>
                                 </div>
+
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label for="address">Address Line 1 *</label>
                                         <input class="form-control form-control-sm" id="address" type="text" placeholder="Address Line 1" required="">
                                     </div>
                                 </div>
+
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label for="addressTwo">Address Line 2</label>
                                         <input class="form-control form-control-sm" id="addressTwo" type="text" placeholder="Address Line 2 (optional)">
                                     </div>
                                 </div>
+
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
                                         <label for="city">Town / City *</label>
                                         <input class="form-control form-control-sm" id="city" type="text" placeholder="Town / City" required="">
                                     </div>
                                 </div>
+
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
                                         <label for="zip">ZIP / Postcode *</label>
                                         <input class="form-control form-control-sm" id="zip" type="text" placeholder="ZIP / Postcode" required="">
                                     </div>
                                 </div>
+
                                 <div class="col-12">
                                     <div class="form-group mb-0">
                                         <label for="phone">Mobile Phone *</label>
                                         <input class="form-control form-control-sm" id="phone" type="tel" placeholder="Mobile Phone" required="">
                                     </div>
                                 </div>
+
                             </div>
 
                             <h6 class="text-center my-4">Shipping Details</h6>
@@ -87,42 +101,25 @@
                             <div class="table-responsive mb-4">
                                 <table class="table table-bordered table-sm table-hover mb-0">
                                     <tbody>
-                                        <tr>
-                                            <td>
-                                                <div class="custom-control custom-radio">
-                                                    <label class="custom-control-label" for="freeShipping"></label>
-                                                    <input class="custom-control-input" id="freeShipping" name="shipping" type="radio">
-                                                    Free Shipping
-                                                    </label>
-                                                </div>
-                                            </td>
-                                            <td>ish gratis ish goed!</td>
-                                            <td>€0.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="custom-control custom-radio">
-                                                    <label class="custom-control-label" for="shippingStan"></label>
-                                                    <input class="custom-control-input" id="shippingStan" name="shipping" type="radio">                       
-                                                    Standard Shipping
-                                                    </label>
-                                                </div>
-                                            </td>
-                                            <td>Delivery in 5 - 7 working days</td>
-                                            <td>€8.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="custom-control custom-radio">
-                                                    <label class="custom-control-label" for="shippingExpr"></label>
-                                                    <input class="custom-control-input" id="shippingExpr" name="shipping" type="radio">
-                                                    Express Shipping
-                                                    </label>
-                                                </div>
-                                            </td>
-                                            <td>Delivery in 3 - 5 working days</td>
-                                            <td>€12.00</td>
-                                        </tr>
+
+                                        @foreach ($shipping_methods as $ship)
+                                            <tr>
+                                                <td>
+
+                                                    <div class="custom-control custom-radio">
+                                                        <label class="custom-control-label" for="{{$ship->id}}"></label>
+                                                        <input class="custom-control-input" id="{{$ship->id}}" name="shipping" type="radio">
+                                                        {{$ship->shipping_method}}
+                                                        </label>
+                                                    </div>
+
+                                                </td>
+
+                                                <td>{{$ship->time}}</td>
+                                                <td>€{{$ship->shipping_cost}}</td>
+                                            </tr>
+                                        @endforeach
+                                       
                                     </tbody>
                                 </table>
                             </div>
@@ -177,6 +174,7 @@
 
                             <!-- PAYMENT OPTIONS -->
                             <div class="list-group list-group-sm mb-4">
+
                                 <div class="list-group-item">
                                     <div class="custom-control custom-radio">
                                         <input class="custom-control-input" id="checkoutPaymentCard" name="payment" type="radio" data-bs-toggle="collapse" data-bs-target="#creditcardCollapse">
@@ -185,34 +183,41 @@
                                         </label>
                                     </div>
                                 </div>
+
                                 <div class="list-group-item collapse" id="creditcardCollapse">
                                     <div class="row">
+
                                         <div class="col-12">
                                             <div class="form-group mb-4">
                                                 <label for="cardNumber">Card Number</label>
                                                 <input class="form-control form-control-sm" id="cardNumber" type="text" placeholder="Card Number *" required="">
                                             </div>
                                         </div>
+
                                         <div class="col-12">
                                             <div class="form-group mb-4">
                                                 <label for="cardName">Name of Card Holder</label>
                                                 <input class="form-control form-control-sm" id="cardName" type="text" placeholder="Name on Card *" required="">
                                             </div>
                                         </div>
+
                                         <div class="col-12 col-md-6">
                                             <div class="form-group">
                                                 <label for="cardDate">Card Experation Date</label>
                                                 <input class="form-control form-control-sm" id="cardDate" type="text" placeholder="Month/Year *" required="">
                                             </div>
                                         </div>
+
                                         <div class="col-12 col-md-6">
                                             <div class="form-group">
                                                 <label for="cardCVV">CVV</label>
                                                 <input class="form-control form-control-sm" id="cardCVV" type="text" placeholder="CVV *" required="">
                                             </div>
                                         </div>
+
                                     </div>
                                 </div>
+
                                 <div class="list-group-item">
                                     <div class="custom-control custom-radio">
                                         <label class="custom-control-label" for="paypal"></label>
@@ -221,11 +226,13 @@
                                         </label>
                                     </div>
                                 </div>
+
                                 <div class="list-group-item">
                                     <div class="custom-control custom-radio">
                                         <label class="custom-control-label" for="ideal"></label>
                                         <input class="custom-control-input" id="ideal" name="payment" type="radio" data-toggle="collapse" data-action="hide" data-target="#checkoutPaymentCardCollapse">
                                         Ideal 
+
                                         <div id="bankDropdown" class="btn-group my-2">
                                             <button class="btn btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
                                                 Select Bank
@@ -241,14 +248,17 @@
                                                 <li class="mx-2">Revolut</li>
                                             </ul>
                                         </div>
+
                                         <img id="idealLogo" class="ms-2" src="/images/ideal.svg" alt="ideal logo">
                                         </label>
                                     </div>
                                 </div>
+
                             </div>
 
                             <textarea class="form-control form-control-sm mb-md-0 font-size-xs" rows="5" placeholder="Add Note (optional)"></textarea>
                     </form>
+
                 </div>
                 <!-- SHOPPING CART DISPLAY -->
                 <div class="col-12 col-md-5 col-lg-4 offset-lg-1">
@@ -282,6 +292,7 @@
                     </button>
 
                 </div>
+                
             </div>
         </div>
     </section>

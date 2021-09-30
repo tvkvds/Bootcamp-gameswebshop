@@ -25,7 +25,8 @@ class ShippingMethodFactory extends Factory
        
         return [
             'shipping_method' => $this->faker->word(),
-            'shipping_cost' => $this->faker->randomNumber(4, true)
+            'shipping_cost' => $this->faker->randomNumber(4, true),
+            'time' => $this->faker->word(5)
         ];
     }
 }
