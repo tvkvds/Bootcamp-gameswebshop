@@ -1,11 +1,5 @@
 <div class="row">
 
-    Rating: {{$product->ratings_avg[0]}}  
-    @for ($i = 0; $i < $product->ratings_avg[0]; $i++) 
-        ★
-    @endfor
-    by {{$product->ratings_count}} customers
-
     <!-- REVIEW -->
     @foreach ($product->ratings as $rating)
 
