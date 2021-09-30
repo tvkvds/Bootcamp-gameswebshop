@@ -23,6 +23,11 @@
                         {{$category->name}}
                         @endforeach
                     </p>
+                    <p class="card-text text-muted">
+                        @foreach ($product->platforms as $platform)
+                        {{$platform->platform}}
+                        @endforeach
+                    </p>
                     <strong>Price</strong> 
                     <strong>€{{$product->price}}</strong>
 
