@@ -43,7 +43,12 @@
                 <div class="col-12 col-md-6">
 
                     <div class="top-content">
+
                         <h3 class="px-3 py-1">{{$product->name}}</h3>
+
+                        
+                        <p class="px-3 py1"><span class="stars stars-0">★★★★★</span> (2)</p>
+
                         <p class="px-3 py-1">
                             {{$product->description}}
                         </p>
@@ -91,9 +96,7 @@
             <hr class="my-4">
             <div class="row">
                 <div class="container">
-                    <p>
-                        Ratings
-                    </p>
+                    @include('.products.partials.product-reviews')
                 </div>
             </div>
         </div>
