@@ -11,38 +11,31 @@ use App\Models\PaymentMethod;
 use App\Models\ShippingMethod;
 use App\Models\User;
 use App\Models\Cart;
+Use App\Models\Product;
 
 class CheckoutController extends Controller
 {
     public function index(Request $request)
     {
-        if (Auth::id())
-        {
-           $user =  User::with('addresses')->find(Auth::id());
-        } 
-
-        /*
-        TODO
-        retrieve product in cart from the database
-        */
+        //set a cart for shopping cart filling
         Session::forget('cart');
 
         $items = ['1' => '4', '2' => '3'];
 
-        
+        $moreItems = [ '1' => '0', '2' => '5', '6' => '1'];
 
-        $moreItems = [ '1' => '0', '2' => '5', '6' => 1];
+        Cart::cart($items);
 
-       
-       Cart::cart($items);
-       #dd(Cart::cart($moreItems));
         
         
-        
+         
         return view('checkout/index',[
+            
             'payment_methods' => PaymentMethod::all(),
             'shipping_methods' => ShippingMethod::all(),
-            
+            'products' => Product::inRandomOrder()->with(['images'])->get(),
+            'cart' => Session::get('cart'),
+            'cart_products' => Cart::products()
             
         ]);
     }

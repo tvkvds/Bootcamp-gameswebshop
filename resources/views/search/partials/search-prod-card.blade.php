@@ -8,7 +8,7 @@
             <div class="col-md-4 d-flex align-items-center justify-content-center card-img-div">
                 @foreach ($product->images as $image)
                     @if ($image->box === 1)
-                        <img src="https://i.redd.it/wiu3sxnjxwy51.jpg" class="img-fluid card-img rounded-start">
+                        <img src="{{asset($image->location)}}" class="img-fluid card-img rounded-start">
                     @endif
                 @endforeach
             </div>
@@ -21,11 +21,6 @@
                     <p class="card-text text-muted">
                         @foreach ($product->categories as $category)
                         {{$category->name}}
-                        @endforeach
-                    </p>
-                    <p class="card-text text-muted">
-                        @foreach ($product->platforms as $platform)
-                        {{$platform->platform}}
                         @endforeach
                     </p>
                     <strong>Price</strong> 

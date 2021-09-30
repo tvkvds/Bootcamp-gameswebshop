@@ -6,6 +6,11 @@
         <form method="get" action="/search">
         @csrf
 
+        <!-- SEARCH BY NAME not implemented in view atm -->
+        <div class="input-group mb-3">
+            <input type="hidden" value="{{request('search')}}" class="form-control form-control-lg" name="search" placeholder="search...">    
+        </div>
+
             <div class="accordion-item">
 
                 <h2 class="accordion-header">
@@ -43,7 +48,7 @@
                         @endforeach
 
                         <hr my-2>
-                        
+
                     </div>
                 </div>
 
