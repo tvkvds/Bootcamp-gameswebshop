@@ -117,27 +117,27 @@ class DatabaseSeeder extends Seeder
 
             \App\Models\Image::factory()->create([
                 'location' => '/images/' . 'box-art.png',
-                'box' => 0,
+                'box' => 1,
                 'product_id' => $p,
                
             ]);
 
             \App\Models\Image::factory()->create([
                 'location' => '/images/' . 'carl-raw-m3hn2Kn5Bns-unsplash.jpg', 
-                'box' => 1,
+                'box' => 0,
                 'product_id' => $p
             ]);
 
 
             \App\Models\Image::factory()->create([
                 'location' => '/images/' . 'fabio-silva-nmTm7knUnqs-unsplash.jpg',
-                'box' => 1,
+                'box' => 0,
                 'product_id' => $p
             ]);
 
             \App\Models\Image::factory()->create([
                 'location' => '/images/' . 'jakub-sisulak-L1AEdl-iLL4-unsplash.jpg',
-                'box' => 1,
+                'box' => 0,
                 'product_id' => $p
             ]);
 

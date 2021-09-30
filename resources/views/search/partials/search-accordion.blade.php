@@ -10,7 +10,7 @@
             <div id="accordionPlatform" class="accordion-collapse collapse show">
                 <div class="accordion-body">
                     <!-- CHECKBOXES -->
-                    <div class="form-check m-2">
+                    {{-- <div class="form-check m-2">
                         <input class="form-check-input shadow-none" type="checkbox" id="flexCheckDefault">
                         <label class="form-check-label" for="flexCheckDefault">
                             Xbox
@@ -21,19 +21,16 @@
                         <label class="form-check-label" for="flexCheckChecked">
                             Play Station
                         </label>
-                    </div>
-                    <div class="form-check m-2">
-                        <input class="form-check-input shadow-none" type="checkbox" id="flexCheckChecked">
-                        <label class="form-check-label" for="flexCheckChecked">
-                            PC
-                        </label>
-                    </div>
-                    <div class="form-check m-2">
-                        <input class="form-check-input shadow-none" type="checkbox" id="flexCheckChecked">
-                        <label class="form-check-label" for="flexCheckChecked">
-                            Nintendo Switch
-                        </label>
-                    </div>
+                    </div> --}}
+                    @foreach ($platforms as $platform)
+                        <div class="form-check m-2">
+                            <input class="form-check-input shadow-none" type="checkbox" id="flexCheckChecked">
+                            <label class="form-check-label" for="flexCheckChecked">
+                                {{$platform->platform}}
+                            </label>
+                        </div>
+                    @endforeach
+
                     <hr my-2>
                 </div>
             </div>
@@ -47,7 +44,7 @@
             <div id="accordionCategory" class="accordion-collapse collapse show">
                 <div class="accordion-body">
                     <!-- CHECKBOXES -->
-                    <div class="form-check m-2">
+                    {{-- <div class="form-check m-2">
                         <input class="form-check-input shadow-none" type="checkbox" id="flexCheckDefault">
                         <label class="form-check-label" for="flexCheckDefault">
                             Action
@@ -58,31 +55,16 @@
                         <label class="form-check-label" for="flexCheckChecked">
                             Adventure
                         </label>
-                    </div>
-                    <div class="form-check m-2">
-                        <input class="form-check-input shadow-none" type="checkbox" id="flexCheckChecked">
-                        <label class="form-check-label" for="flexCheckChecked">
-                            RPG
-                        </label>
-                    </div>
-                    <div class="form-check m-2">
-                        <input class="form-check-input shadow-none" type="checkbox" id="flexCheckChecked">
-                        <label class="form-check-label" for="flexCheckChecked">
-                            Simulator
-                        </label>
-                    </div>
-                    <div class="form-check m-2">
-                        <input class="form-check-input shadow-none" type="checkbox" id="flexCheckChecked">
-                        <label class="form-check-label" for="flexCheckChecked">
-                            Strategy
-                        </label>
-                    </div>
-                    <div class="form-check m-2">
-                        <input class="form-check-input shadow-none" type="checkbox" id="flexCheckChecked">
-                        <label class="form-check-label" for="flexCheckChecked">
-                            Sports
-                        </label>
-                    </div>
+                    </div> --}}
+                    @foreach ($categories as $category)
+                        <div class="form-check m-2">
+                            <input class="form-check-input shadow-none" type="checkbox" id="flexCheckChecked">
+                            <label class="form-check-label" for="flexCheckChecked">
+                                {{$category->name}}
+                            </label>
+                        </div>
+                    @endforeach
+                   
                     <hr my-2>
                 </div>
             </div>

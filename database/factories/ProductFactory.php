@@ -26,8 +26,8 @@ class ProductFactory extends Factory
 
             'name' => $this->faker->sentence(3),
             'description' => $this->faker->text(),
-            'price' => $this->faker->regexify('[0-9]{2}[0-9]{2}'),
-            'price_discount' => $this->faker->numberBetween(0, 39),
+            'price' => $this->faker->randomFloat(2, 30, 70),
+            'price_discount' => $this->faker->randomFloat(2, 10, 30),
             'stock' => $this->faker->numberBetween(0, 1000),
             'publisher' => $this->faker->company(),
             'release_date' => $this->faker->date(),

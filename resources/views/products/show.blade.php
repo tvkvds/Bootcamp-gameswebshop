@@ -10,49 +10,45 @@
                 </div>
             </div>
             <div class="row">
+
                 <div class="col-12 col-md-6">
                     <div class="row">
+
                         <div class="col-12 d-flex align-items-center justify-content-center gallery-div">
-                            <img class="img-fluid gallery-main-img" src="https://www.liveabout.com/thmb/Nvi2qTRdhM6gNNTOptxr6HMqB10=/1250x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/halo-combat-evolved-game-57900ff03df78c09e9a2071e.jpg" alt="">
+                            @foreach ($product->images as $image)
+                                @if ($image->box === 1)
+                                    <img class="img-fluid gallery-img" src="{{asset($image->location)}}" alt="{{$image->alt}}">  
+                                @endif
+                            @endforeach
                         </div>
+
                         <hr class="my-3">
                         <div class="col-12">
                             <div class="row">
-                                <div class="col-3 picker-div d-flex align-items-center justify-content-center">
-                                    <img class="img-fluid gallery-img" src="https://www.liveabout.com/thmb/Nvi2qTRdhM6gNNTOptxr6HMqB10=/1250x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/halo-combat-evolved-game-57900ff03df78c09e9a2071e.jpg" alt="">
-                                </div>
-                                <div class="col-3 picker-div d-flex align-items-center justify-content-center">
-                                    <img class="img-fluid gallery-img" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1064221/ss_237c21c0824571f17ea6e286bfed88e83b0d1ac0.1920x1080.jpg?t=1589213788" alt="">
-                                </div>
-                                <div class="col-3 picker-div d-flex align-items-center justify-content-center">
-                                    <img class="img-fluid gallery-img" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1064221/ss_1df66dab41f25a49786f7e4c4555ee5f42dce35e.1920x1080.jpg?t=1589213788" alt="">
-                                </div>
-                                <div class="col-3 picker-div d-flex align-items-center justify-content-center">
-                                    <img class="img-fluid gallery-img" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1064221/ss_1e9953b94826bb4ad96bec1bfa581dab6a0a9832.1920x1080.jpg?t=1589213788" alt="">
-                                </div>
+
+                                @foreach ($product->images as $image)
+                                    <div class="col-3 picker-div d-flex align-items-center justify-content-center">
+                                        <img class="img-fluid gallery-img" src="{{asset($image->location)}}" alt="{{$image->alt}}">
+                                    </div>
+                                @endforeach
+                            
                             </div>
                         </div>
-                    </div>
 
-                
+                    </div>
                 </div>
+
                 <div class="col-12 col-md-6">
                     <div class="top-content">
-                        <h3 class="px-3 py-1">Halo Combat Evolved</h3>
+                        <h3 class="px-3 py-1">{{$product->name}}</h3>
                         <p class="px-3 py-1">
-                            Halo: Combat Evolved is a 2001 first-person shooter game developed by Bungie and published by Microsoft Game Studios. 
-                            It was released as a launch game for Microsoft's Xbox video game console on November 15, 2001. 
-                            Microsoft released versions of the game for Windows and Mac OS X in 2003. 
-                            The game was later released as a downloadable Xbox Original for the Xbox 360. 
-                            Halo is set in the twenty-sixth century, with the player assuming the role of the Master Chief, a cybernetically enhanced supersoldier. 
-                            The Chief is accompanied by Cortana, an artificial intelligence. 
-                            Players battle aliens as they attempt to uncover the secrets of the eponymous Halo, a ring-shaped artificial world.
+                            {{$product->description}}
                         </p>
-                        <strong class="px-3 py-1">in stock</strong>
-                        <strong class="text-muted px-3 py-1"><del>in stock</del></strong>
+                        <strong class="px-3 py-1">in stock {{$product->stock}}</strong>
+                        <strong class="text-muted px-3 py-1"><del>in stock {{$product->stock}}</del></strong>
                         <br>
-                        <strong class="px-3 py-1">€60.00</strong>
-                        <strong class="px-3 py-1"><del class="text-muted pe-2">€60.00</del>€45.00</strong>
+                        <strong class="px-3 py-1">€{{$product->price}}</strong>
+                        <strong class="px-3 py-1"><del class="text-muted pe-2">€{{$product->price}}</del>€{{$product->discount_price}}</strong>
                     </div>
 
                     <div class="bottom-content mx-3 mt-4">             
