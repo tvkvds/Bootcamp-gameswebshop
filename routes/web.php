@@ -19,14 +19,6 @@ use Illuminate\Support\Facades\Auth;
 
 
 Route::get('/' , [App\Http\Controllers\HomeController::class, 'index']);
-
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
-require __DIR__.'/auth.php';
-
   
 Auth::routes();
 
@@ -34,10 +26,12 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 
 Route::get('/products/{slug}', [App\Http\Controllers\ProductController::class, 'show']);
 
+Route::post('/cart', [App\Http\Controllers\CartController::class, 'update']);
+
 Route::get('/search', [App\Http\Controllers\SearchController::class, 'index']);
 Route::post('/search', [App\Http\Controllers\SearchController::class, 'index']); 
 
 Route::get('/checkout', [App\Http\Controllers\CheckoutController::class, 'index']);
 
-Route::get('product', [App\Http\Controllers\ProductController::class, 'product']);
+
 

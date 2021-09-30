@@ -224,17 +224,20 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\ShippingMethod::factory()->create([
             'shipping_method' => 'Free',
-            'shipping_cost' => 0
+            'shipping_cost' => 0,
+            'time' => '7 to 14 days'
         ]);
 
         \App\Models\ShippingMethod::factory()->create([
             'shipping_method' => 'Standard',
-            'shipping_cost' => 8.00
+            'shipping_cost' => 8.00,
+            'time' => '2 to 3 days'
         ]);
 
         \App\Models\ShippingMethod::factory()->create([
             'shipping_method' => 'Express',
-            'shipping_cost' => 12.00
+            'shipping_cost' => 12.00,
+            'time' => 'same day delivery'
         ]);
         
         //   order data

@@ -38,42 +38,47 @@
                             </p>
                             <div class="mt-auto mb-0">
 
-                                <!-- PROD COUNTER -->
-                                <div class="input-group">
+                               
 
-                                    @foreach ($cart as $item => $amount)
-                                        @if ($product->id === $item)
-                                            <input type="text" class="form-control cart-input text-center counter input-sm p-0" maxlength="2" value="{{$amount}}">
-                                        @endif
-                                    @endforeach
-                                    
-                                    <span class="input-group-btn ms-2">
-                                        <button class="btn-counter btn-minus" type="button">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#000" class="bi bi-dash-circle" viewBox="0 0 16 16">
-                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                            <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
-                                            </svg>
-                                        </button>
-                                    </span>
+                                    <!-- PROD COUNTER -->
+                                    <div class="input-group">
 
-                                    <span class="input-group-btn ms-2">
-                                        <button class="btn-counter btn-plus" type="button">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#000" class="bi bi-plus-circle" viewBox="0 0 16 16">
-                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                                            </svg>
-                                        </button>
-                                    </span>
+                                        @foreach ($cart as $item => $amount)
+                                            @if ($product->id === $item)
+                                                <input type="text" class="form-control cart-input text-center counter input-sm p-0" name="product[{{$product->id}}]" maxlength="2" value="{{$amount}}">
+                                            @endif
+                                        @endforeach
+                                        
+                                        <span class="input-group-btn ms-2">
+                                            <button class="btn-counter btn-minus" type="button">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#000" class="bi bi-dash-circle" viewBox="0 0 16 16">
+                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
+                                                </svg>
+                                            </button>
+                                        </span>
 
-                                    <span class="input-group-btn ms-auto">
-                                        <button class="btn-counter btn-delete" type="button">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#000" class="bi bi-x" viewBox="0 0 16 16">
-                                            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-                                            </svg>
-                                        </button>   
-                                    </span>
+                                        <span class="input-group-btn ms-2">
+                                            <button class="btn-counter btn-plus" type="button">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#000" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                                                </svg>
+                                            </button>
+                                        </span>
 
-                                </div>   
+                                        <span class="input-group-btn ms-auto">
+                                            <button class="btn-counter btn-delete" type="button">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#000" class="bi bi-x" viewBox="0 0 16 16">
+                                                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                                                </svg>
+                                            </button>   
+                                        </span>
+
+                                    </div>  
+
+                                
+
                             </div> 
 
                         </div>

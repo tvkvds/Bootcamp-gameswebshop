@@ -17,6 +17,7 @@ class CreateShippingmethodTable extends Migration
             $table->id();
             $table->string('shipping_method');
             $table->integer('shipping_cost');
+            $table->string('time');
             $table->timestamps();
             $table->softdeletes();
        
