@@ -39,6 +39,7 @@
                 <div class="col-12 col-md-6">
                     <div class="top-content">
                         <h3 class="px-3 py-1">Halo Combat Evolved</h3>
+                        <p class="px-3 py1"><span class="stars stars-0">★★★★★</span> (2)</p>
                         <p class="px-3 py-1">
                             Halo: Combat Evolved is a 2001 first-person shooter game developed by Bungie and published by Microsoft Game Studios. 
                             It was released as a launch game for Microsoft's Xbox video game console on November 15, 2001. 
@@ -84,9 +85,7 @@
             <hr class="my-4">
             <div class="row">
                 <div class="container">
-                    <p>
-                        Ratings
-                    </p>
+                    @include('.products.partials.product-reviews')
                 </div>
             </div>
         </div>

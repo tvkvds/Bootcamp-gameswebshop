@@ -37,8 +37,7 @@ class ProductController extends Controller
 
     public function product()
     {
-        return view('products/show', [
-            'product' => Product::find(1),       
+        return view('products/show', [      
         
         ]);
     }
