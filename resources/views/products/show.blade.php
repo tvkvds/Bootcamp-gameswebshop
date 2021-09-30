@@ -46,8 +46,14 @@
 
                         <h3 class="px-3 py-1">{{$product->name}}</h3>
 
+                         
+                        {{-- @for ($i = 0; $i < $product->ratings_avg[0]; $i++) 
+                            ★
+                        @endfor --}}
+   
+
                         
-                        <p class="px-3 py1"><span class="stars stars-0">★★★★★</span> (2)</p>
+                        <p class="px-3 py1"><span class="stars stars-{{$product->ratings_avg[0]}}">★★★★★</span> ({{$product->ratings_count}})</p>
 
                         <p class="px-3 py-1">
                             {{$product->description}}

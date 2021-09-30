@@ -17,18 +17,7 @@ class CheckoutController extends Controller
 {
     public function index(Request $request)
     {
-        //set a cart for shopping cart filling
-        Session::forget('cart');
-
-        $items = ['1' => '4', '2' => '3'];
-
-        $moreItems = [ '1' => '0', '2' => '5', '6' => '1'];
-
-        Cart::cart($items);
-
-        
-        
-         
+    
         return view('checkout/index',[
             
             'payment_methods' => PaymentMethod::all(),
