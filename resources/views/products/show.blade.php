@@ -40,7 +40,7 @@
                     </div>
                 </div>
 
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-md-6 d-flex flex-column">
 
                     <div class="top-content">
 
@@ -62,7 +62,7 @@
                         <strong class="px-3 py-1"><del class="text-muted pe-2">€{{$product->price}}</del>€{{$product->discount_price}}</strong>
                     </div>
 
-                    <div class="bottom-content mx-3 mt-4">
+                    <div class="bottom-content mx-3 my-auto">
 
                         <form action="/cart" method="post">
                         @csrf
