@@ -7,7 +7,7 @@
         @csrf
 
         <!-- SEARCH BY NAME not implemented in view atm -->
-        <div class="input-group mb-3">
+        <div class="input-group">
             <input type="hidden" value="{{request('search')}}" class="form-control form-control-lg" name="search" placeholder="search...">    
         </div>
 
@@ -93,8 +93,10 @@
                         <hr my-2>
                     </div>
                 </div>
- 
-                <button class="btn w-100">Apply filters</button>
+
+                <div class="">
+                <button class="btn w-100 ">Apply filters</button>
+                </div>
 
             </div>
 
