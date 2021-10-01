@@ -19,7 +19,7 @@
                         <div class="col-12 d-flex align-items-center justify-content-center gallery-div">
                             @foreach ($product->images as $image)
                                 @if ($image->box === 1)
-                                    <img class="img-fluid gallery-img" src="{{asset($image->location)}}" alt="{{$image->alt}}">  
+                                    <img class="img-fluid gallery-main-img" src="{{asset($image->location)}}" alt="{{$image->alt}}">  
                                 @endif
                             @endforeach
                         </div>
