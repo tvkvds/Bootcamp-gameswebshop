@@ -60,7 +60,7 @@
     </button>
 </div>
 
-@push('scripts')
+{{-- @push('scripts')
     <script>
         //REEEEEEEEEEE
         $(window).on( 'resize', function () {
@@ -108,4 +108,4 @@
             $('.active .carousel-sec-img-div-3').height($('.active .carousel-sec-row-3').height());
         }).resize();
     </script>
-@endpush
+@endpush --}}
