@@ -70,10 +70,10 @@
         });
 
         $(window).on( 'resize', function () {
-            $('.active .carousel-main-div').height( $('.active .carousel-main-div').width() / 1.5);
-            $('.active .carousel-sec-div').height($('.active .carousel-main-div').height());
-            $('.active .carousel-sec-row').height($('.active .carousel-sec-div').height() / 3);
-            $('.active .carousel-sec-img-div').height($('.active .carousel-sec-row').height()); 
+            $('.carousel-main-div').height( $('.active .carousel-main-div').width() / 1.5);
+            $('.carousel-sec-div').height($('.carousel-main-div').height());
+            $('.carousel-sec-row').height($('.carousel-sec-div').height() / 3);
+            $('.carousel-sec-img-div').height($('.carousel-sec-row').height()); 
         });
 
         $('#carousel').on('slide.bs.carousel', function() {

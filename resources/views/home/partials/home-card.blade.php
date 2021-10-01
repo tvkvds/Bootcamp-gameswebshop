@@ -3,8 +3,8 @@
 
     @if ($loop->iteration <= 6)
 
-        <div class="col-12 col-md-4">
-            <div class="card">
+        <div class="col-12 col-md-4 d-flex align-items-stretch">
+            <div class="card mb-3">
 
                 <div class="card-img-div-home d-flex align-items-center justify-content-center">
                 
