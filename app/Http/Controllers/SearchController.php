@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Platform;
+use App\Models\Cart;
+use Illuminate\Support\Facades\Session;
+use Exception;
 
 class SearchController extends Controller
 {
@@ -28,6 +31,8 @@ class SearchController extends Controller
             'products' =>  $products->filter(request(['search', 'categories', 'platforms']))->get(),
             'categories' => Category::all(),
             'platforms' => Platform::all(),
+            'cart' => Session::get('cart'),
+            'cart_products' => Cart::products()
         ]);
     
     }

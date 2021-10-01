@@ -8,6 +8,9 @@ use App\Models\Product;
 use App\Models\Image;
 use App\Models\Rating;
 use App\Models\Category;
+use Exception;
+use Illuminate\Support\Facades\Session;
+use App\Models\Cart;
 
 class HomeController extends Controller
 {
@@ -28,7 +31,9 @@ class HomeController extends Controller
 
         return view('home/index', [
             'products' => $products->get(),
-            'categories' => Category::all()
+            'categories' => Category::all(),
+            'cart' => Session::get('cart'),
+            'cart_products' => Cart::products()
         ]);
 
     }

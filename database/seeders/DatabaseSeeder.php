@@ -14,14 +14,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-
+        //  user data
        
         \App\Models\User::factory(9)->create()->each(function ($u){
-           
             \App\Models\Address::factory(rand(0,2))->create([
                 'user_id' => $u
             ]);
-
         });
 
         \App\Models\User::factory(1)->create([
@@ -31,15 +29,13 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@mail.com'
 
         ])->each(function ($u){
-           
-            \App\Models\Address::factory(2)->create([
+
+           \App\Models\Address::factory(2)->create([
                 'user_id' => $u,
                 
             ]);
 
         });
-
-
 
         \App\Models\User::factory(1)->create([
             'username' => 'admin',
@@ -47,10 +43,8 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@webshop.com'
         ]);
 
-
-        //   category data
+        //  category data
         
-
         \App\Models\Category::factory()->create(
             [
                 'name' => 'Action',
@@ -92,52 +86,52 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
-        //   platform data 
+        //  platform data 
 
         \App\Models\Platform::factory()->create([
             'platform' => 'Xbox'
         ]);
+
         \App\Models\Platform::factory()->create([
             'platform' => 'Playstation 5'
         ]);
+
         \App\Models\Platform::factory()->create([
             'platform' => 'PC'
         ]);
+
         \App\Models\Platform::factory()->create([
             'platform' => 'Nintendo Switch'
         ]);
 
-
-
+        // product data
 
         \App\Models\Product::factory(50)->create()->each(function ($p){
-
 
             // product images 
 
             \App\Models\Image::factory()->create([
                 'location' => '/images/' . 'box-art.png',
-                'box' => 0,
+                'box' => 1,
                 'product_id' => $p,
-               
             ]);
 
             \App\Models\Image::factory()->create([
                 'location' => '/images/' . 'carl-raw-m3hn2Kn5Bns-unsplash.jpg', 
-                'box' => 1,
+                'box' => 0,
                 'product_id' => $p
             ]);
 
 
             \App\Models\Image::factory()->create([
                 'location' => '/images/' . 'fabio-silva-nmTm7knUnqs-unsplash.jpg',
-                'box' => 1,
+                'box' => 0,
                 'product_id' => $p
             ]);
 
             \App\Models\Image::factory()->create([
                 'location' => '/images/' . 'jakub-sisulak-L1AEdl-iLL4-unsplash.jpg',
-                'box' => 1,
+                'box' => 0,
                 'product_id' => $p
             ]);
 
@@ -149,8 +143,8 @@ class DatabaseSeeder extends Seeder
             ]);
             
             // category_product pivot table
-            $catprod = [
 
+            $catprod = [
                 [
                     'product_id' => $p->id,
                     'category_id' => rand(1,2), 
@@ -169,8 +163,8 @@ class DatabaseSeeder extends Seeder
             DB::table('category_product')->insert($catprod);
 
             // platform_product pivot table
-            $platprod = [
 
+            $platprod = [
                 [
                     'product_id' => $p->id,
                     'platform_id' => rand(1,2), 
@@ -179,35 +173,13 @@ class DatabaseSeeder extends Seeder
                     'product_id' => $p->id,
                     'platform_id' => rand(3,4), 
                 ],
-        
             ];
 
-            DB::table('platform_product')->insert($platprod);
-
-            //product_user pivot table
-
-            $produser =[
-                [
-                    'product_id' => $p->id,
-                    'user_id' => rand(1,10), 
-                ],
-                [
-                    'product_id' => $p->id,
-                    'user_id' => rand(1,10), 
-                ],
-                [
-                    'product_id' => $p->id,
-                    'user_id' => rand(1,10), 
-                ],
-            ];
-            
             DB::table('platform_product')->insert($platprod);
 
         });
 
-
-        
-        //   paymentmethod data
+        //  paymentmethod data
 
         \App\Models\PaymentMethod::factory()->create([
             'payment_method' => 'ideal'
@@ -216,32 +188,33 @@ class DatabaseSeeder extends Seeder
         \App\Models\PaymentMethod::factory()->create([
             'payment_method' => 'paypal'
         ]);
+        
         \App\Models\PaymentMethod::factory()->create([
             'payment_method' => 'creditcard'
         ]);
 
-        //   shippingmethod data
+        //  shippingmethod data
 
         \App\Models\ShippingMethod::factory()->create([
             'shipping_method' => 'Free',
-            'shipping_cost' => 0
+            'shipping_cost' => 0,
+            'time' => '7 to 14 days'
         ]);
 
         \App\Models\ShippingMethod::factory()->create([
             'shipping_method' => 'Standard',
-            'shipping_cost' => 8.00
+            'shipping_cost' => 8.00,
+            'time' => '2 to 3 days'
         ]);
 
         \App\Models\ShippingMethod::factory()->create([
             'shipping_method' => 'Express',
-            'shipping_cost' => 12.00
+            'shipping_cost' => 12.00,
+            'time' => 'Same day delivery'
         ]);
         
-        //   order data
+        //  order data
 
         \App\Models\Order::factory(25)->create();
-
-
-
     }
 }

@@ -1,40 +1,40 @@
 <!-- PRODUCT CARD -->
-<a class="card-link" href="">
+@foreach ($products as $product)
+
+    <a class="card-link" href="/products/{{$product->slug}}">
     <div class="card">
         <div class="row g-0">
+
             <div class="col-md-4 d-flex align-items-center justify-content-center card-img-div">
-                <img src="https://i.redd.it/wiu3sxnjxwy51.jpg" class="img-fluid card-img rounded-start">
+                @foreach ($product->images as $image)
+                    @if ($image->box === 1)
+                        <img src="{{asset($image->location)}}" class="img-fluid card-img rounded-start">
+                    @endif
+                @endforeach
             </div>
+
             <div class="col-md-8">
                 <div class="card-body">
-                    <h5 class="card-title">Halo Wombat Evolved</h5>
-                    <p class="card-text">pew pew &#62; bla bla </p>
-                    <p class="card-text text-muted">Xbox, Action</p>
+
+                    <h5 class="card-title">{{$product->name}}</h5>
+                    <p class="card-text">{{$product->description}}</p>
+                    <p class="card-text text-muted">
+                        @foreach ($product->categories as $category)
+                        {{$category->name}}
+                        @endforeach
+                    </p>
                     <strong>Price</strong> 
-                    <strong>€60.00</strong>
+                    <strong>€{{$product->price}}</strong>
+
                 </div>
             </div>
+
         </div>
     </div>
-</a>
-<a class="card-link" href="">
-    <div class="card">
-        <div class="row g-0">
-            <div class="col-md-4 d-flex align-items-center justify-content-center card-img-div">
-                <img src="https://www.liveabout.com/thmb/Nvi2qTRdhM6gNNTOptxr6HMqB10=/1250x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/halo-combat-evolved-game-57900ff03df78c09e9a2071e.jpg" class="img-fluid card-img rounded-start">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">Halo Combat Evolved</h5>
-                    <p class="card-text">pew pew pew &#62; pew pew </p>
-                    <p class="card-text text-muted">Xbox, Action</p>
-                    <strong>Price:</strong> 
-                    <strong>€60.00</strong>
-                </div>
-            </div>
-        </div>
-    </div>
-</a>
+    </a>
+
+@endforeach
+
 
 @push('scripts')
     <script>

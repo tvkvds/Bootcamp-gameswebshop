@@ -1,42 +1,37 @@
-<div class="col-12 col-md-4">
-    <div class="card">
-        <div class="card-img-div-home d-flex align-items-center justify-content-center">
-            <img class="card-img-top card-img-home" src="https://www.liveabout.com/thmb/Nvi2qTRdhM6gNNTOptxr6HMqB10=/1250x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/halo-combat-evolved-game-57900ff03df78c09e9a2071e.jpg" alt="card img">
+
+@foreach ($products as $product)
+
+    @if ($loop->iteration <= 6)
+
+        <div class="col-12 col-md-4">
+            <div class="card">
+
+                <div class="card-img-div-home d-flex align-items-center justify-content-center">
+                
+                    @foreach ($product->images as $image)
+                        @if ($image->box === 1)
+                            <img class="card-img-top card-img-home" src="{{asset($image->location)}}" alt="{{asset($image->alt)}}">
+                        @endif
+                    @endforeach
+                    
+                </div>
+
+                <div class="card-body card-home-div">
+
+                    <h5 class="card-title">{{$product->name}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted"><del class="pe-2">€{{$product->price}}</del>€{{$product->price_discount}}</h6>
+                    <p class="card-text">{{$product->description}}</p>
+                    <a href="/products/{{$product->slug}}" class="stretched-link"></a>
+
+                </div>
+
+            </div>
         </div>
-        <div class="card-body card-home-div">
-            <h5 class="card-title">Halo Combat Evolved</h5>
-            <h6 class="card-subtitle mb-2 text-muted"><del class="pe-2">€60.00</del>€45.00</h6>
-            <p class="card-text">fkbakv,jdbfaewtrga</p>
-            <a href="" class="stretched-link"></a>
-        </div>
-    </div>
-</div>
-<div class="col-12 col-md-4">
-    <div class="card">
-        <div class="card-img-div-home d-flex align-items-center justify-content-center">
-            <img class="card-img-top card-img-home" src="https://i.redd.it/wiu3sxnjxwy51.jpg" alt="card img">
-        </div>
-        <div class="card-body">
-            <h5 class="card-title">Halo Combat Evolved</h5>
-            <h6 class="card-subtitle mb-2 text-muted"><del class="pe-2">€60.00</del>€30.00</h6>
-            <p class="card-text">fkbakv,jdbfaewtrga</p>
-            <a href="" class="stretched-link"></a>
-        </div>
-    </div>
-</div>
-<div class="col-12 col-md-4">
-    <div class="card">
-        <div class="card-img-div-home d-flex align-items-center justify-content-center">
-            <img class="card-img-top card-img-home" src="https://i.redd.it/wiu3sxnjxwy51.jpg" alt="card img">
-        </div>
-        <div class="card-body">
-            <h5 class="card-title">Halo Combat Evolved</h5>
-            <h6 class="card-subtitle mb-2 text-muted"><del class="pe-2">€60.00</del>€30.00</h6>
-            <p class="card-text">fkbakv,jdbfaewtrga</p>
-            <a href="" class="stretched-link"></a>
-        </div>
-    </div>
-</div>
+
+    @endif
+
+@endforeach
+
 
 @push('scripts')
     <script>
