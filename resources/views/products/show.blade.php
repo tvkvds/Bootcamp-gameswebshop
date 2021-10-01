@@ -72,7 +72,7 @@
                             <div class="input-group">
 
                                 <input type="text" class="form-control prod-input text-center counter input-sm p-0" maxlength="2" name="product[{{$product->id}}]"
-                                id="{{$product->id}}" @foreach ($cart as $cartp => $amount) @if ($product->id === $cartp) value="{{$amount}}" @endif @endforeach>
+                                id="{{$product->id}}" @if ($cart) @foreach ($cart as $cartp => $amount)  @if ($product->id === $cartp) value="{{$amount}}" @endif @endforeach @endif>
                                 
                                 <span class="input-group-btn ms-2">
                                     <button class="btn-counter btn-prod-minus" type="button">
