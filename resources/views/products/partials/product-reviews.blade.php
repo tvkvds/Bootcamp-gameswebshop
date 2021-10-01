@@ -1,4 +1,4 @@
-<div class="row">
+ <div class="row">
 
     <!-- REVIEW -->
     @foreach ($product->ratings as $rating)
@@ -7,9 +7,7 @@
 
             <div class="mx-3">
                 <span class="stars stars-{{$rating->rating}}">
-                    @for ($i = 0; $i < $rating->rating; $i++) 
-                        ★
-                    @endfor
+                    ★★★★★
                 </span>
             </div>
 
