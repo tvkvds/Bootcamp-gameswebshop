@@ -48,9 +48,7 @@
                         
                         <p class="px-3 py1">
                             <span class="stars stars-{{$product->ratings_avg[0] ?? null}}">
-                                @for ($i = 0; $i < $product->ratings_avg[0]; $i++) 
-                                    ★
-                                @endfor
+                                ★★★★★
                             </span> ({{$product->ratings_count}})
                         </p>
 

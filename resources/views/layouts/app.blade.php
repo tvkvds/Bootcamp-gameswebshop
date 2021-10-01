@@ -24,6 +24,7 @@
         <main >
             @include('layouts.navigation')
             @yield('content')
+            @include('layouts.footer')
         </main>
     </div>
         <!-- Scripts -->
