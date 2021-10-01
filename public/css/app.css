@@ -11274,6 +11274,12 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
 /* checkout */
 .form-control,
 .table {
@@ -11447,4 +11453,69 @@ nav .icon:hover {
 
 .carousel-sec-div {
   border-left: 1px #c8c8c8 solid;
+}
+
+/* PRODUCT REVIEW */
+.stars {
+  position: relative;
+  display: inline-block;
+  color: transparent;
+}
+
+.stars:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "★★★★★";
+  color: #c8c8c8;
+}
+
+.stars:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "★★★★★";
+  color: black;
+  overflow: hidden;
+}
+
+.stars-0:after {
+  width: 0%;
+}
+
+.stars-1:after {
+  width: 20%;
+}
+
+.stars-2:after {
+  width: 40%;
+}
+
+.stars-3:after {
+  width: 60%;
+}
+
+.stars-4:after {
+  width: 80%;
+}
+
+.stars-5:after {
+  width: 100;
+}
+
+.avg-review {
+  top: 1.5rem;
+  right: 1rem;
+}
+
+footer {
+  margin-top: auto;
+}
+
+footer .btn,
+footer .btn:hover,
+footer .btn:active,
+footer .btn:focus {
+  border: none;
+  background-color: inherit;
 }
