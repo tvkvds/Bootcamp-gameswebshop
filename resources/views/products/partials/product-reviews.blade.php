@@ -14,7 +14,7 @@
             </div>
 
             <div class="mx-3">
-                <h6>reviewed by: {{$rating->user_id}}</h6>
+                <h6>reviewed by: {{$rating->username}}</h6>
             </div>
 
             <div class="mx-3">
