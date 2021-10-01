@@ -70,8 +70,10 @@
                         @csrf
 
                             <div class="input-group">
+
                                 <input type="text" class="form-control prod-input text-center counter input-sm p-0" maxlength="2" name="product[{{$product->id}}]"
                                 id="{{$product->id}}" @foreach ($cart as $cartp => $amount) @if ($product->id === $cartp) value="{{$amount}}" @endif @endforeach>
+                                
                                 <span class="input-group-btn ms-2">
                                     <button class="btn-counter btn-prod-minus" type="button">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#000" class="bi bi-dash-circle" viewBox="0 0 16 16">
@@ -80,6 +82,7 @@
                                         </svg>
                                     </button>
                                 </span>
+
                                 <span class="input-group-btn ms-2">
                                     <button class="btn-counter btn-prod-plus" type="button">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#000" class="bi bi-plus-circle" viewBox="0 0 16 16">
@@ -88,9 +91,11 @@
                                         </svg>
                                     </button>
                                 </span>
+
                                 <button class="ms-4 btn btn-sm">
                                     Add To Cart
                                 </button>
+
                             </div> 
 
                         </form>
@@ -100,9 +105,11 @@
             </div>
             <hr class="my-4">
             <div class="row">
+
                 <div class="container">
                     @include('.products.partials.product-reviews')
                 </div>
+
             </div>
         </div>
     </section>

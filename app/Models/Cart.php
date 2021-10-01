@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Session;
 class Cart extends Model
 {
     //creates or updates a cart in session
-    public static function Cart(array $items = null)
+    public static function Cart(array $items)
     {
         if (Session::get('cart'))
         {
@@ -59,7 +59,10 @@ class Cart extends Model
     //retrieves all products currently in cart from session
     public static function products()
     {
+        if (Session::get('cart'))
+        {
         return Product::with('images')->findMany(array_keys(Session::get('cart')));
+        }
     }
     
 }

@@ -13,6 +13,7 @@
             <ul class="list-group list-group-lg list-group-flush">
 
                 <!-- PRODUCT -->
+                @if ($cart_products)
                 @foreach ($cart_products as $product)
 
                 <li class="list-group-item">
@@ -87,6 +88,7 @@
                 </li>
 
                 @endforeach
+                @endif
                
             </ul>
 
