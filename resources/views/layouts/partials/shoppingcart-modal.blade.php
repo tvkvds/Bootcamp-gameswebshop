@@ -46,7 +46,8 @@
 
                                             @foreach ($cart as $item => $amount)
                                                 @if ($product->id === $item)
-                                                    <input type="text" class="form-control cart-input text-center counter input-sm p-0" name="product[{{$product->id}}]" maxlength="2" value="{{$amount}}">
+                                                    <input type="text" class="form-control cart-input text-center counter input-sm p-0" name="product[{{$product->id}}]" maxlength="2" 
+                                                    @if ($cart) @foreach ($cart as $cartp => $amount)  @if ($product->id === $cartp) value="{{$amount}}"@endif @endforeach @else value="0" @endif>
                                                 @endif
                                             @endforeach
                                             

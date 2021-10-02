@@ -32,7 +32,7 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->text('description');
             $table->integer('price');
-            $table->integer('price_discount');
+            $table->integer('price_discount')->nullable();
             $table->integer('stock');
             $table->string('publisher');
             $table->date('release_date');
