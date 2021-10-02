@@ -17,7 +17,7 @@
                     @foreach ($cart_products as $product)
 
                     <li class="list-group-item">
-                        <div class="row">
+                        <div class="row" id="cartproduct" pid="{{$product->id}}">
 
                             <!-- PROD INFO -->
                             <div class="col-4 cart-img-div d-flex align-items-center justify-content-center">
@@ -106,17 +106,47 @@
 
 @push('scripts')
     <script>
+
+        function updateCart() {
+            let product_id = $('#cartproduct').attr('pid')
+            let product_amount = $('.cart-input').val()
+            
+            axios({
+                method: 'POST',
+                url: '{{ route("ajaxcart") }}',
+
+                data: {
+                    product_id: product_id,
+                    product_amount: product_amount
+                },
+            }).then(function(response) {
+                if (response.data.success) {
+                    console.log(response)
+                }
+            }).catch(function(error) {
+            console.log(error.response)
+            })    
+        }
+
         // minus button
         $('.btn-minus').on('click', function(){           
 	        $(this).parent().siblings('.cart-input').val(parseInt($(this).parent().siblings('.cart-input').val()) - 1)
+        
+            updateCart();
         })
         //pluss button
         $('.btn-plus').on('click', function(){            
             $(this).parent().siblings('.cart-input').val(parseInt($(this).parent().siblings('.cart-input').val()) + 1)
+        
+            updateCart();
         })
         //delete button takes value to 0
         $('.btn-delete').on('click', function(){            
             $(this).parent().siblings('.cart-input').val(parseInt($(this).parent().siblings('.cart-input').val()) - parseInt($(this).parent().siblings('input').val()))
+        
+            updateCart();
         })
     </script>
 @endpush
+
+{{-- <div class="row" id="cartproduct" pid="{{$product->id}}"> --}}

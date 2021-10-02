@@ -27,7 +27,7 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 Route::get('/products/{slug}', [App\Http\Controllers\ProductController::class, 'show']);
 
 Route::post('/cart', [App\Http\Controllers\CartController::class, 'update']);
-Route::post('/ajaxcart', [App\Http\Controllers\CartController::class, 'ajaxcart']); 
+Route::post('/ajaxcart', [App\Http\Controllers\CartController::class, 'ajaxcart'])->name('ajaxcart'); 
 
 Route::get('/search', [App\Http\Controllers\SearchController::class, 'index']);
 Route::post('/search', [App\Http\Controllers\SearchController::class, 'index']); 
