@@ -40,7 +40,7 @@
                     </div>
                 </div>
 
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-md-6 d-flex flex-column">
 
                     <div class="top-content">
 
@@ -73,15 +73,17 @@
 
                     </div>
 
-                    <div class="bottom-content mx-3 mt-4">
+                    <div class="bottom-content mx-3 my-auto">
 
                         <form action="/cart" method="post">
                         @csrf
 
                             <div class="input-group">
 
+
                                 <input type="text" class="form-control prod-input text-center counter input-sm p-0" maxlength="2" name="product[{{$product->id}}]" 
                                 id="{{$product->id}}" @if ($cart) @foreach ($cart as $cartp => $amount)  @if ($product->id === $cartp) value="{{$amount}}"@endif @endforeach @else value="0" @endif>
+
                                 
                                 <span class="input-group-btn ms-2">
                                     <button class="btn-counter btn-prod-minus" type="button">

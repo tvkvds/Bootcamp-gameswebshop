@@ -14,7 +14,7 @@
             </div>
 
             <div class="col-md-8">
-                <div class="card-body">
+                <div class="card-body d-flex flex-column">
 
                     <h5 class="card-title">{{$product->name}}</h5>
                     <p class="card-text">{{$product->description}}</p>
@@ -23,8 +23,10 @@
                         {{$category->name}}
                         @endforeach
                     </p>
-                    <strong>Price</strong> 
-                    <strong>€{{$product->price}}</strong>
+                    <div class="mt-auto">
+                        <strong>Price</strong> 
+                        <strong>€{{$product->price}}</strong>
+                    </div>
 
                 </div>
             </div>
