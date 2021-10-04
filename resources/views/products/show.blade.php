@@ -55,11 +55,22 @@
                         <p class="px-3 py-1">
                             {{$product->description}}
                         </p>
-                        <strong class="px-3 py-1">in stock {{$product->stock}}</strong>
-                        <strong class="text-muted px-3 py-1"><del>in stock {{$product->stock}}</del></strong>
+
+                        @if ($product->stock <= 30)
+                            <strong class="text-muted px-3 py-1"><del>in stock </del></strong>
+                        @else
+                            <strong class="px-3 py-1">in stock </strong>
+                        @endif 
+
                         <br>
-                        <strong class="px-3 py-1">€{{$product->price}}</strong>
-                        <strong class="px-3 py-1"><del class="text-muted pe-2">€{{$product->price}}</del>€{{$product->discount_price}}</strong>
+                        
+                        @if ($product->price_discount)
+                            <strong class="px-3 py-1">€{{$product->price_discount}}</strong>
+                            <strong class="px-3 py-1"><del class="text-muted pe-2">€{{$product->price}}</del>
+                        @else
+                            <strong class="px-3 py-1">€{{$product->price}}</strong>
+                        @endif
+
                     </div>
 
                     <div class="bottom-content mx-3 my-auto">
@@ -69,8 +80,10 @@
 
                             <div class="input-group">
 
-                                <input type="text" class="form-control prod-input text-center counter input-sm p-0" maxlength="2" name="product[{{$product->id}}]"
-                                id="{{$product->id}}" @if ($cart) @foreach ($cart as $cartp => $amount)  @if ($product->id === $cartp) value="{{!$amount === 0 ? $amount : 0}}" @endif @endforeach @endif>
+
+                                <input type="text" class="form-control prod-input text-center counter input-sm p-0" maxlength="2" name="product[{{$product->id}}]" 
+                                id="{{$product->id}}" @if ($cart) @foreach ($cart as $cartp => $amount)  @if ($product->id === $cartp) value="{{$amount}}"@endif @endforeach @else value="0" @endif>
+
                                 
                                 <span class="input-group-btn ms-2">
                                     <button class="btn-counter btn-prod-minus" type="button">

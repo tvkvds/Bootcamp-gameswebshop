@@ -17,6 +17,7 @@ class CreateRatingTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('product_id')->constrained();
+            $table->string('username');
             $table->integer('rating')->nullable;
             $table->text('review', 1000);
             $table->timestamps();

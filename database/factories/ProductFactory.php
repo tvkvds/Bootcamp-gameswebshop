@@ -22,13 +22,15 @@ class ProductFactory extends Factory
     public function definition()
     {
 
+        $discount = [$this->faker->randomFloat(2, 10, 30), null];
+
         return [
 
             'name' => $this->faker->sentence(3),
             'description' => $this->faker->text(),
             'price' => $this->faker->randomFloat(2, 30, 70),
-            'price_discount' => $this->faker->randomFloat(2, 10, 30),
-            'stock' => $this->faker->numberBetween(0, 1000),
+            'price_discount' => $discount[rand(0,1)],
+            'stock' => $this->faker->numberBetween(0, 100),
             'publisher' => $this->faker->company(),
             'release_date' => $this->faker->date(),
             'slug' => $this->faker->slug(3, false),
