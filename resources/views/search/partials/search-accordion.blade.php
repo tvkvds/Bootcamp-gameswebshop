@@ -1,5 +1,7 @@
 <!-- ACORDION MENU -->
 <div class="col-12 col-md-4" my-2>
+
+
     
     <div class="accordion">
 
@@ -19,8 +21,7 @@
                     </button>
                 </h2>
 
-                
-
+            
                 
 
                 <div id="accordionPlatform" class="accordion-collapse collapse show">
@@ -28,6 +29,7 @@
 
                         @foreach ($platforms as $platform)
 
+                        
                        
                         
 
@@ -37,10 +39,14 @@
                                         @if (!request('platforms'))
                                             <input class="form-check-input shadow-none" type="checkbox" name="platforms[{{$platform->platform}}]" value="{{$platform->id}}" id="flexCheckChecked">
                                         @else
-                                           
+
+                                        (request('platforms')[$platform->platform])
                                                 <input class="form-check-input shadow-none" type="checkbox" name="platforms[{{$platform->platform}}]" value="{{$platform->id}}" id="flexCheckChecked" checked>  
                                        
-                                     @endif
+
+                                           
+                                            
+                                        @endif
 
                                        
 

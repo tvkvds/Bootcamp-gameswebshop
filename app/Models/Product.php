@@ -55,6 +55,7 @@ class Product extends Model
         return $this->belongsTo(Order::class)->withPivot('amount');
     }
 
+
     
 
     

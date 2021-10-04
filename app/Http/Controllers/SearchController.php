@@ -31,7 +31,8 @@ class SearchController extends Controller
             'categories' => Category::all(),
             'platforms' => Platform::all(),
             'cart' => Session::get('cart'),
-            'cart_products' => Cart::products()
+            'cart_products' => Cart::products(),
+            'cart_total' => Cart::cost()
         ]);
     
     }

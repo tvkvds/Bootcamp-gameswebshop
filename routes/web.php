@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Cart;
 use Illuminate\Support\Facades\Route;
 
 use Illuminate\Support\Facades\Auth;
@@ -34,5 +35,8 @@ Route::post('/search', [App\Http\Controllers\SearchController::class, 'index']);
 
 Route::get('/checkout', [App\Http\Controllers\CheckoutController::class, 'index']);
 
-
-
+Route::get('/test', function () {
+    return view('/test', [
+        'test' => Cart::cartcost()
+    ]);
+});

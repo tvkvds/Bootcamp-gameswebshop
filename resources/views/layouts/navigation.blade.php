@@ -22,6 +22,7 @@
             </ul>
             <!-- CENTER CONTENT -->
             <a class="navbar-brand mx-auto d-none d-xl-block" href="/">City Games</a>
+            
             <!-- ACOUNT AND SHOPPING CART ICONS -->
             <ul class="navbar-nav flex-row">
                 <li>

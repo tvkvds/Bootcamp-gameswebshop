@@ -33,7 +33,8 @@ class HomeController extends Controller
             'products' => $products->get(),
             'categories' => Category::all(),
             'cart' => Session::get('cart'),
-            'cart_products' => Cart::products()
+            'cart_products' => Cart::products(),
+            'cart_total' => Cart::cost()
         ]);
 
     }
