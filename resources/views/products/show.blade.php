@@ -66,7 +66,7 @@
                         
                         @if ($product->price_discount)
                             <strong class="px-3 py-1">€{{$product->price_discount}}</strong>
-                            <strong class="px-3 py-1"><del class="text-muted pe-2">€{{$product->price}}</del>
+                            <strong class="px-3 py-1"><del class="text-muted pe-2">€{{$product->price}}</del></strong>
                         @else
                             <strong class="px-3 py-1">€{{$product->price}}</strong>
                         @endif
