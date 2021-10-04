@@ -34,9 +34,9 @@
                             @foreach ($product->images as $image)
                                 @if ($image->box === 0)
 
-                                    <div class="row carousel-sec-row carousel-sec-row-{{$loop->iteration}}">
-                                        <div class="carousel-sec-img-div carousel-sec-img-div-{{$loop->iteration}} d-flex align-items-center justify-content-center">
-                                            <img class="img-fluid carousel-sec-img img1" src="{{asset($image->location)}}" alt="{{$image->alt}}">
+                                    <div class="row carousel-sec-row carousel-sec-row-{{$loop->index}}">
+                                        <div class="carousel-sec-img-div carousel-sec-img-div-{{$loop->index}} d-flex align-items-center justify-content-center">
+                                            <img class="img-fluid carousel-sec-img img{{$loop->index}}" src="{{asset($image->location)}}" alt="{{$image->alt}}">
                                         </div>
                                     </div>
                                     
@@ -63,23 +63,45 @@
 @push('scripts')
     <script>
         $(document).ready( function(){
-            $('.carousel-main-div').height( $('.carousel-main-div').width() / 1.5);
+            $('.carousel-main-div').height( $('.active .carousel-main-div').width() / 1.5);
             $('.carousel-sec-div').height($('.carousel-main-div').height());
-            $('.carousel-sec-row').height($('.carousel-sec-div').height() / 3);
-            $('.carousel-sec-img-div').height($('.carousel-sec-row').height());
+            var ratioOne        = $('.active .img1').height() / $('.active .img1').width();
+            var ratioTwo        = $('.active .img2').height() / $('.active .img2').width();
+            var ratioThree      = $('.active .img3').height() / $('.active .img3').width();
+            var ratioSum        = ratioOne + ratioTwo + ratioThree;
+            var percentageOne   = (1 / ratioSum) * ratioOne;
+            var percentageTwo   = (1 / ratioSum) * ratioTwo;
+            var percentageThree = (1 / ratioSum) * ratioThree;
+            $('.carousel-sec-row-1').height($('.carousel-sec-div').height() * percentageOne);
+            $('.carousel-sec-row-2').height($('.carousel-sec-div').height() * percentageTwo);
+            $('.carousel-sec-row-3').height($('.carousel-sec-div').height() * percentageThree);
+            $('.carousel-sec-img-div-1').height($('.carousel-sec-row-1').height());
+            $('.carousel-sec-img-div-2').height($('.carousel-sec-row-2').height());
+            $('.carousel-sec-img-div-3').height($('.carousel-sec-row-3').height()); 
         });
 
         $(window).on( 'resize', function () {
             $('.carousel-main-div').height( $('.active .carousel-main-div').width() / 1.5);
             $('.carousel-sec-div').height($('.carousel-main-div').height());
-            $('.carousel-sec-row').height($('.carousel-sec-div').height() / 3);
-            $('.carousel-sec-img-div').height($('.carousel-sec-row').height()); 
+            var ratioOne        = $('.active .img1').height() / $('.active .img1').width();
+            var ratioTwo        = $('.active .img2').height() / $('.active .img2').width();
+            var ratioThree      = $('.active .img3').height() / $('.active .img3').width();
+            var ratioSum        = ratioOne + ratioTwo + ratioThree;
+            var percentageOne   = (1 / ratioSum) * ratioOne;
+            var percentageTwo   = (1 / ratioSum) * ratioTwo;
+            var percentageThree = (1 / ratioSum) * ratioThree;
+            $('.carousel-sec-row-1').height($('.carousel-sec-div').height() * percentageOne);
+            $('.carousel-sec-row-2').height($('.carousel-sec-div').height() * percentageTwo);
+            $('.carousel-sec-row-3').height($('.carousel-sec-div').height() * percentageThree);
+            $('.carousel-sec-img-div-1').height($('.carousel-sec-row-1').height());
+            $('.carousel-sec-img-div-2').height($('.carousel-sec-row-2').height());
+            $('.carousel-sec-img-div-3').height($('.carousel-sec-row-3').height()); 
         });
 
-        $('#carousel').on('slide.bs.carousel', function() {
+        $('#carousel').on('slid.bs.carousel', function() {
             $('.active .carousel-main-div').height( $('.active .carousel-main-div').width() / 1.5);
             $('.active .carousel-sec-div').height($('.active .carousel-main-div').height());
-            var ratioOne     = $('.active .img1').height() / $('.active .img1').width();
+            var ratioOne        = $('.active .img1').height() / $('.active .img1').width();
             var ratioTwo        = $('.active .img2').height() / $('.active .img2').width();
             var ratioThree      = $('.active .img3').height() / $('.active .img3').width();
             var ratioSum        = ratioOne + ratioTwo + ratioThree;
