@@ -33,7 +33,8 @@ class SearchController extends Controller
             'cart' => Session::get('cart'),
             'cart_products' => Cart::products(),
             'cart_total' => Cart::cost(),
-            'cart_amount' => Cart::amount()
+            'cart_amount' => Cart::amount(),
+            'cart_vat' => Cart::vat()
         ]);
     
     }

@@ -121,4 +121,31 @@ class Cart extends Model
 
         return 0;
     }
+
+    public static function vat()
+    {
+        if (Session::get('cart'))
+        {
+            $vat = 0;
+
+            $products = Product::findMany(array_keys(Session::get('cart')));
+
+            foreach ($products as $product)
+            {
+                if ($product->price_discount)
+                {
+                    $vat += ($product->price_discount / 100) * $product->vat;
+                }
+                else
+                {
+                    $vat += ($product->price / 100) * $product->vat;
+                }
+
+                return $vat;
+            }
+
+        }
+
+        return 0;
+    }
 }

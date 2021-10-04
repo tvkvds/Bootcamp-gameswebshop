@@ -1,8 +1,6 @@
 <!-- ACORDION MENU -->
 <div class="col-12 col-md-4" my-2>
 
-
-    
     <div class="accordion">
 
         <form method="get" action="/search">
@@ -21,37 +19,23 @@
                     </button>
                 </h2>
 
-            
-                
-
                 <div id="accordionPlatform" class="accordion-collapse collapse show">
                     <div class="accordion-body">
 
                         @foreach ($platforms as $platform)
 
-                        
-                       
-                        
-
                             <div class="form-check m-2">
                                 
-                                            
-                                        @if (!request('platforms'))
-                                            <input class="form-check-input shadow-none" type="checkbox" name="platforms[{{$platform->platform}}]" value="{{$platform->id}}" id="flexCheckChecked">
-                                        @else
-
-                                        (request('platforms')[$platform->platform])
-                                                <input class="form-check-input shadow-none" type="checkbox" name="platforms[{{$platform->platform}}]" value="{{$platform->id}}" id="flexCheckChecked" checked>  
-                                       
-
-                                           
-                                            
+                                <input class="form-check-input shadow-none" type="checkbox" name="platforms[{{$platform->platform}}]" value="{{$platform->id}}" id="flexCheckChecked">
+                            
+                                @if (request('platforms'))
+                                    @foreach (request('platforms') as $blaat => $yeet)
+                                        
+                                        @if ($blaat === $platform->platform)
+                                            <input class="form-check-input shadow-none" type="checkbox" name="platforms[{{$platform->platform}}]" value="{{$platform->id}}" id="flexCheckChecked" checked>
                                         @endif
-
-                                       
-
-
-                                
+                                    @endforeach
+                                @endif
                                 
                                 <label class="form-check-label" for="flexCheckChecked">
                                     {{$platform->platform}}
@@ -79,28 +63,25 @@
                 <div id="accordionCategory" class="accordion-collapse collapse show">
                     <div class="accordion-body">
 
-                        <!-- CHECKBOXES -->
-
-                        {{-- <div class="form-check m-2">
-                            <input class="form-check-input shadow-none" type="checkbox" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">
-                                Action
-                            </label>
-                        </div>
-
-                        <div class="form-check m-2">
-                            <input class="form-check-input shadow-none" type="checkbox" id="flexCheckChecked">
-                            <label class="form-check-label" for="flexCheckChecked">
-                                Adventure
-                            </label>
-                        </div> --}}
-
                         @foreach ($categories as $category)
                             <div class="form-check m-2">
+                                
                                 <input class="form-check-input shadow-none" type="checkbox" name="categories[{{$category->slug}}]" value="{{$category->id}}" id="flexCheckChecked">
+                                
+                                @if (request('categories'))
+                                    @foreach (request('categories') as $name => $id)
+                                        
+                                        @if ($name === strtolower($category->name))
+                                            <input class="form-check-input shadow-none" type="checkbox" name="categories[{{$category->slug}}]" value="{{$category->id}}" id="flexCheckChecked" checked>
+                                        @endif
+
+                                    @endforeach
+                                @endif
+                                
                                 <label class="form-check-label" for="flexCheckChecked">
                                     {{$category->name}}
                                 </label>
+                                
                             </div>
                         @endforeach
                     
@@ -109,7 +90,7 @@
                 </div>
 
                 <div class="">
-                <button class="btn w-100 ">Apply filters</button>
+                    <button class="btn w-100 ">Apply filters</button>
                 </div>
 
             </div>
