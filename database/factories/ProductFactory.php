@@ -35,6 +35,7 @@ class ProductFactory extends Factory
             'release_date' => $this->faker->date(),
             'slug' => $this->faker->slug(3, false),
             'sold' => $this->faker->numberBetween(0, 200),
+            'vat' => $this->faker->numberBetween(0,21),
 
 
         ];

@@ -38,6 +38,7 @@ class CreateProductsTable extends Migration
             $table->date('release_date');
             $table->string('slug');
             $table->integer('sold');
+            $table->integer('vat');
             $table->timestamps();
             $table->softdeletes();
         });

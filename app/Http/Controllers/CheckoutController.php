@@ -24,7 +24,10 @@ class CheckoutController extends Controller
             'shipping_methods' => ShippingMethod::all(),
             'products' => Product::inRandomOrder()->with(['images'])->get(),
             'cart' => Session::get('cart'),
-            'cart_products' => Cart::products()
+            'cart_products' => Cart::products(),
+            'cart_total' => Cart::cost(),
+            'cart_amount' => Cart::amount(),
+            'cart_vat' => Cart::vat()
             
         ]);
     }
