@@ -29,70 +29,70 @@
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
                                         <label for="firstName">First Name *</label>
-                                        <input class="form-control form-control-sm"  name="yeet" id="firstName" type="text" placeholder="First Name" required="">
+                                        <input class="form-control form-control-sm"  name="user[first_name]" id="firstName" type="text" placeholder="First Name" required="">
                                     </div>
                                 </div>
 
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
                                         <label for="lastName">Last Name *</label>
-                                        <input class="form-control form-control-sm" id="lastName" type="text" placeholder="Last Name" required="">
+                                        <input class="form-control form-control-sm" name="user[last_name]" id="lastName" type="text" placeholder="Last Name" required="">
                                     </div>
                                 </div>
 
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label for="email">Email *</label>
-                                        <input class="form-control form-control-sm" id="email" type="email" placeholder="Email" required="">
+                                        <input class="form-control form-control-sm" name="user[email]" id="email" type="email" placeholder="Email" required="">
                                     </div>
                                 </div>
 
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label for="company">Company name *</label>
-                                        <input class="form-control form-control-sm" id="company" type="text" placeholder="Company name (optional)">
+                                        <input class="form-control form-control-sm" name="user[company]" id="company" type="text" placeholder="Company name (optional)">
                                     </div>
                                 </div>
 
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label for="country">Country *</label>
-                                        <input class="form-control form-control-sm" id="country" type="text" placeholder="Country" required="">
+                                        <input class="form-control form-control-sm" name="address[country]" id="country" type="text" placeholder="Country" required="">
                                     </div>
                                 </div>
 
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <label for="address">Address Line 1 *</label>
-                                        <input class="form-control form-control-sm" id="address" type="text" placeholder="Address Line 1" required="">
+                                        <label for="address">Address*</label>
+                                        <input class="form-control form-control-sm" name="address[address1]" id="address" type="text" placeholder="Address Line 1" required="">
                                     </div>
                                 </div>
 
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label for="addressTwo">Address Line 2</label>
-                                        <input class="form-control form-control-sm" id="addressTwo" type="text" placeholder="Address Line 2 (optional)">
+                                        <input class="form-control form-control-sm" name="address[address2]" id="addressTwo" type="text" placeholder="Address Line 2 (optional)">
                                     </div>
                                 </div>
 
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
                                         <label for="city">Town / City *</label>
-                                        <input class="form-control form-control-sm" id="city" type="text" placeholder="Town / City" required="">
+                                        <input class="form-control form-control-sm" name="address[city]" id="city" type="text" placeholder="Town / City" required="">
                                     </div>
                                 </div>
 
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
                                         <label for="zip">ZIP / Postcode *</label>
-                                        <input class="form-control form-control-sm" id="zip" type="text" placeholder="ZIP / Postcode" required="">
+                                        <input class="form-control form-control-sm" name="address[zipcode]" id="zip" type="text" placeholder="ZIP / Postcode" required="">
                                     </div>
                                 </div>
 
                                 <div class="col-12">
                                     <div class="form-group mb-0">
                                         <label for="phone">Mobile Phone *</label>
-                                        <input class="form-control form-control-sm" id="phone" type="tel" placeholder="Mobile Phone" required="">
+                                        <input class="form-control form-control-sm" name="address[phone]" id="phone" type="tel" placeholder="Mobile Phone" required="">
                                     </div>
                                 </div>
 
@@ -111,7 +111,7 @@
 
                                                     <div class="custom-control custom-radio">
                                                         <label class="custom-control-label" for="{{$ship->id}}"></label>
-                                                        <input class="custom-control-input" id="{{$ship->id}}" name="shipping" type="radio">
+                                                        <input class="custom-control-input" name="shipping[{{$ship->id}}]" id="{{$ship->id}}" name="shipping" type="radio">
                                                         {{$ship->shipping_method}}
                                                         </label>
                                                     </div>
@@ -127,50 +127,60 @@
                                 </table>
                             </div>
 
-                            <!-- DIFERENT SHIPPING ADRESS FORM -->
+                            <!-- DIFFERENT SHIPPING ADRESS FORM -->
                             <div class="mb-5">
+
                                 <a class="btn dropdown-toggle btn-sm w-100 mb-4" data-bs-toggle="collapse" href="#shippingAddress" role="button">
                                     Different shipping address?
                                 </a>
+
                                 <div class="collapse" id="shippingAddress">
                                     <div class="row">
+
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label for="shippingCountry">Country *</label>
                                                 <input class="form-control form-control-sm" id="shippingCountry" type="text" placeholder="Country">
                                             </div>
                                         </div>
+
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label for="shippingAddress">Address Line 1 *</label>
                                                 <input class="form-control form-control-sm" id="shippingAdress" type="text" placeholder="Address Line 1">
                                             </div>
                                         </div>
+
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label for="shippingAdressTwo">Address Line 2</label>
                                                 <input class="form-control form-control-sm" id="shippingAdressTwo" type="text" placeholder="Address Line 2 (optional)">
                                             </div>
                                         </div>
+
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label for="shippingCity">Town / City *</label>
                                                 <input class="form-control form-control-sm" id="shippingCity" type="text" placeholder="Town / City">
                                             </div>
                                         </div>
+
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label for="shippingZip">ZIP / Postcode *</label>
                                                 <input class="form-control form-control-sm" id="shippingZip" type="text" placeholder="ZIP / Postcode">
                                             </div>
                                         </div>
+
                                         <div class="col-12">
                                             <button class="btn btn-sm w-100" type="submit">
                                             Save Address
                                             </button>
                                         </div>
+
                                     </div>
                                 </div>
+
                             </div>
 
                             <h6 class="text-center mb-4">Payment Details</h6>
@@ -180,7 +190,7 @@
 
                                 <div class="list-group-item">
                                     <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" id="checkoutPaymentCard" name="payment" type="radio" data-bs-toggle="collapse" data-bs-target="#creditcardCollapse">
+                                        <input class="custom-control-input" name="payment[creditcard]" id="checkoutPaymentCard" name="payment" type="radio" data-bs-toggle="collapse" data-bs-target="#creditcardCollapse">
                                         <label class="custom-control-label " for="checkoutPaymentCard">
                                             Credit Card <img class="ms-2" src="/images/cards.svg" alt="...">
                                         </label>
@@ -188,6 +198,7 @@
                                 </div>
 
                                 <div class="list-group-item collapse" id="creditcardCollapse">
+                                    
                                     <div class="row">
 
                                         <div class="col-12">
@@ -219,12 +230,13 @@
                                         </div>
 
                                     </div>
+
                                 </div>
 
                                 <div class="list-group-item">
                                     <div class="custom-control custom-radio">
                                         <label class="custom-control-label" for="paypal"></label>
-                                        <input class="custom-control-input" id="paypal" name="payment" type="radio" data-toggle="collapse" data-action="hide" data-target="#checkoutPaymentCardCollapse">
+                                        <input class="custom-control-input" name="payment[paypal]" id="paypal" name="payment" type="radio" data-toggle="collapse" data-action="hide" data-target="#checkoutPaymentCardCollapse">
                                             PayPal <img class="ms-2" src="/images/paypal.svg" alt="paypal logo">
                                         </label>
                                     </div>
@@ -233,7 +245,7 @@
                                 <div class="list-group-item">
                                     <div class="custom-control custom-radio">
                                         <label class="custom-control-label" for="ideal"></label>
-                                        <input class="custom-control-input" id="ideal" name="payment" type="radio" data-toggle="collapse" data-action="hide" data-target="#checkoutPaymentCardCollapse">
+                                        <input class="custom-control-input" id="ideal" name="payment[ideal]" type="radio" data-toggle="collapse" data-action="hide" data-target="#checkoutPaymentCardCollapse">
                                         Ideal 
 
                                         <div id="bankDropdown" class="btn-group my-2">
@@ -284,21 +296,25 @@
 
                     <div class="card mb-3 bg-light">
                         <div class="card-body">
+
                             <ul class="list-group list-group-sm list-group-flush-y list-group-flush-x">
+                                
                                 <li class="list-group-item d-flex">
                                     <span>Tax</span> <span class="ms-auto">€{{($cart_vat) ? $cart_vat : '0'}}</span>
                                 </li>
+
                                 <li class="list-group-item d-flex">
                                     <span>Shipping</span> <span class="ms-auto">€0.00</span>
                                 </li>
+
                                 <li class="list-group-item d-flex">
                                     <span>Total</span> <span class="ms-auto">€{{$cart_total}}</span>
                                 </li>
+
                             </ul>
+
                         </div>
                     </div>
-
-                   
                     
                     <button class="btn btn-block w-100" type="submit" form="order">
                         Place Order
