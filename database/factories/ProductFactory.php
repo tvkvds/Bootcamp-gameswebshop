@@ -29,7 +29,7 @@ class ProductFactory extends Factory
             'name' => $this->faker->sentence(3),
             'description' => $this->faker->text(),
             'price' => $this->faker->randomFloat(2, 30, 70),
-            'price_discount' => $discount[rand(0,1)],
+            'price_discount' => $discount[$this->faker->boolean(70)],
             'stock' => $this->faker->numberBetween(0, 100),
             'publisher' => $this->faker->company(),
             'release_date' => $this->faker->date(),
