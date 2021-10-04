@@ -96,4 +96,29 @@ class Cart extends Model
 
         return null;
     }
+
+    // get total amount of products in cart, with a max of 99
+    public static function amount()
+    {
+        if (Session::get('cart'))
+        {
+            $items = Session::get('cart');
+
+            $products = 0;
+
+            foreach ($items as $item => $amount)
+            {
+                $products += $amount;
+            }
+
+            if ($products > 99)
+            {
+                return 99;
+            }
+
+            return $products;
+        }
+
+        return 0;
+    }
 }

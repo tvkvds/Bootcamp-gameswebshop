@@ -25,7 +25,8 @@ class CheckoutController extends Controller
             'products' => Product::inRandomOrder()->with(['images'])->get(),
             'cart' => Session::get('cart'),
             'cart_products' => Cart::products(),
-            'cart_total' => Cart::cost()
+            'cart_total' => Cart::cost(),
+            'cart_amount' => Cart::amount()
             
         ]);
     }
