@@ -64,5 +64,61 @@ class Cart extends Model
         return Product::with('images')->findMany(array_keys(Session::get('cart')));
         }
     }
-    
+
+
+    //calculate total cost of all products in cart
+    public static function cost()
+    {
+        if (Session::get('cart'))
+        {
+            $items = Session::get('cart');
+
+            $products = Product::findMany(array_keys(Session::get('cart')));
+
+            $total = 0;
+            
+            foreach ($products as $product)
+            {
+                $amount = $items[$product->id];
+                
+                if ($product->price_discount)
+                {
+                    $total += $product->price * $amount;
+                }
+                else
+                {
+                    $total += $product->price * $amount;
+                }
+            };
+
+            return $total;
+        };
+
+        return null;
+    }
+
+    // get total amount of products in cart, with a max of 99
+    public static function amount()
+    {
+        if (Session::get('cart'))
+        {
+            $items = Session::get('cart');
+
+            $products = 0;
+
+            foreach ($items as $item => $amount)
+            {
+                $products += $amount;
+            }
+
+            if ($products > 99)
+            {
+                return 99;
+            }
+
+            return $products;
+        }
+
+        return 0;
+    }
 }

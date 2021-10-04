@@ -96,8 +96,10 @@
             <!-- TOTAL PRICE ETC -->
             <div class="modal-footer mt-auto">
                 <strong>Subtotal</strong> 
-                <strong class="ms-auto">€120.00</strong>
+
+                <strong class="ms-auto">€{{($cart_total) ? $cart_total : 0;}}</strong>
                 <a class="btn w-100 mb-3" href="/checkout">Checkout</a>
+
             </div>
         </div>  
     </div>
