@@ -24,8 +24,12 @@
                         @endforeach
                     </p>
                     <div class="mt-auto">
-                        <strong>Price</strong> 
-                        <strong>€{{$product->price}}</strong>
+                       @if ($product->price_discount)
+                            <strong >€{{$product->price_discount}}</strong>
+                            <strong ><del class="text-muted pe-2">€{{$product->price}}</del>
+                        @else
+                            <strong class="px-3 py-1">€{{$product->price}}</strong>
+                        @endif
                     </div>
 
                 </div>
