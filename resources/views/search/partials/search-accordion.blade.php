@@ -19,32 +19,40 @@
                     </button>
                 </h2>
 
+                
+
+                
+
                 <div id="accordionPlatform" class="accordion-collapse collapse show">
                     <div class="accordion-body">
 
-                        <!-- CHECKBOXES -->
-
-                        {{-- <div class="form-check m-2">
-                            <input class="form-check-input shadow-none" type="checkbox" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">
-                                Xbox
-                            </label>
-                        </div>
-
-                        <div class="form-check m-2">
-                            <input class="form-check-input shadow-none" type="checkbox" id="flexCheckChecked">
-                            <label class="form-check-label" for="flexCheckChecked">
-                                Play Station
-                            </label>
-                        </div> --}}
-
                         @foreach ($platforms as $platform)
+
+                       
+                        
+
                             <div class="form-check m-2">
-                                <input class="form-check-input shadow-none" type="checkbox" name="platforms[{{$platform->platform}}]" value="{{$platform->id}}" id="flexCheckChecked">
+                                
+                                            
+                                        @if (!request('platforms'))
+                                            <input class="form-check-input shadow-none" type="checkbox" name="platforms[{{$platform->platform}}]" value="{{$platform->id}}" id="flexCheckChecked">
+                                        @else
+                                           
+                                                <input class="form-check-input shadow-none" type="checkbox" name="platforms[{{$platform->platform}}]" value="{{$platform->id}}" id="flexCheckChecked" checked>  
+                                       
+                                     @endif
+
+                                       
+
+
+                                
+                                
                                 <label class="form-check-label" for="flexCheckChecked">
                                     {{$platform->platform}}
                                 </label>
+
                             </div>
+
                         @endforeach
 
                         <hr my-2>
