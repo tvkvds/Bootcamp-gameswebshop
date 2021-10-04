@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class DatabaseSeeder extends Seeder
+class ProductSeeder extends Seeder
 {
     /**
      * Seed the application's database.
@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
-    \App\Models\Product::factory()->create(
+    \App\Models\Product::factory(50)->create(
             [
                 'vat' => 21,
                 //eventueel 'name' => 'name' etc..

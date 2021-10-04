@@ -1,0 +1,131 @@
+https://dbdiagram.io/d/614b2989825b5b01460e65f4
+
+table products
+{
+  id integer
+  name string
+  description text
+  price integer
+  price_discount integer
+  stock integer
+  publisher string
+  release_date datetime
+  slug string
+  sold integer
+  vat integer
+}
+
+table categories //connected to product through pivot table
+{
+  id integer
+  name string
+  slug string
+}
+table adresses
+{
+  id integer
+  user_id integer
+  country string
+  street string
+  unit integer
+  zipcode string
+  city string
+  unit_extra string
+  billing_address boolean
+}
+
+table images
+{
+  id integer
+  product_id integer
+  alt string
+  location string
+  width integer
+  height string
+  box boolean
+}
+
+table orders
+{
+  id integer
+  user_id integer
+  shipping_method_id integer
+  payment_method_id integer
+  date datetime
+  user_note text
+  total_price integer
+}
+
+table order_product
+{
+  id integer
+  order_id integer
+  product_id integer
+  amount integer
+}
+
+table payment_methods
+{
+  id integer
+  payment_method enum
+}
+
+table platforms //connected to product through pivot table
+{
+  id integer
+  platform string
+}
+
+table ratings
+{
+  id integer
+  user_id integer
+  product_id integer
+  rating integer
+  review text
+}
+
+table shipping_methods
+{
+  id integer
+  shipping_method string
+  shipping_cost integer
+  time string
+}
+
+table users
+{
+  id integer
+  first_name string
+  last_name string
+  username string
+  slug string
+  email string
+  phone string
+  gender string
+  birthdate datetime
+  registered integer
+  email_verified_at datetime
+  password string
+  
+}
+
+
+
+
+
+Ref: "ratings"."user_id" < "users"."id"
+
+Ref: "adresses"."user_id" < "ratings"."user_id"
+
+Ref: "images"."product_id" < "products"."id"
+
+Ref: "orders"."user_id" < "adresses"."user_id"
+
+Ref: "orders"."payment_method_id" < "payment_methods"."id"
+
+Ref: "orders"."shipping_method_id" < "shipping_methods"."id"
+
+Ref: "order_product"."order_id" < "orders"."id"
+
+Ref: "order_product"."product_id" < "products"."id"

@@ -59,13 +59,12 @@ class Product extends Model
     
 
     
-
+    //filter products on search/shop page
     public function scopeFilter($query, array $filters)
     {
         if ($filters['search'] ?? false)
         
         {
-            #product name
             $query
                 ->where('name', 'like', '%' . request('search') . '%')
                 ->limit(15);    #paginate results?
