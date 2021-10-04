@@ -246,3 +246,46 @@ footer .btn:focus {
     border: none;
     background-color: inherit;
 }
+
+// COUNTER OVER SHOPPING CART
+[objects-in-cart-data] {
+    position: relative;
+    display: inline-block;
+}
+
+[objects-in-cart-data]::before {
+    content: attr(objects-in-cart-data);
+    position: absolute;
+    top: -.3rem;
+    right: -.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    font-size: 11px;
+    font-weight: 500;
+    border-radius: 50%;
+    border: 1px solid black;
+    background-color: white;
+    color: black;
+}
+
+// ABOUT
+.profile-img-div {
+    float: left;
+    margin: 0 20px 20px 0;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border: solid 1px black;
+    border-radius: 50%;
+}
+
+.profile-img {
+    height: 100%;
+}
+
+.profile p {
+    text-align: justify;
+}
