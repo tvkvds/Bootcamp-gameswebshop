@@ -30,4 +30,9 @@ class Order extends Model
         return $this->belongsTo(Product::class)->withPivot('amount');
     }
 
+    public function shippingAddress()
+    {
+        return $this->hasOne(Address::class)->where('billing_address', '0');
+    }
+
 }
