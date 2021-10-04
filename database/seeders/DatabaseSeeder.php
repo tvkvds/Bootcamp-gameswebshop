@@ -106,7 +106,9 @@ class DatabaseSeeder extends Seeder
 
         // product data
 
-        \App\Models\Product::factory(50)->create()->each(function ($p){
+        \App\Models\Product::factory(50)->create(
+            ['vat' => 21]
+        )->each(function ($p){
 
             // product images 
 

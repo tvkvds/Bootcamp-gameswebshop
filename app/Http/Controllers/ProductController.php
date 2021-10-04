@@ -32,11 +32,11 @@ class ProductController extends Controller
         }
 
         return view('products/show', [
-            'product' => $product,
             'cart' => Session::get('cart'),
             'cart_products' => Cart::products(),
             'cart_total' => Cart::cost(),
-            'cart_amount' => Cart::amount()    
+            'cart_amount' => Cart::amount(),
+            'cart_vat' => Cart::vat()  
         
         ]);
     }

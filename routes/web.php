@@ -2,7 +2,7 @@
 
 use App\Models\Cart;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -35,10 +35,24 @@ Route::post('/search', [App\Http\Controllers\SearchController::class, 'index']);
 
 Route::get('/checkout', [App\Http\Controllers\CheckoutController::class, 'index']);
 
-
 Route::get('/test', function () {
     return view('/test', [
-        'test' => Cart::cartcost()
+        'cart' => Session::get('cart'),
+        'cart_products' => Cart::products(),
+        'cart_total' => Cart::cost(),
+        'cart_amount' => Cart::amount(),   
+        'cart_vat' => Cart::vat() 
+    ]);
+});
+
+Route::post('/testing', function () {
+    return view('/testing', [
+        'test' => request(),
+        'cart' => Session::get('cart'),
+        'cart_products' => Cart::products(),
+        'cart_total' => Cart::cost(),
+        'cart_amount' => Cart::amount(),
+        'cart_vat' => Cart::vat()
     ]);
 });
 

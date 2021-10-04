@@ -74,12 +74,14 @@
                                         @if ($name === strtolower($category->name))
                                             <input class="form-check-input shadow-none" type="checkbox" name="categories[{{$category->slug}}]" value="{{$category->id}}" id="flexCheckChecked" checked>
                                         @endif
+
                                     @endforeach
                                 @endif
                                 
                                 <label class="form-check-label" for="flexCheckChecked">
                                     {{$category->name}}
                                 </label>
+                                
                             </div>
                         @endforeach
                     

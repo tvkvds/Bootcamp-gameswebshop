@@ -2,6 +2,7 @@
 
 @section('content')
 
+
     <section>
         <div class="container">
 
@@ -17,7 +18,9 @@
             <div class="row">
                 <div class="col-12 col-md-7 mb-4">
                     
-                    <form>
+                    <form id="order" method="post" action="/testing">
+                    @csrf
+                   
                         <h6 class="text-center my-4">Payment</h6>
                         <hr class="my-3">
                             <!-- PERSONAL INFO FORM -->
@@ -26,7 +29,7 @@
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
                                         <label for="firstName">First Name *</label>
-                                        <input class="form-control form-control-sm" id="firstName" type="text" placeholder="First Name" required="">
+                                        <input class="form-control form-control-sm"  name="yeet" id="firstName" type="text" placeholder="First Name" required="">
                                     </div>
                                 </div>
 
@@ -257,11 +260,19 @@
                             </div>
 
                             <textarea class="form-control form-control-sm mb-md-0 font-size-xs" rows="5" placeholder="Add Note (optional)"></textarea>
+                    
                     </form>
 
                 </div>
+
+                
+               
                 <!-- SHOPPING CART DISPLAY -->
+                
                 <div class="col-12 col-md-5 col-lg-4 offset-lg-1">
+                <form action="/test" method="POST">
+                @csrf
+                 
 
                     <h6 class="text-center my-4">Shopping Cart</h6>
 
@@ -275,23 +286,27 @@
                         <div class="card-body">
                             <ul class="list-group list-group-sm list-group-flush-y list-group-flush-x">
                                 <li class="list-group-item d-flex">
-                                    <span>Tax</span> <span class="ms-auto">€25.20</span>
+                                    <span>Tax</span> <span class="ms-auto">€{{($cart_vat) ? $cart_vat : '0'}}</span>
                                 </li>
                                 <li class="list-group-item d-flex">
                                     <span>Shipping</span> <span class="ms-auto">€0.00</span>
                                 </li>
                                 <li class="list-group-item d-flex">
-                                    <span>Total</span> <span class="ms-auto">€120.00</span>
+                                    <span>Total</span> <span class="ms-auto">€{{$cart_total}}</span>
                                 </li>
                             </ul>
                         </div>
                     </div>
 
-                    <button class="btn btn-block w-100">
+                   
+                    
+                    <button class="btn btn-block w-100" type="submit" form="order">
                         Place Order
                     </button>
-
+                    
+                </form>
                 </div>
+                
                 
             </div>
         </div>
