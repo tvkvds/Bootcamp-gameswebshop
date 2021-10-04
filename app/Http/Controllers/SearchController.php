@@ -18,7 +18,6 @@ class SearchController extends Controller
         try
         {
             $products = Product::first()->with(['categories', 'images'])
-            //->limit(15)
             ->withAvg('ratings as ratings_avg', 'rating')
             ->withCount('ratings'); 
         }
@@ -28,7 +27,7 @@ class SearchController extends Controller
         }
         
         return view('search/index', [
-            'products' =>  $products->filter(request(['search', 'categories', 'platforms']))->get(),
+            'products' =>  $products->filter(request(['search', 'categories', 'platforms']))->paginate(10),
             'categories' => Category::all(),
             'platforms' => Platform::all(),
             'cart' => Session::get('cart'),
