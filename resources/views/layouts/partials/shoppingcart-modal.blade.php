@@ -96,10 +96,10 @@
             <!-- TOTAL PRICE ETC -->
             <div class="modal-footer mt-auto">
                 <strong>Subtotal</strong> 
-                
+
                 <strong class="ms-auto">€{{($cart_total) ? $cart_total : 0;}}</strong>
-                <a class="btn w-100 mb-3" href="">Checkout</a>
-                <a class="btn w-100 mb-3" href="">Place Order</a>
+                <a class="btn w-100 mb-3" href="/checkout">Checkout</a>
+
             </div>
         </div>  
     </div>
@@ -147,6 +147,10 @@
         
             updateCart();
         })
+        //img div is 1/1 ratio
+        $('#modalCart').on('shown.bs.modal', function () {
+            $('.cart-img-div').height($('.cart-img-div').width());
+        });
     </script>
 @endpush
 

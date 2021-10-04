@@ -25,10 +25,10 @@
                     </p>
                     <div class="mt-auto">
                        @if ($product->price_discount)
-                            <strong >€{{$product->price_discount}}</strong>
-                            <strong ><del class="text-muted pe-2">€{{$product->price}}</del>
+                            <strong class="px-3"><del class="text-muted pe-2">€{{$product->price}}</del>
+                            <strong class="">€{{$product->price_discount}}</strong>
                         @else
-                            <strong class="px-3 py-1">€{{$product->price}}</strong>
+                            <strong class="px-3">€{{$product->price}}</strong>
                         @endif
                     </div>
 
