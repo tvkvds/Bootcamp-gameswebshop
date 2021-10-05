@@ -8,7 +8,7 @@
             <div class="col-md-4 d-flex align-items-center justify-content-center card-img-div">
                 @foreach ($product->images as $image)
                     @if ($image->box === 1)
-                        <img src="{{asset($image->location)}}" class="img-fluid card-img rounded-start">
+                        <img src="{{asset($image->location)}}" class="img-fluid card-img rounded-start p-2">
                     @endif
                 @endforeach
             </div>
