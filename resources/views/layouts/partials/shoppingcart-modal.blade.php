@@ -21,7 +21,7 @@
 
                             <!-- PROD INFO -->
                             <div class="col-4 cart-img-div d-flex align-items-center justify-content-center">
-                                <a href="/products/{{$product->slug}}">
+                                
 
                                     @foreach ($product->images as $image)
                                         @if ($image->box === 1)
@@ -29,7 +29,7 @@
                                         @endif
                                     @endforeach
                                 
-                                </a>    
+                                   
                             </div>
 
                             <div class="col-8">
@@ -149,7 +149,8 @@
         })
         //img div is 1/1 ratio
         $('#modalCart').on('shown.bs.modal', function () {
-            $('.cart-img-div').height($('.cart-img-div').width());
+            console.log("miauw");
+            $('.cart-img-div').height(103);
         });
     </script>
 @endpush
