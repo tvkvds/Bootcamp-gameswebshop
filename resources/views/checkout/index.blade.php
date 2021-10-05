@@ -204,28 +204,28 @@
                                         <div class="col-12">
                                             <div class="form-group mb-4">
                                                 <label for="cardNumber">Card Number</label>
-                                                <input class="form-control form-control-sm" id="cardNumber" type="text" placeholder="Card Number *" required="">
+                                                <input class="form-control form-control-sm" id="cardNumber" type="text" placeholder="Card Number *" required>
                                             </div>
                                         </div>
 
                                         <div class="col-12">
                                             <div class="form-group mb-4">
                                                 <label for="cardName">Name of Card Holder</label>
-                                                <input class="form-control form-control-sm" id="cardName" type="text" placeholder="Name on Card *" required="">
+                                                <input class="form-control form-control-sm" id="cardName" type="text" placeholder="Name on Card *" required>
                                             </div>
                                         </div>
 
                                         <div class="col-12 col-md-6">
                                             <div class="form-group">
                                                 <label for="cardDate">Card Experation Date</label>
-                                                <input class="form-control form-control-sm" id="cardDate" type="text" placeholder="Month/Year *" required="">
+                                                <input class="form-control form-control-sm" id="cardDate" type="text" placeholder="Month/Year *" required>
                                             </div>
                                         </div>
 
                                         <div class="col-12 col-md-6">
                                             <div class="form-group">
                                                 <label for="cardCVV">CVV</label>
-                                                <input class="form-control form-control-sm" id="cardCVV" type="text" placeholder="CVV *" required="">
+                                                <input class="form-control form-control-sm" id="cardCVV" type="text" placeholder="CVV *" required>
                                             </div>
                                         </div>
 
@@ -335,6 +335,17 @@
         $(function(){
             $("#bankDropdown .dropdown-menu li").click(function(){
                 $("#bankDropdown .btn").text($(this).text());
+            });
+        });
+
+        $(document).ready(function() {
+            $('#checkoutPaymentCard').change(function() {
+                if ($('#cardNumber #cardName #cardDate #cardCVV').attr('required')) {
+                    $('#cardNumber #cardName #cardDate #cardCVV').removeAttr('required');
+                } 
+                else {
+                    $('#cardNumber #cardName #cardDate #cardCVV').attr('required','required');
+                }
             });
         });
 
