@@ -18,7 +18,7 @@
             <div class="row">
                 <div class="col-12 col-md-7 mb-4">
                     
-                    <form id="order" method="post" action="/testing">
+                    <form id="order" method="post" action="/orderconfirmed">
                     @csrf
                    
                         <h6 class="text-center my-4">Payment</h6>
@@ -291,7 +291,7 @@
                     <hr class="my-3">
 
                     <ul class="list-group list-group-lg list-group-flush-y list-group-flush-x mb-3">
-                        @include('.checkout.partials.checkout-prod-card')
+                        @include('.order.partials.checkout-prod-card')
                     </ul>
 
                     <div class="card mb-3 bg-light">
