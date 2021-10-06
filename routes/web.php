@@ -64,7 +64,7 @@ Route::post('/testing', function () {
 
 Route::get('/about', [App\Http\Controllers\AboutController::class, 'index']);
 
-Route::get('/orderconf', [App\Http\Controllers\OrderconfController::class, 'index']);
+
 
 
 
