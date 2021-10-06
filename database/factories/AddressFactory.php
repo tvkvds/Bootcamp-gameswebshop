@@ -5,6 +5,7 @@ namespace Database\Factories;
 use App\Models\Address;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use \App\Models\User;
+use Illuminate\Support\Str;
 
 class AddressFactory extends Factory
 {
@@ -23,17 +24,18 @@ class AddressFactory extends Factory
     public function definition()
     {
 
+
+      
         return [
 
             'user_id' => $this->faker->randomNumber(3, false),
-
             'country' => $this->faker->countryCode(),
             'street' => $this->faker->streetName(),
-            'unit' => $this->faker->buildingNumber(),
             'zipcode' => $this->faker->postcode(),
             'city' => $this->faker->city(),
-            'unit_extra' => $this->faker->secondaryAddress(),  
-            'billing_address' => $this->faker->boolean()
+            'billing_address' => $this->faker->boolean(),
+            'address_1' => $this->faker->word() . ' ' . $this->faker->randomNumber(3, false),
+            'address_2' => Str::random(10),
             
         ];
     }

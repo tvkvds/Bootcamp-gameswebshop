@@ -23,15 +23,13 @@ class UserFactory extends Factory
      */
     public function definition()
     {
-       
+       $company = [null, $this->faker->company() ];
 
         return [
             
             'first_name' => $this->faker->firstName(),
             'last_name' => $this->faker->lastName(),
-
             'username' => $this->faker->word() . Str::random(5),
-
             'slug' => $this->faker->slug(1, false),
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
@@ -41,6 +39,7 @@ class UserFactory extends Factory
             'gender' => $this->faker->title(),
             'birthdate' => $this->faker->date(),
             'registered'=> $this->faker->boolean(),
+            'company' => $company[$this->faker->boolean(70)],
          
         ];
     }

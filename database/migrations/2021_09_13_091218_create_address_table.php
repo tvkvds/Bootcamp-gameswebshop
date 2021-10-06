@@ -23,10 +23,10 @@ class CreateAddressTable extends Migration
             $table->foreignId('user_id')->constrained();
             $table->string('country');
             $table->string('street');
-            $table->integer('unit');
+            $table->string('address_1');
+            $table->string('address_2');
             $table->string('zipcode');
             $table->string('city');
-            $table->string('unit_extra');
             $table->boolean('billing_address');
             $table->timestamps();
             $table->softDeletes();
