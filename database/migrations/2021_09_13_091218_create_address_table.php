@@ -22,9 +22,8 @@ class CreateAddressTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->string('country');
-            $table->string('street');
             $table->string('address_1');
-            $table->string('address_2');
+            $table->string('address_2')->nullable();
             $table->string('zipcode');
             $table->string('city');
             $table->boolean('billing_address');
