@@ -27,7 +27,7 @@ class SearchController extends Controller
         }
         
         return view('search/index', [
-            'products' =>  $products->filter(request(['search', 'categories', 'platforms']))->paginate(10),
+            'products' =>  $products->filter(request(['search', 'categories', 'platforms']))->get(),
             'categories' => Category::all(),
             'platforms' => Platform::all(),
             'cart' => Session::get('cart'),
