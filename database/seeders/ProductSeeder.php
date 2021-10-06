@@ -25,7 +25,7 @@ class ProductSeeder extends Seeder
             '7' =>  [ 'boximage' => "f1-1.jpg",           'img2' => "f1-2.jpg",           'img3' => "f1-3.jpg",             'img4' => "f1-4.jpg"],
             '8' =>  [ 'boximage' => "factorio-1.webp",    'img2' => "factorio-2.jpg",     'img3' => "factorio-3.jpg",       'img4' => "factorio-4.jpg"],
             '9' =>  [ 'boximage' => "forest-1.jpg",       'img2' => "forest-2.jpg",       'img3' => "forest-3.jpg",         'img4' => "forest-4.jpg"],
-            '10' => [ 'boximage' => "gow-1.webp",         'img2' => "gow-2.jpeg",          'img3' => "gow-3.jpeg",            'img4' => "gow-4.jpeg"],
+            '10' => [ 'boximage' => "gow-1.webp",         'img2' => "gow-2.jpeg",         'img3' => "gow-3.jpeg",           'img4' => "gow-4.jpeg"],
             '11' => [ 'boximage' => "gta5-1.jpg",         'img2' => "gta5-2.jpg",         'img3' => "gta5-3.jpg",           'img4' => "gta5-4.jpg"],
             '12' => [ 'boximage' => "gw2-1.png",          'img2' => "gw2-2.jpg",          'img3' => "gw2-3.jpg",            'img4' => "gw2-4.jpg"],
             '13' => [ 'boximage' => "halo-1.jpg",         'img2' => "halo-2.jpg",         'img3' => "halo-3.jpg",           'img4' => "halo-4.jpg"],

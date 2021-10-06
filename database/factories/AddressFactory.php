@@ -30,7 +30,6 @@ class AddressFactory extends Factory
 
             'user_id' => $this->faker->randomNumber(3, false),
             'country' => $this->faker->countryCode(),
-            'street' => $this->faker->streetName(),
             'zipcode' => $this->faker->postcode(),
             'city' => $this->faker->city(),
             'billing_address' => $this->faker->boolean(),
