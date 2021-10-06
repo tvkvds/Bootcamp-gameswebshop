@@ -25,7 +25,7 @@
                     </p>
                     <div class="mt-auto">
                        @if ($product->price_discount)
-                            <strong class="px-3"><del class="text-muted pe-2">€{{$product->price}}</del>
+                            <strong class="px-3"><del class="text-muted pe-2">€{{$product->price}}</del></strong>
                             <strong class="">€{{$product->price_discount}}</strong>
                         @else
                             <strong class="px-3">€{{$product->price}}</strong>
