@@ -19,7 +19,12 @@
                 <div class="card-body card-home-div">
 
                     <h5 class="card-title">{{$product->name}}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted"><del class="pe-2">€{{$product->price}}</del>€{{$product->price_discount}}</h6>
+                    {{-- <h6 class="card-subtitle mb-2 text-muted"><del class="pe-2">€{{$product->price}}</del>€{{$product->price_discount}}</h6> --}}
+                    @if ($product->price_discount)
+                            <h6 class="px-3"><del class="text-muted pe-2">€{{$product->price}}</del>  €{{$product->price_discount}}</h6>
+                        @else
+                            <h6 class="px-3 mb-2">€{{$product->price}}</h6>
+                    @endif
                     <p class="card-text">{{$product->description}}</p>
                     <a href="/products/{{$product->slug}}" class="stretched-link"></a>
 

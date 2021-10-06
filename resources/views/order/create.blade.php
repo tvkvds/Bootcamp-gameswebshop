@@ -24,8 +24,8 @@
                    
                         <h6 class="text-center my-4">Payment</h6>
                         <hr class="my-3">
-                            <!-- PERSONAL INFO FORM -->
-                            <div class="row mb-3">
+                        <!-- PERSONAL INFO FORM -->
+                        <div class="row mb-3">
 
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
@@ -33,6 +33,7 @@
                                         <input class="form-control form-control-sm" value="Timmy" name="user[first_name]" id="firstName" type="text" placeholder="First Name" required="">
                                     </div>
                                 </div>
+                            </div>
 
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
@@ -40,6 +41,7 @@
                                         <input class="form-control form-control-sm" value="Turner" name="user[last_name]" id="lastName" type="text" placeholder="Last Name" required="">
                                     </div>
                                 </div>
+                            </div>
 
                                 <div class="col-12">
                                     <div class="form-group">
@@ -47,6 +49,7 @@
                                         <input class="form-control form-control-sm" value="t.turner@gmail.com" name="user[email]" id="email" type="email" placeholder="Email" required="">
                                     </div>
                                 </div>
+                            </div>
 
                                 <div class="col-12">
                                     <div class="form-group">
@@ -54,6 +57,7 @@
                                         <input class="form-control form-control-sm" value="Fairly odd Parents" name="user[company]" id="company" type="text" placeholder="Company name (optional)">
                                     </div>
                                 </div>
+                            </div>
 
                                 <div class="col-12">
                                     <div class="form-group">
@@ -61,6 +65,7 @@
                                         <input class="form-control form-control-sm" value="America" name="address[country]" id="country" type="text" placeholder="Country" required="">
                                     </div>
                                 </div>
+                            </div>
 
                                 <div class="col-12">
                                     <div class="form-group">
@@ -68,13 +73,14 @@
                                         <input class="form-control form-control-sm" value="Grand Oak Lane 37" name="address[address1]" id="address" type="text" placeholder="Address Line 1" required="">
                                     </div>
                                 </div>
+                            </div>
 
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <label for="addressTwo">Address Line 2</label>
-                                        <input class="form-control form-control-sm" name="address[address2]" id="addressTwo" type="text" placeholder="Address Line 2 (optional)">
-                                    </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="addressTwo">Address Line 2</label>
+                                    <input class="form-control form-control-sm" name="address[address2]" id="addressTwo" type="text" placeholder="Address Line 2 (optional)">
                                 </div>
+                            </div>
 
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
@@ -82,6 +88,7 @@
                                         <input class="form-control form-control-sm" value="Louisville" name="address[city]" id="city" type="text" placeholder="Town / City" required="">
                                     </div>
                                 </div>
+                            </div>
 
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
@@ -89,6 +96,7 @@
                                         <input class="form-control form-control-sm" value="555" name="address[zipcode]" id="zip" type="text" placeholder="ZIP / Postcode" required="">
                                     </div>
                                 </div>
+                            </div>
 
                                 <div class="col-12">
                                     <div class="form-group mb-0">
@@ -96,7 +104,6 @@
                                         <input class="form-control form-control-sm" value="0689543316" name="user[phone]" id="phone" type="tel" placeholder="Mobile Phone" required="">
                                     </div>
                                 </div>
-
                             </div>
 
                             <h6 class="text-center my-4">Shipping Details</h6>
@@ -128,15 +135,16 @@
                                 </table>
                             </div>
 
-                            <!-- DIFFERENT SHIPPING ADRESS FORM -->
-                            <div class="mb-5">
+                        <h6 class="text-center my-4">Shipping Details</h6>
 
-                                <a class="btn dropdown-toggle btn-sm w-100 mb-4" data-bs-toggle="collapse" href="#shippingAddress" role="button">
-                                    Different shipping address?
-                                </a>
+                        <!-- SHIPPING OPTIONS TABLE -->
+                        <div class="table-responsive mb-4">
+                            <table class="table table-bordered table-sm table-hover mb-0">
+                                <tbody>
 
-                                <div class="collapse" id="shippingAddress">
-                                    <div class="row">
+                                    @foreach ($shipping_methods as $ship)
+                                        <tr>
+                                            <td>
 
                                         <div class="col-12">
                                             <div class="form-group">
@@ -151,6 +159,7 @@
                                                 <input class="form-control form-control-sm" name="address2[address1]" id="shippingAdress" type="text" placeholder="Address Line 1">
                                             </div>
                                         </div>
+                                    </div>
 
                                         <div class="col-12">
                                             <div class="form-group">
@@ -158,6 +167,7 @@
                                                 <input class="form-control form-control-sm" name="address2[address2]" id="shippingAdressTwo" type="text" placeholder="Address Line 2 (optional)">
                                             </div>
                                         </div>
+                                    </div>
 
                                         <div class="col-6">
                                             <div class="form-group">
@@ -165,6 +175,7 @@
                                                 <input class="form-control form-control-sm" name="address2[city]" id="shippingCity" type="text" placeholder="Town / City">
                                             </div>
                                         </div>
+                                    </div>
 
                                         <div class="col-6">
                                             <div class="form-group">
@@ -172,22 +183,27 @@
                                                 <input class="form-control form-control-sm" name="address2[zipcode]" id="shippingZip" type="text" placeholder="ZIP / Postcode">
                                             </div>
                                         </div>
-
-                                        <div class="col-12">
-                                            <button class="btn btn-sm w-100" type="submit">
-                                            Save Address
-                                            </button>
-                                        </div>
-
                                     </div>
-                                </div>
 
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="shippingZip">ZIP / Postcode *</label>
+                                            <input class="form-control form-control-sm" id="shippingZip" type="text" placeholder="ZIP / Postcode">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <button class="btn btn-sm w-100" type="submit">
+                                        Save Address
+                                        </button>
+                                    </div>
+
+                                </div>
                             </div>
 
-                            <h6 class="text-center mb-4">Payment Details</h6>
+                        </div>
 
-                            <!-- PAYMENT OPTIONS -->
-                            <div class="list-group list-group-sm mb-4">
+                        <h6 class="text-center mb-4">Payment Details</h6>
 
                                 <div class="list-group-item">
                                     <div class="custom-control custom-radio">
@@ -197,10 +213,11 @@
                                         </label>
                                     </div>
                                 </div>
+                            </div>
 
-                                <div class="list-group-item collapse" id="creditcardCollapse">
-                                    
-                                    <div class="row">
+                            <div class="list-group-item collapse" id="creditcardCollapse">
+                                
+                                <div class="row">
 
                                         <div class="col-12">
                                             <div class="form-group mb-4">
@@ -208,6 +225,7 @@
                                                 <input class="form-control form-control-sm" value="7" id="cardNumber" type="text" placeholder="Card Number *" required="">
                                             </div>
                                         </div>
+                                    </div>
 
                                         <div class="col-12">
                                             <div class="form-group mb-4">
@@ -215,6 +233,7 @@
                                                 <input class="form-control form-control-sm" value="8"  id="cardName" type="text" placeholder="Name on Card *" required="">
                                             </div>
                                         </div>
+                                    </div>
 
                                         <div class="col-12 col-md-6">
                                             <div class="form-group">
@@ -222,6 +241,7 @@
                                                 <input class="form-control form-control-sm" value="04/2089"  id="cardDate" type="text" placeholder="Month/Year *" required="">
                                             </div>
                                         </div>
+                                    </div>
 
                                         <div class="col-12 col-md-6">
                                             <div class="form-group">
@@ -229,7 +249,6 @@
                                                 <input class="form-control form-control-sm" value="344" id="cardCVV" type="text" placeholder="CVV *" required="">
                                             </div>
                                         </div>
-
                                     </div>
 
                                 </div>
@@ -242,6 +261,7 @@
                                         </label>
                                     </div>
                                 </div>
+                            </div>
 
                                 <div class="list-group-item">
                                     <div class="custom-control custom-radio">
@@ -266,14 +286,14 @@
                                         </div>
 
                                         <img id="idealLogo" class="ms-2" src="/images/ideal.svg" alt="ideal logo">
-                                        </label>
-                                    </div>
+                                    </label>
                                 </div>
-
                             </div>
 
-                            <textarea class="form-control form-control-sm mb-md-0 font-size-xs" rows="5" placeholder="Add Note (optional)"></textarea>
-                    
+                        </div>
+
+                        <textarea class="form-control form-control-sm mb-md-0 font-size-xs" rows="5" placeholder="Add Note (optional)"></textarea>
+                
                     </form>
 
                 </div>
@@ -334,6 +354,17 @@
                 $("#bankDropdown .btn").text($(this).text());
             });
         });
+
+        /*$(document).ready(function() {
+            $('#checkoutPaymentCard').change(function() {
+                if ($('#cardNumber #cardName #cardDate #cardCVV').attr('required')) {
+                    $('#cardNumber #cardName #cardDate #cardCVV').removeAttr('required');
+                } 
+                else {
+                    $('#cardNumber #cardName #cardDate #cardCVV').attr('required',true);
+                }
+            });
+        });*/
 
        // $(window).on( 'resize', function () {
          //   $('.checkout-img-div').height( $('.checkout-img-div').width());

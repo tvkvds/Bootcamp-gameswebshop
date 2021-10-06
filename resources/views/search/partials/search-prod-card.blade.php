@@ -8,7 +8,7 @@
             <div class="col-md-4 d-flex align-items-center justify-content-center card-img-div">
                 @foreach ($product->images as $image)
                     @if ($image->box === 1)
-                        <img src="{{asset($image->location)}}" class="img-fluid card-img rounded-start">
+                        <img src="{{asset($image->location)}}" class="img-fluid card-img rounded-start p-2">
                     @endif
                 @endforeach
             </div>
@@ -25,7 +25,7 @@
                     </p>
                     <div class="mt-auto">
                        @if ($product->price_discount)
-                            <strong class="px-3"><del class="text-muted pe-2">€{{$product->price}}</del>
+                            <strong class="px-3"><del class="text-muted pe-2">€{{$product->price}}</del></strong>
                             <strong class="">€{{$product->price_discount}}</strong>
                         @else
                             <strong class="px-3">€{{$product->price}}</strong>
