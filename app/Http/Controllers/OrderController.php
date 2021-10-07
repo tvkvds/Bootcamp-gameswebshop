@@ -142,6 +142,9 @@ class OrderController extends Controller
             $address = $shippingAddress;
         }
 
+        $cart = Session::get('cart');
+        Session::forget('cart');
+
         //maybe define all cart session related variables before the return 
         //and then forget/destroy cart session items to prevent double checkouts?
 
@@ -149,7 +152,7 @@ class OrderController extends Controller
             
             
             'products' => $products,
-            'cart' => Session::get('cart'),
+            'cart' => $cart,
             'cart_products' => Cart::products(),
             'cart_total' => Cart::cost(),
             'cart_amount' => Cart::amount(),
