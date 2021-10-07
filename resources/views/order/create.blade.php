@@ -120,7 +120,7 @@
                                             <div class="custom-control custom-radio">
                                                 <label class="custom-control-label" for="{{$ship->id}}"></label>
 
-                                                <input class="custom-control-input" value="shipping[{{$ship->id}}]" id="shipping-{{$ship->id}}" name="shipping" type="radio">
+                                                <input class="custom-control-input" value="{{$ship->id}}" id="shipping-{{$ship->id}}" name="shipping" type="radio">
 
                                                 {{$ship->shipping_method}}
                                                 </label>
