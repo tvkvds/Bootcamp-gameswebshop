@@ -20,8 +20,7 @@ class CreateOrderTable extends Migration
             $table->foreignId('payment_method_id')->constrained();
             $table->integer('shipping_address'); //connect?
             $table->integer('billing_address'); //connect?
-            $table->date('date');
-            $table->text('user_note');
+            $table->text('user_note')->nullable();
             $table->integer('total_price');
             $table->integer('total_vat');
             $table->timestamps();

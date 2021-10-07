@@ -12,7 +12,7 @@
                 <div class="col-10">
                     <!-- SALES/ SPECIAL OFFERS / TOP NEW RELEASES / ETC. -->
                     <h6>
-                        Sales, new releases, special offers, wtfr
+                        Bestsellers
                     </h6>
                     <hr class="my-3">
                     <div class="row">

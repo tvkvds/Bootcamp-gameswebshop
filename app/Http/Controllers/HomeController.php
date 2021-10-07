@@ -18,10 +18,23 @@ class HomeController extends Controller
     {
         try
         {
-            $products = Product::inRandomOrder()->with(['categories', 'images', 'ratings', 'platforms'])
-            ->limit(20)
+            $productsCarousel = Product::orderBy('created_at', 'desc')->with(['categories', 'images', 'ratings', 'platforms'])
+            ->limit(5)
             ->withAvg('ratings as ratings_avg', 'rating')
             ->withCount('ratings');
+        }
+        catch(Exception $e)
+        {
+            return back()->withError($e->getMessage())->withInput();
+        }
+
+        try
+        {
+            $products = Product::orderBy('sold', 'desc')->with(['categories', 'images', 'ratings', 'platforms'])
+            ->limit(6)
+            ->withAvg('ratings as ratings_avg', 'rating')
+            ->withCount('ratings');
+
         }
         catch(Exception $e)
         {
@@ -31,6 +44,7 @@ class HomeController extends Controller
 
         return view('home/index', [
             'products' => $products->get(),
+            'productsCarousel' => $productsCarousel->get(),
             'categories' => Category::all(),
             'cart' => Session::get('cart'),
             'cart_products' => Cart::products(),

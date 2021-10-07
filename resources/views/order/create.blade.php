@@ -31,7 +31,7 @@
                     <div class="col-12 col-md-6">
                         <div class="form-group">
                             <label for="firstName">First Name *</label>
-                            <input class="form-control form-control-sm" value="Timmy" name="user[first_name]" id="firstName" type="text" placeholder="First Name" required="">
+                            <input class="form-control form-control-sm"  name="user[first_name]" id="firstName" type="text" placeholder="First Name" required="">
                         </div>
                     </div>
                 
@@ -39,7 +39,7 @@
                     <div class="col-12 col-md-6">
                         <div class="form-group">
                             <label for="lastName">Last Name *</label>
-                            <input class="form-control form-control-sm" value="Turner" name="user[last_name]" id="lastName" type="text" placeholder="Last Name" required="">
+                            <input class="form-control form-control-sm"  name="user[last_name]" id="lastName" type="text" placeholder="Last Name" required="">
                         </div>
                     </div>
                 
@@ -47,7 +47,7 @@
                     <div class="col-12">
                         <div class="form-group">
                             <label for="email">Email *</label>
-                            <input class="form-control form-control-sm" value="t.turner@gmail.com" name="user[email]" id="email" type="email" placeholder="Email" required="">
+                            <input class="form-control form-control-sm"  name="user[email]" id="email" type="email" placeholder="Email" required="">
                         </div>
                     </div>
                 
@@ -55,7 +55,7 @@
                     <div class="col-12">
                         <div class="form-group">
                             <label for="company">Company name *</label>
-                            <input class="form-control form-control-sm" value="Fairly odd Parents" name="user[company]" id="company" type="text" placeholder="Company name (optional)">
+                            <input class="form-control form-control-sm"  name="user[company]" id="company" type="text" placeholder="Company name (optional)">
                         </div>
                     </div>
                 
@@ -63,7 +63,7 @@
                     <div class="col-12">
                         <div class="form-group">
                             <label for="country">Country *</label>
-                            <input class="form-control form-control-sm" value="America" name="address[country]" id="country" type="text" placeholder="Country" required="">
+                            <input class="form-control form-control-sm"  name="address[country]" id="country" type="text" placeholder="Country" required="">
                         </div>
                     </div>
                 
@@ -71,7 +71,7 @@
                     <div class="col-12">
                         <div class="form-group">
                             <label for="address">Address*</label>
-                            <input class="form-control form-control-sm" value="Grand Oak Lane 37" name="address[address1]" id="address" type="text" placeholder="Address Line 1" required="">
+                            <input class="form-control form-control-sm"  name="address[address_1]" id="address" type="text" placeholder="Address Line 1" required="">
                         </div>
                     </div>
             
@@ -79,14 +79,14 @@
                     <div class="col-12">
                         <div class="form-group">
                             <label for="addressTwo">Address Line 2</label>
-                            <input class="form-control form-control-sm" name="address[address2]" id="addressTwo" type="text" placeholder="Address Line 2 (optional)">
+                            <input class="form-control form-control-sm" name="address[address_2]" id="addressTwo" type="text" placeholder="Address Line 2 (optional)">
                         </div>
                     </div>
 
                     <div class="col-12 col-md-6">
                         <div class="form-group">
                             <label for="city">Town / City *</label>
-                            <input class="form-control form-control-sm" value="Louisville" name="address[city]" id="city" type="text" placeholder="Town / City" required="">
+                            <input class="form-control form-control-sm"  name="address[city]" id="city" type="text" placeholder="Town / City" required="">
                         </div>
                     </div>
                 
@@ -94,14 +94,14 @@
                     <div class="col-12 col-md-6">
                         <div class="form-group">
                             <label for="zip">ZIP / Postcode *</label>
-                            <input class="form-control form-control-sm" value="555" name="address[zipcode]" id="zip" type="text" placeholder="ZIP / Postcode" required="">
+                            <input class="form-control form-control-sm"  name="address[zipcode]" id="zip" type="text" placeholder="ZIP / Postcode" required="">
                         </div>
                     </div>
                 
                     <div class="col-12">
                         <div class="form-group mb-0">
                             <label for="phone">Mobile Phone *</label>
-                            <input class="form-control form-control-sm" value="0689543316" name="user[phone]" id="phone" type="tel" placeholder="Mobile Phone" required="">
+                            <input class="form-control form-control-sm"  name="user[phone]" id="phone" type="tel" placeholder="Mobile Phone" required="">
                         </div>
                     </div>
 
@@ -119,7 +119,9 @@
 
                                             <div class="custom-control custom-radio">
                                                 <label class="custom-control-label" for="{{$ship->id}}"></label>
-                                                <input class="custom-control-input" value="shipping[{{$ship->id}}]" id="shipping-{{$ship->id}}" name="shipping" type="radio">
+
+                                                <input class="custom-control-input" value="{{$ship->id}}" id="shipping-{{$ship->id}}" name="shipping" type="radio">
+
                                                 {{$ship->shipping_method}}
                                                 </label>
                                             </div>
@@ -145,31 +147,31 @@
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label for="shippingCountry">Country *</label>
-                                                <input class="form-control form-control-sm" id="shippingCountry" type="text" placeholder="Country">
+                                                <input class="form-control form-control-sm" name="address2[country]"  id="shippingCountry" type="text" placeholder="Country">
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label for="shippingAddress">Address Line 1 *</label>
-                                                <input class="form-control form-control-sm" id="shippingAdress" type="text" placeholder="Address Line 1">
+                                                <input class="form-control form-control-sm" name="address2[address_1]"  id="shippingAdress" type="text" placeholder="Address Line 1">
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label for="shippingAdressTwo">Address Line 2</label>
-                                                <input class="form-control form-control-sm" id="shippingAdressTwo" type="text" placeholder="Address Line 2 (optional)">
+                                                <input class="form-control form-control-sm"  name="address2[address_2]"  id="shippingAdressTwo" type="text" placeholder="Address Line 2 (optional)">
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label for="shippingCity">Town / City *</label>
-                                                <input class="form-control form-control-sm" id="shippingCity" type="text" placeholder="Town / City">
+                                                <input class="form-control form-control-sm" name="address2[city]"  id="shippingCity" type="text" placeholder="Town / City">
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label for="shippingZip">ZIP / Postcode *</label>
-                                                <input class="form-control form-control-sm" id="shippingZip" type="text" placeholder="ZIP / Postcode">
+                                                <input class="form-control form-control-sm" name="address2[zipcode]" id="shippingZip" type="text" placeholder="ZIP / Postcode">
                                             </div>
                                         </div>
                                         <div class="col-12">
@@ -186,7 +188,7 @@
 
                                 <div class="list-group-item">
                                     <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" id="checkoutPaymentCard" name="payment" type="radio" data-bs-toggle="collapse" data-bs-target="#creditcardCollapse">
+                                        <input class="custom-control-input" id="checkoutPaymentCard" value="creditcard" name="payment" type="radio" data-bs-toggle="collapse" data-bs-target="#creditcardCollapse">
                                         <label class="custom-control-label " for="checkoutPaymentCard">
                                             Credit Card <img class="ms-2" src="/images/cards.svg" alt="...">
                                         </label>
@@ -198,28 +200,28 @@
                                         <div class="col-12">
                                             <div class="form-group mb-4">
                                                 <label for="cardNumber">Card Number</label>
-                                                <input class="form-control form-control-sm" id="cardNumber" type="text" placeholder="Card Number *" required="">
+                                                <input class="form-control form-control-sm" id="cardNumber" type="text" placeholder="Card Number *" >
                                             </div>
                                         </div>
 
                                         <div class="col-12">
                                             <div class="form-group mb-4">
                                                 <label for="cardName">Name of Card Holder</label>
-                                                <input class="form-control form-control-sm" id="cardName" type="text" placeholder="Name on Card *" required="">
+                                                <input class="form-control form-control-sm" id="cardName" type="text" placeholder="Name on Card *" >
                                             </div>
                                         </div>
 
                                         <div class="col-12 col-md-6">
                                             <div class="form-group">
                                                 <label for="cardDate">Card Experation Date</label>
-                                                <input class="form-control form-control-sm" id="cardDate" type="text" placeholder="Month/Year *" required="">
+                                                <input class="form-control form-control-sm" id="cardDate" type="text" placeholder="Month/Year *" >
                                             </div>
                                         </div>
 
                                         <div class="col-12 col-md-6">
                                             <div class="form-group">
                                                 <label for="cardCVV">CVV</label>
-                                                <input class="form-control form-control-sm" id="cardCVV" type="text" placeholder="CVV *" required="">
+                                                <input class="form-control form-control-sm" id="cardCVV" type="text" placeholder="CVV *" >
                                             </div>
                                         </div>
 
@@ -229,7 +231,7 @@
                                 <div class="list-group-item">
                                     <div class="custom-control custom-radio">
                                         <label class="custom-control-label" for="paypal"></label>
-                                        <input class="custom-control-input" id="paypal" name="payment" type="radio" data-toggle="collapse" data-action="hide" data-target="#checkoutPaymentCardCollapse">
+                                        <input class="custom-control-input" id="paypal" value="paypal" name="payment" type="radio" data-toggle="collapse" data-action="hide" data-target="#checkoutPaymentCardCollapse">
                                             PayPal <img class="ms-2" src="/images/paypal.svg" alt="paypal logo">
                                         </label>
                                     </div>
@@ -239,7 +241,7 @@
 
                                     <div class="custom-control custom-radio">
                                         <label class="custom-control-label" for="ideal"></label>
-                                        <input class="custom-control-input" id="ideal" name="payment" type="radio" data-toggle="collapse" data-action="hide" data-target="#checkoutPaymentCardCollapse">
+                                        <input class="custom-control-input" id="ideal"  value="ideal" name="payment" type="radio" data-toggle="collapse" data-action="hide" data-target="#checkoutPaymentCardCollapse">
                                         Ideal 
 
                                         <div id="bankDropdown" class="btn-group my-2">
@@ -265,7 +267,7 @@
                                 </div>
                             </div>
 
-                            <textarea class="form-control form-control-sm mb-md-0 font-size-xs" rows="5" placeholder="Add Note (optional)"></textarea>
+                            <textarea class="form-control form-control-sm mb-md-0 font-size-xs"  value="yeet" name="userNote" rows="5" placeholder="Add Note (optional)"></textarea>
                     </form>
                 </div>
 
