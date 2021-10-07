@@ -11,6 +11,9 @@ class Cart extends Model
     //creates or updates a cart in session
     public static function Cart(array $items)
     {
+        // TODO
+        // forget cart when empty 
+
         if (Session::get('cart'))
         {
             
@@ -20,11 +23,11 @@ class Cart extends Model
             {
                 if (isset($items[$product]) && isset($cart[$product])) 
                 {
-                    $cart[$product] = $items[$product];
+                    (int)$cart[$product] = $items[$product];
                 }
                 else
                 {
-                    $cart += array($product => $amount);
+                    (int)$cart += array($product => $amount);
                 }  
             }
 
@@ -122,6 +125,7 @@ class Cart extends Model
         return 0;
     }
 
+    //calculate total vat of all products in cart
     public static function vat()
     {
         if (Session::get('cart'))

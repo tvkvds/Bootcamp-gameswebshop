@@ -17,6 +17,7 @@ class OrderController extends Controller
 {
     public function create(Request $request)
     {
+        
     
         return view('order/create',[
             
@@ -35,10 +36,8 @@ class OrderController extends Controller
     //made assuming there is no loggedin user
     public function store(Request $request)
     { 
-        //check for products in cart, create order
-        $cart = count(array_filter(Session::get('cart'))) == 0 ? true : false;
-
-        if ($cart = false)
+        
+        if (!Session::get('cart'))
         {
             return back()->withErrors(['msg' => 'Please add products to your shopping cart before checking out']);
         }
