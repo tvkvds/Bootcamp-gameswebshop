@@ -1,5 +1,16 @@
 @extends('layouts.app')
 
+            {{-- 
+            'products' => $products,
+            'cart' => Session::get('cart'),
+            'cart_products' => Cart::products(),
+            'cart_total' => Cart::cost(),
+            'cart_amount' => Cart::amount(),
+            'cart_vat' => Cart::vat(),
+            'order' => $order,
+            'address' => $address, 
+            --}}
+
 @section('content')
 
     <section class="container mt-5 mb-3">
@@ -12,8 +23,8 @@
                     <hr>
                     <div class="m-2">
                         <p>
-                            Thank you for your order Luitzen! <br><br>
-                            Your order number is : <b>666</b>
+                            Thank you for your order {{$user->first_name . ' ' . $user->last_name}}! <br><br>
+                            Your order number is : <b>{{$order->id}}</b>
                         </p>
                     </div>
                     <hr>
@@ -26,19 +37,19 @@
                                 </tr>
                                 <tr>
                                     <td><b>Street:</b></td>
-                                    <td>Dark alley 3</td>
+                                    <td>{{$address->address_1 . ' ' . $address->address_2}}</td>
                                 </tr>
                                 <tr>
                                     <td><b>ZIP:</b></td>
-                                    <td>3333NL</td>
+                                    <td>{{$address->zipcode}}</td>
                                 </tr>
                                 <tr>
                                     <td><b>City:</b></td>
-                                    <td>Shithole</td>
+                                    <td>{{$address->city}}</td>
                                 </tr>
                                 <tr>
                                     <td><b>Country:</b></td>
-                                    <td>Netherlands</td>
+                                    <td>{{$address->country}}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -53,24 +64,22 @@
                                     <td class="text-center"><b>Price:</b></td>
                                     <td class="text-end"><b>Total:</b></td>
                                 </tr>
+
+                               <?php $total = 0; ?>
+
+                                @foreach ($products as $product )
+                                    
                                 <tr>
-                                    <td>Halo</td>
-                                    <td class="text-center">1</td>
-                                    <td class="text-center">€60</td>
-                                    <td class="text-end">€60</td>
-                                </tr>
-                                <tr>
-                                    <td>Terraria</td>
-                                    <td class="text-center">2</td>
-                                    <td class="text-center">€20</td>
-                                    <td class="text-end">€40</td>
-                                </tr>
-                                <tr>
-                                    <td>Club Penguin</td>
-                                    <td class="text-center">1</td>
-                                    <td class="text-center">€3000</td>
-                                    <td class="text-end">€3000</td>
-                                </tr>
+                                    <td>{{$product->name}}</td>
+                                    <td class="text-center">{{$cart[$product->id]}}</td>
+                                    <td class="text-center">€{{($product->price_discount) ? $product->price_discount : $product->price;}}</td>
+                                    <td class="text-end">€{{($product->price_discount) ? $product->price_discount * $cart[$product->id] : $product->price * $cart[$product->id];}}</td>
+                                </tr> 
+
+                                <?php $total += ($product->price_discount) ? $product->price_discount * $cart[$product->id] : $product->price * $cart[$product->id];?>
+
+                                @endforeach
+                                
                             </tbody>
                         </table>
                     </div>
@@ -85,10 +94,10 @@
                                     <td class="text-end"><b>Total:</b></td>
                                 </tr>
                                 <tr>
-                                    <td class="text-center">€3100</td>
-                                    <td class="text-center">€0</td>
-                                    <td class="text-center">€654</td>
-                                    <td class="text-end">€3100</td>
+                                    <td class="text-center">€{{$total}}</td>
+                                    <td class="text-center">€{{$shipping->shipping_cost}}</td>
+                                    <td class="text-center">€{{$order->total_vat}}</td>
+                                    <td class="text-end">€{{$order->total_price }}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -102,8 +111,8 @@
                                 </tr>
                                 <tr>
                                     <td> 
-                                        Pay Pall/ Credit Card/ Bank
-                                        (for CC and bank we should add some details suchlast 3 didgits of the CC number or the acount number and bank name for bank)
+                                        {{$payment}}
+                                        {{-- (for CC and bank we should add some details suchlast 3 didgits of the CC number or the acount number and bank name for bank) --}}
                                     </td>
                                 </tr>
                             </tbody>

@@ -26,7 +26,6 @@ class OrderFactory extends Factory
             'user_id' => $this->faker->numberBetween(1, 10),
             'shipping_method_id' => $this->faker->numberBetween(1, 3),
             'payment_method_id' => $this->faker->numberBetween(1, 3),
-            'date' => now(),
             'user_note' => $this->faker->sentence(25),
             'total_price' => 12.00,
             'total_vat' => 12.00,

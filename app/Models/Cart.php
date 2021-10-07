@@ -83,7 +83,7 @@ class Cart extends Model
                 
                 if ($product->price_discount)
                 {
-                    $total += $product->price * $amount;
+                    $total += $product->price_discount * $amount;
                 }
                 else
                 {
