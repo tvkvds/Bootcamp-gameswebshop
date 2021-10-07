@@ -119,7 +119,9 @@
 
                                             <div class="custom-control custom-radio">
                                                 <label class="custom-control-label" for="{{$ship->id}}"></label>
-                                                <input class="custom-control-input" value="{{$ship->id}}" id="{{$ship->id}}" name="shipping" type="radio">
+
+                                                <input class="custom-control-input" value="shipping[{{$ship->id}}]" id="shipping-{{$ship->id}}" name="shipping" type="radio">
+
                                                 {{$ship->shipping_method}}
                                                 </label>
                                             </div>
@@ -302,11 +304,11 @@
                         </li>
 
                         <li class="list-group-item d-flex">
-                            <span>Shipping</span> <span class="ms-auto">€0.00</span>
+                            <span>Shipping</span> <span class="ms-auto shipping-price">€0.00</span>
                         </li>
 
                         <li class="list-group-item d-flex">
-                            <span>Total</span> <span class="ms-auto">€{{$cart_total}}</span>
+                            <span>Total</span> <span class="ms-auto total-price">€{{$cart_total}}</span>
                         </li>
 
                     </ul>
@@ -338,6 +340,22 @@
                 $("#bankDropdown .btn").text($(this).text());
             });
         });
+
+        $('#shipping-3, #shipping-2, #shipping-1').on('change', function() {
+            if($('#shipping-3').is(':checked')){
+                    $('.shipping-price').text('€12.00');
+                    var total = {{$cart_total}}+12;
+                    $('.total-price').text('€'+total);
+            } else if ($('#shipping-2').is(':checked')){
+                    $('.shipping-price').text('€8.00');
+                    var total = {{$cart_total}}+8;
+                    $('.total-price').text('€'+total);
+            } else if ($('#shipping-1').is(':checked')){
+                    $('.shipping-price').text('€0.00');
+                    var total = {{$cart_total}}+0;
+                    $('.total-price').text('€'+total);
+            }
+        })
 
         /*$(document).ready(function() {
             $('#checkoutPaymentCard').change(function() {
