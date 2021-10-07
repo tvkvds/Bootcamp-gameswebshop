@@ -10,7 +10,7 @@
 <div id="carousel" class="carousel slide col-10" data-bs-ride="carousel" data-bs-interval="false">
     <div class="carousel-inner">
 
-        @foreach ($products as $key => $product)
+        @foreach ($productsCarousel as $key => $product)
             {{-- TODO:   figure out a way to make active for the product that's supposed to be shown --}}
             <div class="carousel-item {{ $key === 0 ? 'active' : '' }}">
 
