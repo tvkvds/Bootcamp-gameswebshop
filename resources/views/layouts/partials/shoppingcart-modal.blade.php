@@ -13,7 +13,7 @@
             <ul class="list-group list-group-lg list-group-flush">
 
                 <!-- PRODUCT -->
-                @if ($cart_products)
+                @if (isset($cart_products))
                     @foreach ($cart_products as $product)
 
                     <li class="list-group-item">
@@ -97,7 +97,7 @@
             <div class="modal-footer mt-auto">
                 <strong>Subtotal</strong> 
 
-                <strong class="ms-auto">€{{($cart_total) ? $cart_total : 0;}}</strong>
+                <strong class="ms-auto">€{{(isset($cart_total)) ? $cart_total : 0;}}</strong>
                 <a class="btn w-100 mb-3" href="/checkout">Checkout</a>
 
             </div>

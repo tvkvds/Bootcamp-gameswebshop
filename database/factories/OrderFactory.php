@@ -31,6 +31,7 @@ class OrderFactory extends Factory
             'total_vat' => 12.00,
             'shipping_address' => $this->faker->randomNumber(2, false),
             'billing_address' => $this->faker->randomNumber(2, false),
+            'status' => 'delivered',
         ];
     }
 }
