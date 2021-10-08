@@ -25,15 +25,7 @@ class Category extends Model
         return $this->hasManyThrough(Image::class, Product::class);
     } 
 
-    public function onlyFiveProducts()
-    {
-            //return five product results from pivot table per category
-            //
-            //return $this->products()->limit(5)->where('category_id, $categoryId); ??
-
-            return $this->products()->limit(5);
-            //this returns five result from pivot table, period.
-    }
+    
 
     
 

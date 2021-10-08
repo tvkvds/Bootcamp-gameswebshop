@@ -36,33 +36,11 @@ Route::post('/search', [App\Http\Controllers\SearchController::class, 'index']);
 Route::get('/checkout', [App\Http\Controllers\OrderController::class, 'create']);
 Route::post('/orderconfirmed', [App\Http\Controllers\OrderController::class, 'store']);
 
-
-
-
-
-
-
-
-
-Route::get('/test', function ()  {
-    return view('/test', [
-        // 'test' => ''
-    ]);
-       
-});
-
-Route::post('/testing', function () {
-    return view('/testing', [
-        'test' => request(),
-        'cart' => Session::get('cart'),
-        'cart_products' => Cart::products(),
-        'cart_total' => Cart::cost(),
-        'cart_amount' => Cart::amount(),
-        'cart_vat' => Cart::vat()
-    ]);
-});
+Route::get('/myaccount', [App\Http\Controllers\UserController::class, 'show']);
+Route::delete('/myaccount', [App\Http\Controllers\UserController::class, 'delete']);
 
 Route::get('/about', [App\Http\Controllers\AboutController::class, 'index']);
+
 
 
 

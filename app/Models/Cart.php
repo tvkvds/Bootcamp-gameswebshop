@@ -86,11 +86,11 @@ class Cart extends Model
                 
                 if ($product->price_discount)
                 {
-                    $total += $product->price_discount * $amount;
+                    (int)$total += $product->price_discount * (int)$amount;
                 }
                 else
                 {
-                    $total += $product->price * $amount;
+                    (int)$total += $product->price * (int)$amount;
                 }
             };
 
@@ -111,7 +111,7 @@ class Cart extends Model
 
             foreach ($items as $item => $amount)
             {
-                $products += $amount;
+                $products += (int)$amount;
             }
 
             if ($products > 99)
