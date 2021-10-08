@@ -21,6 +21,7 @@ class CreateOrderTable extends Migration
             $table->integer('shipping_address'); //connect?
             $table->integer('billing_address'); //connect?
             $table->text('user_note')->nullable();
+            $table->enum('status', ['processing', 'awaiting delivery', 'delivered']);
             $table->integer('total_price');
             $table->integer('total_vat');
             $table->timestamps();

@@ -118,6 +118,7 @@ class OrderController extends Controller
         $order->user_note = $request['userNote'];
         $order->total_price = (Cart::cost() + $shippingMethod->shipping_cost);
         $order->total_vat = Cart::vat();
+        $order->status = 'processing';
 
         $order->save();
 
@@ -143,9 +144,6 @@ class OrderController extends Controller
 
         $cart = Session::get('cart');
         Session::forget('cart');
-
-        //maybe define all cart session related variables before the return 
-        //and then forget/destroy cart session items to prevent double checkouts?
 
         return view('order/store',[
             
