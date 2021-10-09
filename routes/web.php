@@ -35,9 +35,12 @@ Route::post('/search', [App\Http\Controllers\SearchController::class, 'index']);
 
 Route::get('/checkout', [App\Http\Controllers\OrderController::class, 'create']);
 Route::post('/orderconfirmed', [App\Http\Controllers\OrderController::class, 'store']);
+Route::get('/order/{id}', [App\Http\Controllers\OrderController::class, 'show']);
 
 Route::get('/myaccount', [App\Http\Controllers\UserController::class, 'show']);
 Route::delete('/myaccount', [App\Http\Controllers\UserController::class, 'delete']);
+
+
 
 Route::get('/about', [App\Http\Controllers\AboutController::class, 'index']);
 

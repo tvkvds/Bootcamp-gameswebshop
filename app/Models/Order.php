@@ -36,4 +36,19 @@ class Order extends Model
         return $this->hasOne(Address::class)->where('billing_address', '0');
     }
 
+    public function createOrder($userId, $shippingMethod, $paymentMethod, $billingAddressId, $userNote, $shippingCost, $shippingAddress)
+    {
+        $this->user_id = $userId;
+        $this->shipping_method_id = $shippingMethod;
+        $this->payment_method_id = $paymentMethod;
+        $this->shipping_address = $shippingAddress;
+        $this->billing_address = $billingAddressId;
+        $this->user_note = $userNote;
+        $this->total_price = (Cart::cost() + $shippingCost);
+        $this->total_vat = Cart::vat();
+        $this->status = 'processing';
+
+        $this->save();
+    }
+
 }
