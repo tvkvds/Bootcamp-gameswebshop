@@ -9,7 +9,6 @@ class Platform extends Model
 {
     use HasFactory;
 
-
     public function products()
     {
         return $this->belongsToMany(Product::class);

@@ -153,13 +153,13 @@
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label for="shippingAddress">Address Line 1 *</label>
-                                                <input class="form-control form-control-sm" name="address2[address_1]"  id="shippingAdress" type="text" placeholder="Address Line 1">
+                                                <input class="form-control form-control-sm" name="address2[address_1]"  id="shippingAddressOne" type="text" placeholder="Address Line 1">
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label for="shippingAdressTwo">Address Line 2</label>
-                                                <input class="form-control form-control-sm"  name="address2[address_2]"  id="shippingAdressTwo" type="text" placeholder="Address Line 2 (optional)">
+                                                <input class="form-control form-control-sm"  name="address2[address_2]"  id="shippingAddressTwo" type="text" placeholder="Address Line 2 (optional)">
                                             </div>
                                         </div>
                                         <div class="col-6">
@@ -175,7 +175,7 @@
                                             </div>
                                         </div>
                                         <div class="col-12">
-                                            <button class="btn btn-sm w-100" type="submit">
+                                            <button class="btn btn-sm w-100" type="button" id="addressformbutton">
                                             Save Address
                                             </button>
                                         </div>
@@ -355,7 +355,44 @@
                     var total = {{$cart_total}}+0;
                     $('.total-price').text('€'+total);
             }
-        })
+        });
+
+       
+
+        // shipping address 
+        $('#addressformbutton').on('click', function(){   
+
+            console.log("button clicked");        
+            
+            axios({
+                method: 'POST',
+                url: '{{ route("ajaxaddress") }}',
+
+                data: {
+                    address:{
+                    country: $('#shippingCountry').val(),
+                    address_1: $('#shippingAddressOne').val(),
+                    address_2: $('#shippingAddressTwo').val(),
+                    city: $('#shippingCity').val(),
+                    zipcode: $('#shippingZip').val()
+                    },
+                    user: {
+                        first_name: $('#firstName').val(),
+                        last_name: $('#lastName').val(),
+                        email: $('#email').val(),
+                        company: $('#company').val(),
+                        phone: $('#phone').val(),
+                    }      
+                },
+            }).then(function(response) {
+                if (response.data.success) {
+                    console.log(response)
+                }
+            }).catch(function(error) {
+            console.log(error.response)
+            });  
+
+        });
 
         /*$(document).ready(function() {
             $('#checkoutPaymentCard').change(function() {

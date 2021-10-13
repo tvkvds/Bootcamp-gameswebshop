@@ -25,14 +25,11 @@ class RatingFactory extends Factory
     public function definition()
     {
         return [
-
-
             'user_id' => rand(1, 10),
             'product_id' => rand(1,50),
             'rating' => rand(1,5),
             'review' => $this->faker->paragraph(),
             'username' => $this->faker->word() . Str::random(5),
-            
         ];
     }
 }

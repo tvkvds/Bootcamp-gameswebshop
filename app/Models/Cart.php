@@ -16,7 +16,6 @@ class Cart extends Model
 
         if (Session::get('cart'))
         {
-            
             $cart = Session::get('cart');
 
             foreach ($items as $product => $amount)
@@ -68,7 +67,6 @@ class Cart extends Model
         }
     }
 
-
     //calculate total cost of all products in cart
     public static function cost()
     {
@@ -96,7 +94,7 @@ class Cart extends Model
 
             return $total;
         };
-
+        
         return null;
     }
 

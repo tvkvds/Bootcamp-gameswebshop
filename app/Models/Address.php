@@ -10,7 +10,6 @@ class Address extends Model
 {
     use HasFactory, SoftDeletes ;
 
-
     protected $fillable = [
         'country',
         'street',
@@ -25,5 +24,58 @@ class Address extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function createBillingAddress($request, $user_id)
+    {
+        
+        $this->user_id = $user_id;
+        $this->country = $request['country'];
+        $this->address_1 = $request['address_1'];
+        $this->address_2 = $request['address_2'];
+        $this->city = $request['city'];
+        $this->zipcode = $request['zipcode'];
+        $this->billing_address = 1;
+
+        $this->save();
+
+        return $this;
+    }
+
+    public function createShippingAddress($request, $user_id)
+    {
+       
+        $this->user_id = $user_id;
+        $this->country = $request['country'];
+        $this->address_1 = $request['address_1'];
+        $this->address_2 = $request['address_2'];
+        $this->city = $request['city'];
+        $this->zipcode = $request['zipcode'];
+        $this->billing_address = 0;
+
+        $this->save();
+
+        return $this;
+    }   
+    
+    /*
+    //checking if all required fields for shipping address are present
+        foreach ($request['address2'] as $attr)
+        {
+            if (empty($attr))
+            {
+                $ship = false;
+            }
+            else 
+            {
+               $ship = true;
+            }
+        }
+        
+        if ($ship === true)
+        {
+            $shippingAddress = new Address;
+            $shippingAddress->createShippingAddress($request['address2'], $user->id);  
+        }
+    */
 
 }

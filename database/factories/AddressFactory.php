@@ -23,11 +23,7 @@ class AddressFactory extends Factory
      */
     public function definition()
     {
-
-
-      
         return [
-
             'user_id' => $this->faker->randomNumber(3, false),
             'country' => $this->faker->countryCode(),
             'zipcode' => $this->faker->postcode(),
@@ -35,7 +31,6 @@ class AddressFactory extends Factory
             'billing_address' => $this->faker->boolean(),
             'address_1' => $this->faker->word() . ' ' . $this->faker->randomNumber(3, false),
             'address_2' => Str::random(10),
-            
         ];
     }
 }

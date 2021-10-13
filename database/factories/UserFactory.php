@@ -6,7 +6,6 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
-
 class UserFactory extends Factory
 {
     /**
@@ -26,7 +25,6 @@ class UserFactory extends Factory
        $company = [null, $this->faker->company() ];
 
         return [
-            
             'first_name' => $this->faker->firstName(),
             'last_name' => $this->faker->lastName(),
             'username' => $this->faker->word() . Str::random(5),
@@ -40,7 +38,6 @@ class UserFactory extends Factory
             'birthdate' => $this->faker->date(),
             'registered'=> $this->faker->boolean(),
             'company' => $company[$this->faker->boolean(70)],
-         
         ];
     }
 
