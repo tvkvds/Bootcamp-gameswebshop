@@ -12,11 +12,13 @@ use App\Models\User;
 use App\Models\Order;
 use App\Models\Address;
 
-
 class OrderController extends Controller
 {
     public function create()
     {
+       
+
+
         return view('order/create',
         [
             'payment_methods' => PaymentMethod::all(),
@@ -33,47 +35,35 @@ class OrderController extends Controller
     //made assuming there is no loggedin user
     public function store(Request $request)
     { 
-        
+       
+
         if (!Session::get('cart'))
         {
             return back()->withErrors(['msg' => 'Please add products to your shopping cart before checking out']);
         }
         
-        //if there's not a logged in user
-        $user = new User;
-        $user->guestUser($request['user']);
-
-        //billing address
-        $billingAddress = new Address;
-        $billingAddress->createBillingAddress($request['address'], $user->id);
-
-        //shipping address (needs to be a ajax call from frontend)
-        foreach ($request['address2'] as $attr)
+        if (Session::get('user'))
         {
-            if (empty($attr))
-            {
-                $ship = false;
-            }
-            else 
-            {
-               $ship = true;
-            }
+            $user = User::find(Session::get('user'));
+            
+        }
+        else
+        {
+            $user = new User;
+            $user->guestUser($request['user']);
         }
         
-        if ($ship === true)
-        {
-            $shippingAddress = new Address;
-            $shippingAddress->createShippingAddress($request['address2'], $user->id);  
-        }
+        $billingAddress = new Address;
+        $billingAddress->createBillingAddress($request['address'], $user->id);
 
         $shippingMethod = ShippingMethod::find($request['shipping']);
         $paymentMethod = PaymentMethod::where('payment_method', $request['payment'])->pluck('id');
         $totalPrice = (Cart::cost() + $shippingMethod->shipping_cost);
 
         $shippingAddressId = $billingAddress->id;
-        if (isset($shippingAddress))
+        if (Session::get('shippingAddress'))
         {
-            $shippingAddressId = $shippingAddress->id;
+            $shippingAddressId = Session::get('shippingAddress');
         }
         
         //make order (maybe change this to take an array?)
@@ -93,13 +83,14 @@ class OrderController extends Controller
         }
         
         $address = $billingAddress;
-        if (isset($shippingAddress))
+        if (Session::get('shippingAddress'))
         {
-            $address = $shippingAddress;
+            $address = Address::find(Session::get('shippingAddress'));
         }
 
         $cart = Session::get('cart');
         Session::forget('cart');
+        Session::forget('shippingAddress');
 
         return view('order/store',
         [
@@ -115,7 +106,6 @@ class OrderController extends Controller
             'shipping' => $shippingMethod,
             'payment' => $request['payment'],
         ]);
-
     }
 
     public function show($id)
@@ -126,7 +116,6 @@ class OrderController extends Controller
         [
             'order' => $order
         ]);
-
     }
     
 }

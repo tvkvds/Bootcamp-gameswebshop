@@ -21,11 +21,9 @@ class ProductFactory extends Factory
      */
     public function definition()
     {
-
         $discount = [$this->faker->randomFloat(2, 10, 30), null];
 
         return [
-
             'name' => $this->faker->sentence(3),
             'description' => $this->faker->text(),
             'price' => $this->faker->randomFloat(2, 30, 70),
@@ -36,8 +34,6 @@ class ProductFactory extends Factory
             'slug' => $this->faker->slug(3, false),
             'sold' => $this->faker->numberBetween(0, 200),
             'vat' => $this->faker->numberBetween(0,21),
-
-
         ];
     }
 }

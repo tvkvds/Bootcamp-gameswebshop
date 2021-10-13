@@ -13,6 +13,8 @@ class OrderSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Order::factory(25)->create();
+        \App\Models\Order::factory(25)->create(
+            ['user_id' => rand(1,10)]
+        );
     }
 }

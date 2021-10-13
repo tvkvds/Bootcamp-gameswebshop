@@ -21,8 +21,6 @@ class ShippingMethodFactory extends Factory
      */
     public function definition()
     {
-
-       
         return [
             'shipping_method' => $this->faker->word(),
             'shipping_cost' => $this->faker->randomNumber(4, true),

@@ -18,7 +18,6 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, SoftDeletes ;
 
-
     /**
      * The attributes that are mass assignable.
      *
@@ -70,7 +69,7 @@ class User extends Authenticatable
     public function guestUser($request)
     {
         $this::firstOrNew(
-                 ['email' =>  request('email')]
+                ['email' =>  $request['email']]
                 //['id' => auth/session]
         );
        
@@ -84,7 +83,5 @@ class User extends Authenticatable
         $this->save();
 
         return $this;
-    }
-
-    
+    } 
 }

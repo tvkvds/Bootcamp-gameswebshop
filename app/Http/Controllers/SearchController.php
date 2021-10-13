@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Session;
+use Exception;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Platform;
 use App\Models\Cart;
-use Illuminate\Support\Facades\Session;
-use Exception;
 
 class SearchController extends Controller
 {
@@ -36,8 +34,6 @@ class SearchController extends Controller
             'cart_amount' => Cart::amount(),
             'cart_vat' => Cart::vat()
         ]);
-    
     }
-
 }
 

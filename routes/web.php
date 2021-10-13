@@ -16,9 +16,6 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-
-
-
 Route::get('/' , [App\Http\Controllers\HomeController::class, 'index']);
   
 Auth::routes();
@@ -40,7 +37,7 @@ Route::get('/order/{id}', [App\Http\Controllers\OrderController::class, 'show'])
 Route::get('/myaccount', [App\Http\Controllers\UserController::class, 'show']);
 Route::delete('/myaccount', [App\Http\Controllers\UserController::class, 'delete']);
 
-
+Route::post('/address', [App\Http\Controllers\AddressController::class, 'ajaxcreate'])->name('ajaxaddress');
 
 Route::get('/about', [App\Http\Controllers\AboutController::class, 'index']);
 

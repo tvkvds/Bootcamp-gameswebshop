@@ -27,8 +27,7 @@ class Order extends Model
 
     public function products()
     {
-        return $this->belongsToMany(Product::class)->withPivot('amount');
-        
+        return $this->belongsToMany(Product::class)->withPivot('amount');  
     }
 
     public function shippingAddress()
@@ -50,5 +49,4 @@ class Order extends Model
 
         $this->save();
     }
-
 }
