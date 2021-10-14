@@ -26,8 +26,34 @@ class HomeController extends Controller
 
         try
         {
-            $products = Product::orderBy('sold', 'desc')->with(['categories', 'images', 'ratings', 'platforms'])
-            ->limit(6)
+            $bestsellers = Product::orderBy('sold', 'desc')->with(['categories', 'images', 'ratings', 'platforms'])
+            ->limit(3)
+            ->withAvg('ratings as ratings_avg', 'rating')
+            ->withCount('ratings');
+
+        }
+        catch(Exception $e)
+        {
+            return back()->withError($e->getMessage())->withInput();
+        }
+
+        try
+        {
+            $newProducts = Product::orderBy('release_date', 'desc')->with(['categories', 'images', 'ratings', 'platforms'])
+            ->limit(3)
+            ->withAvg('ratings as ratings_avg', 'rating')
+            ->withCount('ratings');
+
+        }
+        catch(Exception $e)
+        {
+            return back()->withError($e->getMessage())->withInput();
+        }
+
+        try
+        {
+            $sales = Product::orderBy('price_discount', 'desc')->with(['categories', 'images', 'ratings', 'platforms'])
+            ->limit(3)
             ->withAvg('ratings as ratings_avg', 'rating')
             ->withCount('ratings');
 
@@ -39,7 +65,9 @@ class HomeController extends Controller
        
 
         return view('home/index', [
-            'products' => $products->get(),
+            'sales' => $sales->get(),
+            'newProducts' => $newProducts->get(),
+            'bestsellers' => $bestsellers->get(),
             'productsCarousel' => $productsCarousel->get(),
             'categories' => Category::all(),
             'cart' => Session::get('cart'),

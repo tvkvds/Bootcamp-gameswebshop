@@ -41,6 +41,8 @@ Route::post('/address', [App\Http\Controllers\AddressController::class, 'ajaxcre
 
 Route::get('/about', [App\Http\Controllers\AboutController::class, 'index']);
 
+Route::get('/account', [App\Http\Controllers\AccountController::class, 'index']);
+
 
 
 

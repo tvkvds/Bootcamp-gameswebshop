@@ -10,14 +10,8 @@
                 <div class="col-1">
                 </div>
                 <div class="col-10">
-                    <!-- SALES/ SPECIAL OFFERS / TOP NEW RELEASES / ETC. -->
-                    <h6>
-                        Bestsellers
-                    </h6>
-                    <hr class="my-3">
-                    <div class="row">
-                        @include('.home.partials.home-card')
-                    </div>
+                    <!-- SALES/ SPECIAL OFFERS / TOP NEW RELEASES / ETC. -->                   
+                    @include('.home.partials.home-card')                   
                 </div>
                 <div class="col-1">
                 </div>
