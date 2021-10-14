@@ -14,7 +14,6 @@ class Category extends Model
 {
     use HasFactory, SoftDeletes;
 
-
     public function products()
     {
         return $this->belongsToMany(Product::class);
@@ -24,13 +23,4 @@ class Category extends Model
     {
         return $this->hasManyThrough(Image::class, Product::class);
     } 
-
-    
-
-    
-
-    
-    
-
-
 }

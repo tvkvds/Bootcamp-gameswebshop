@@ -27,11 +27,10 @@ class UserSeeder extends Seeder
 
         ])->each(function ($u){
 
-           \App\Models\Address::factory(2)->create([
+            \App\Models\Address::factory(2)->create([
                 'user_id' => $u,
-                
             ]);
-
+            
         });
 
         \App\Models\User::factory(1)->create([

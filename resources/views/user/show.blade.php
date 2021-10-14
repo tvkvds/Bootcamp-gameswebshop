@@ -9,6 +9,7 @@
     Previous orders:
     <br>
     @foreach ($user->orders as $order)
+    <a href="/order/{{$order->id}}">
     <div>
     ordernr: {{$order->id}}
     orderdate: {{$order->created_at}}
@@ -16,6 +17,7 @@
     total: {{$order->total_price}}
     {{-- TODO - link to order show page --}}
     </div>
+    <a>
     <br>
     @endforeach
 

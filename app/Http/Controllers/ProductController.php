@@ -2,18 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-use App\Models\Product;
-use Exception;
 use Illuminate\Support\Facades\Session;
+use Exception;
+use App\Models\Product;
 use App\Models\Cart;
-
 
 class ProductController extends Controller
 {
-    
-
     public function show($slug)
     {
         try 
@@ -24,7 +19,6 @@ class ProductController extends Controller
             ->withAvg('ratings as ratings_avg', 'rating')
             ->withCount('ratings')
             ->firstOrFail();
-            
         }
         catch(Exception $e)
         {
@@ -41,7 +35,6 @@ class ProductController extends Controller
         
         ]);
     }
-
 }
 
 

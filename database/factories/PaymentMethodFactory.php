@@ -21,7 +21,6 @@ class PaymentMethodFactory extends Factory
      */
     public function definition()
     {
-       
         return [
             'payment_method' => $this->faker->word()
         ];

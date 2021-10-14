@@ -26,7 +26,6 @@ class PlatformFactory extends Factory
 
         return [
             'platform' => $platforms[rand(0,3)]
-
         ];
     }
 }

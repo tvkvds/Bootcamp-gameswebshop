@@ -10,6 +10,8 @@ use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\SoftDeletes; 
 use App\Models\Order;
 use App\Models\Address;
+use Illuminate\Support\Str;
+use Exception;
 
 class User extends Authenticatable
 
@@ -30,7 +32,9 @@ class User extends Authenticatable
         'username',
         'phone',
         'gender',
-        'birthdate'
+        'birthdate',
+        'company',
+        'registered'
     ];
 
     /**
@@ -61,4 +65,23 @@ class User extends Authenticatable
     {
         return $this->hasMany(Order::class);
     }
+
+    public function guestUser($request)
+    {
+        $this::firstOrNew(
+                ['email' =>  $request['email']]
+                //['id' => auth/session]
+        );
+       
+        $this->registered = 0;
+        $this->email = $request['email'];
+        $this->first_name = $request['first_name'];
+        $this->last_name = $request['last_name'];
+        $this->phone = $request['phone'];
+        $this->company = $request['company'];
+         
+        $this->save();
+
+        return $this;
+    } 
 }

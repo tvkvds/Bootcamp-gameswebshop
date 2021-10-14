@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes; 
 
-
 class Product extends Model
 {
     use HasFactory, SoftDeletes;
@@ -28,7 +27,6 @@ class Product extends Model
         'timestamps',
         'deleted'
     ];
-
 
     public function images()
     {
@@ -52,14 +50,9 @@ class Product extends Model
 
     public function orders()
     {
-        return $this->belongsToMany(Order::class)->withPivot('amount');;
-        
+        return $this->belongsToMany(Order::class)->withPivot('amount');; 
     }
 
-
-    
-
-    
     //filter products on search/shop page
     public function scopeFilter($query, array $filters)
     {
@@ -77,8 +70,7 @@ class Product extends Model
             {
                 $query->whereHas('categories', fn ($query) => 
                     $query->where('categories.id', $value)
-                );
-                
+                );  
             }
             
         }
@@ -94,13 +86,13 @@ class Product extends Model
         }
 
         #product price range
-        // $query->when($filters['price_min'] ?? false, fn ($query, $price_min)=>
-        //     $query->where('price', '>', $price_min)
-        // );
+        $query->when($filters['price_min'] ?? false, fn ($query, $price_min)=>
+            $query->where('price', '>', $price_min)
+        );
 
-        // $query->when($filters['price_max'] ?? false, fn ($query, $price_max)=>
-        //     $query->where('price', '>', $price_max)
-        // );
+        $query->when($filters['price_max'] ?? false, fn ($query, $price_max)=>
+            $query->where('price', '>', $price_max)
+        );
 
     }
 

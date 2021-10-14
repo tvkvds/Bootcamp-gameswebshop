@@ -26,11 +26,10 @@ table adresses
   id integer
   user_id integer
   country string
-  street string
-  unit integer
+  address_1 string
+  address_2 string
   zipcode string
   city string
-  unit_extra string
   billing_address boolean
 }
 
@@ -51,9 +50,12 @@ table orders
   user_id integer
   shipping_method_id integer
   payment_method_id integer
+  shipping_address integer
+  status enum
   date datetime
   user_note text
   total_price integer
+  total_vat integer
 }
 
 table order_product
@@ -81,6 +83,7 @@ table ratings
   id integer
   user_id integer
   product_id integer
+  username string
   rating integer
   review text
 }
@@ -105,6 +108,7 @@ table users
   gender string
   birthdate datetime
   registered integer
+  company string
   email_verified_at datetime
   password string
   

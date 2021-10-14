@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\Cart;
 use Exception;
 
-
 class CartController extends Controller
 {
     public function update()
@@ -28,8 +27,7 @@ class CartController extends Controller
 
             return response()->json([
                 'success'       => true,
-            ]);
-            
+            ]);   
         }
         catch(Exception $e)
         {
