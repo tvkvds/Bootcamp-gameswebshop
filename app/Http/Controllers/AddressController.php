@@ -62,11 +62,11 @@ class AddressController extends Controller
                 $address->city = $request['city'];
                 $address->zipcode = $request['zipcode'];
                 $address->user_id = $request['user_id'];
-                if ($request->type === '#billing')
+                if ($request->type == '#billing')
                 {
                     $address->billing_address = 1;
                 }
-                else
+                if ($request->type == '#shipping')
                 {
                     $address->billing_address = 0;
                 }
