@@ -25,7 +25,7 @@
                             </div>
                             <div class="col-12 col-mb-6 col-lg-3">
                                 <h6>Order Date</h6>
-                                <p>{{date('d-m-Y', strtotime($latestOrder->created_at))  ?? ''}}</p>
+                                <p>{{date('d-m-Y', strtotime($latestOrder->created_at ?? ''))  ?? ''}}</p>
                             </div>
                             <div class="col-12 col-mb-6 col-lg-3">
                                 <h6>Status</h6>
@@ -126,7 +126,7 @@
                                 <input class="form-control form-control-sm" id="billingZip" type="text" value="{{$billingAddress->zipcode  ?? ''}}">
                             </div>
                         </div>
-                        <button class="btn w-100 mt-4 btn-sm" type="button" id="billingupdate" >Edit Address</button>
+                        <button class="btn w-100 mt-4 btn-sm" type="button" id="billingUpdate" >Edit Address</button>
                     </div>
                 </form>
                 <form>
@@ -142,7 +142,7 @@
                         <div class="col-12">
                             <div class="form-group">
                                 <label for="address">Address *</label>
-                                <input class="form-control form-control-sm" id="shippingAddress2" type="text" placeholder="Appartement C4" value="{{$shippingAddress->address_2 ?? ''}}">
+                                <input class="form-control form-control-sm" id="shippingAddress2" type="text" placeholder="Appartment C4" value="{{$shippingAddress->address_2 ?? ''}}">
                             </div>
                         </div>
                         <div class="col-12">
@@ -163,7 +163,7 @@
                                 <input class="form-control form-control-sm" id="shippingZip" type="text" placeholder="E1W 1BQ" value="{{$shippingAddress->zipcode ?? ''}}">
                             </div>
                         </div>
-                        <button class="btn w-100 mt-4 btn-sm" type="button" id="shippingupdate" >Edit Address</button>
+                        <button class="btn w-100 mt-4 btn-sm" type="button" id="shippingUpdate" >Edit Address</button>
                     </div>
                 </form>
             </div>
@@ -201,6 +201,47 @@
             })            
 	       
         }) 
+
+        function updateAddres(type, id) {
+           
+            axios({
+                method: 'POST',
+                url: '{{ route("ajaxaddressupdate") }}',
+
+                data: {
+                    address_1: $(type.concat('Address1')).val(),
+                    address_2: $(type.concat('Address2')).val(),
+                    country: $(type.concat('Country')).val(),
+                    city: $(type.concat('City')).val(),
+                    zipcode: $(type.concat('Zip')).val(), 
+                    address_id: id,
+                    type: type,
+                    user_id: '{{ $user->id }}'
+                },
+            }).then(function(response) {
+                if (response.data.success) {
+                    console.log(response)
+                }
+            }).catch(function(error) {
+            console.log(error.response)
+            })    
+        }
+
+        $('#billingUpdate').on('click', function(){
+            let type = '#billing';
+            let id = '{{$billingAddress->id ?? '0'}}'
+            updateAddres(type, id);
+            
+        })
+
+        $('#shippingUpdate').on('click', function(){
+            let type = '#shipping';
+            let id = '{{$shippingAddress->id ?? '0'}}'
+            updateAddres(type, id);
+            
+        })
+
+        
 
     </script>
 @endpush

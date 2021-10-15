@@ -16,10 +16,10 @@ class AccountController extends Controller
             //make sure route needs auth
             //add logged in user id 
 
-            $user = User::with(['orders', 'addresses'])->find(2);
-            $latestOrder = Order::where('user_id', 2)->latest()->first();
-            $latestBillingAddress = Address::where('user_id', 2)->where('billing_address', 0)->latest()->first();
-            $latestShippingAddress = Address::where('user_id', 2)->where('billing_address', 1)->latest()->first();
+            $user = User::with(['orders', 'addresses'])->find(6);
+            $latestOrder = Order::where('user_id', 6)->latest()->first();
+            $latestBillingAddress = Address::where('user_id', 6)->where('billing_address', 0)->latest()->first();
+            $latestShippingAddress = Address::where('user_id', 6)->where('billing_address', 1)->latest()->first();
         }
         catch(Exception $e)
         {

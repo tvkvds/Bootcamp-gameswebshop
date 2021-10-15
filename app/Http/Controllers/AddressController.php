@@ -35,4 +35,55 @@ class AddressController extends Controller
             ]);
         }
     }
+
+    public function ajaxupdate(Request $request)
+    {
+        try
+        {
+            if ($request['address_id'] > 0)
+            {
+                $address = Address::find($request['address_id']);
+
+                $address->address_1 = $request['address_1'];
+                $address->address_2 = $request['address_2'];
+                $address->country = $request['country'];
+                $address->city = $request['city'];
+                $address->zipcode = $request['zipcode'];
+
+                $address->save();
+            }
+            else
+            {
+                $address = new Address;
+
+                $address->address_1 = $request['address_1'];
+                $address->address_2 = $request['address_2'];
+                $address->country = $request['country'];
+                $address->city = $request['city'];
+                $address->zipcode = $request['zipcode'];
+                $address->user_id = $request['user_id'];
+                if ($request->type === '#billing')
+                {
+                    $address->billing_address = 1;
+                }
+                else
+                {
+                    $address->billing_address = 0;
+                }
+                
+                $address->save();
+            }
+            
+            return response()->json([
+                'success'       => true,
+            ]);   
+        }
+        catch(Exception $e)
+        {
+            return response()->json([
+                'success'   => false,
+                'message'   => $e->getMessage(),
+            ]);
+        }
+    }
 }

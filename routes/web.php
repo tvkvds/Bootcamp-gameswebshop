@@ -40,6 +40,7 @@ Route::delete('/myaccount', [App\Http\Controllers\UserController::class, 'delete
 Route::post('/ajaxuserupdate', [App\Http\Controllers\UserController::class, 'ajaxupdate'])->name('ajaxuserupdate');
 
 Route::post('/address', [App\Http\Controllers\AddressController::class, 'ajaxcreate'])->name('ajaxaddress');
+Route::post('/address', [App\Http\Controllers\AddressController::class, 'ajaxupdate'])->name('ajaxaddressupdate');
 
 Route::get('/about', [App\Http\Controllers\AboutController::class, 'index']);
 
