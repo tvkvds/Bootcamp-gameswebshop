@@ -15,8 +15,7 @@ class AddressController extends Controller
     {
         try
         {
-            $user = new User;
-            $user->guestUser($request->user);
+            $user = User::guestUser($request['user']);
 
             $address = new Address;
             $address->createShippingAddress($request->address, $user->id);
