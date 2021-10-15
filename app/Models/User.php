@@ -12,30 +12,12 @@ use App\Models\Order;
 use App\Models\Address;
 use Illuminate\Support\Str;
 use Exception;
+use Illuminate\Support\Facades\Session;
 
 class User extends Authenticatable
 
 {
     use HasApiTokens, HasFactory, Notifiable, SoftDeletes ;
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var string[]
-     */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'first_name',
-        'last_name',
-        'username',
-        'phone',
-        'gender',
-        'birthdate',
-        'company',
-        'registered'
-    ];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -66,22 +48,38 @@ class User extends Authenticatable
         return $this->hasMany(Order::class);
     }
 
-    public function guestUser($request)
+    /**
+     * Retrieves or creates a guest User 
+     */
+    public static function guestUser($request)
     {
-        $this::firstOrNew(
-                ['email' =>  $request['email']]
-                //['id' => auth/session]
-        );
-       
-        $this->registered = 0;
-        $this->email = $request['email'];
-        $this->first_name = $request['first_name'];
-        $this->last_name = $request['last_name'];
-        $this->phone = $request['phone'];
-        $this->company = $request['company'];
-         
-        $this->save();
+        try 
+        {
+            $user = self::firstOrNew(
+                ['email' =>  $request['email'], 'id' => Session::get('user')]
+            );
+    
+            $user->registered = 0;
+            $user->email = $request['email'];
+            $user->first_name = $request['first_name'];
+            $user->last_name = $request['last_name'];
+            $user->phone = $request['phone'];
+            $user->company = $request['company'];
+            
+            $user->save();
+    
+            return $user;   
+        }
+        catch(Exception $e)
+        {
+            return back()->withError($e->getMessage())->withInput();
+        }
+        
+    }
 
-        return $this;
-    } 
+
+    
+
+   
+ 
 }

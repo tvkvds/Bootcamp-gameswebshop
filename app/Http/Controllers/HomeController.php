@@ -30,7 +30,6 @@ class HomeController extends Controller
             ->limit(3)
             ->withAvg('ratings as ratings_avg', 'rating')
             ->withCount('ratings');
-
         }
         catch(Exception $e)
         {
@@ -43,7 +42,6 @@ class HomeController extends Controller
             ->limit(3)
             ->withAvg('ratings as ratings_avg', 'rating')
             ->withCount('ratings');
-
         }
         catch(Exception $e)
         {
@@ -52,20 +50,18 @@ class HomeController extends Controller
 
         try
         {
-            $sales = Product::orderBy('price_discount', 'desc')->with(['categories', 'images', 'ratings', 'platforms'])
+            $sales = Product::whereNotNull('price_discount')->orderBy('price_discount', 'asc')->with(['categories', 'images', 'ratings', 'platforms'])
             ->limit(3)
             ->withAvg('ratings as ratings_avg', 'rating')
-            ->withCount('ratings');
-
+            ->withCount('ratings')->get(); 
         }
         catch(Exception $e)
         {
             return back()->withError($e->getMessage())->withInput();
         }
        
-
         return view('home/index', [
-            'sales' => $sales->get(),
+            'sales' => $sales,
             'newProducts' => $newProducts->get(),
             'bestsellers' => $bestsellers->get(),
             'productsCarousel' => $productsCarousel->get(),
@@ -76,6 +72,5 @@ class HomeController extends Controller
             'cart_amount' => Cart::amount(),
             'cart_vat' => Cart::vat()
         ]);
-
     }
 }

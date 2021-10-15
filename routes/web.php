@@ -37,11 +37,17 @@ Route::get('/order/{id}', [App\Http\Controllers\OrderController::class, 'show'])
 Route::get('/myaccount', [App\Http\Controllers\UserController::class, 'show']);
 Route::delete('/myaccount', [App\Http\Controllers\UserController::class, 'delete']);
 
+Route::post('/ajaxuserupdate', [App\Http\Controllers\UserController::class, 'ajaxupdate'])->name('ajaxuserupdate');
+
 Route::post('/address', [App\Http\Controllers\AddressController::class, 'ajaxcreate'])->name('ajaxaddress');
+Route::post('/address', [App\Http\Controllers\AddressController::class, 'ajaxupdate'])->name('ajaxaddressupdate');
 
 Route::get('/about', [App\Http\Controllers\AboutController::class, 'index']);
 
+Route::get('test',  [App\Http\Controllers\TestController::class, 'index']);
+
 Route::get('/account', [App\Http\Controllers\AccountController::class, 'index']);
+
 
 
 
