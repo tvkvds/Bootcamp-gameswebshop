@@ -97,7 +97,7 @@
                                     <td class="text-center">€{{$total}}</td>
                                     <td class="text-center">€{{$shipping->shipping_cost}}</td>
                                     <td class="text-center">€{{$order->total_vat}}</td>
-                                    <td class="text-end">€{{$order->total_price }}</td>
+                                    <td class="text-end">€{{$cart_total}}</td>
                                 </tr>
                             </tbody>
                         </table>
