@@ -11402,13 +11402,15 @@ nav .icon:hover {
 .carousel-main-img,
 .carousel-sec-img,
 .card-img-home,
-.checkout-img {
+.checkout-img,
+.profile-img {
   -o-object-fit: contain !important;
      object-fit: contain !important;
   max-height: 100% !important;
+  -webkit-user-drag: none;
 }
 
-/* navigation */
+/* search page */
 .accordion button {
   color: black !important;
   box-shadow: none !important;
@@ -11434,6 +11436,16 @@ nav .icon:hover {
 .card-link:hover {
   color: inherit;
   text-decoration: none;
+}
+
+.card-search {
+  transition: transform 0.5s;
+  border: none !important;
+}
+
+.card-search:hover {
+  transform: scale(1.02);
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3), 3px 6px 20px 0 rgba(0, 0, 0, 0.4);
 }
 
 /* HOME PAGE */
@@ -11482,7 +11494,34 @@ nav .icon:hover {
   box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3), 3px 6px 20px 0 rgba(0, 0, 0, 0.4);
 }
 
-/* PRODUCT REVIEW */
+/* PRODUCT */
+.btn-prod-plus,
+.btn-prod-minus {
+  transition: transform 0.5s;
+}
+
+.btn-prod-plus:active,
+.btn-prod-minus:active {
+  transform: scale(0.8);
+}
+
+.gallery-img {
+  cursor: pointer;
+  transition: transform 0.5s;
+}
+
+.gallery-img:hover {
+  transform: scale(1.15);
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3), 3px 6px 20px 0 rgba(0, 0, 0, 0.4);
+  opacity: 0.75;
+}
+
+.gallery-img:active {
+  transform: scale(1.05);
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3), 3px 6px 20px 0 rgba(0, 0, 0, 0.4);
+  opacity: 0.75;
+}
+
 .stars {
   position: relative;
   display: inline-block;
