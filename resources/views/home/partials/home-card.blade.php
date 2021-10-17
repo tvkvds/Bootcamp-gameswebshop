@@ -17,7 +17,7 @@
                         
                     </div>
                     <div class="card-body card-home-div">
-                        <h5 class="card-title">{{$bestseller->name}}</h5>
+                        <h5 class="card-title text-center text-lg-start">{{$bestseller->name}}</h5>
                         {{-- <h6 class="card-subtitle mb-2 text-muted"><del class="pe-2">€{{$bestseller->price}}</del>€{{$bestseller->price_discount}}</h6> --}}
                         @if ($bestseller->price_discount)
                                 <h6 class="px-3"><del class="text-muted pe-2">€{{$bestseller->price}}</del>  €{{$bestseller->price_discount}}</h6>

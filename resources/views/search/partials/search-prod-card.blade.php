@@ -2,7 +2,7 @@
 @foreach ($products as $product)
 
     <a class="card-link" href="/products/{{$product->slug}}">
-    <div class="card">
+    <div class="card card-search">
         <div class="row g-0">
 
             <div class="col-md-4 d-flex align-items-center justify-content-center card-img-div">
@@ -16,8 +16,8 @@
             <div class="col-md-8">
                 <div class="card-body d-flex flex-column">
 
-                    <h5 class="card-title">{{$product->name}}</h5>
-                    <p class="card-text">{{$product->description}}</p>
+                    <h5 class="card-title text-center text-md-start">{{$product->name}}</h5>
+                    <p class="card-text d-none d-md-block">{{$product->description}}</p>
                     <p class="card-text text-muted">
                         @foreach ($product->categories as $category)
                         {{$category->name}}
