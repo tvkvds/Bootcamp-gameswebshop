@@ -11350,6 +11350,24 @@ nav .icon:hover {
   fill: gray;
 }
 
+.search-wrapper {
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+}
+
+/* no more cross in the search bar */
+input[type=search]::-webkit-search-decoration,
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-results-button,
+input[type=search]::-webkit-search-results-decoration {
+  display: none;
+}
+
 /* modal side animation */
 .modal .modal-dialog {
   position: fixed;
@@ -11497,7 +11515,7 @@ nav .icon:hover {
 /* PRODUCT */
 .btn-prod-plus,
 .btn-prod-minus {
-  transition: transform 0.5s;
+  transition: transform 0.3s;
 }
 
 .btn-prod-plus:active,
@@ -11584,6 +11602,10 @@ footer .btn:active,
 footer .btn:focus {
   border: none;
   background-color: inherit;
+}
+
+footer .bi:hover {
+  fill: gray;
 }
 
 [objects-in-cart-data] {
