@@ -1,0 +1,42 @@
+.carousel-control-next,
+.carousel-control-prev {
+    filter: invert(100%);
+    position: relative;
+    opacity: 1;
+    width: fit-content;
+    transition: transform .3s;
+}
+
+.carousel-control-next:hover,
+.carousel-control-prev:hover {
+    transform: scale(1.2);
+}
+
+.carousel-control-next:active,
+.carousel-control-prev:active {
+    transform: scale(0.8);
+}
+
+.carousel-sec-div {
+    border-left: 1px rgb(200, 200, 200) solid;
+}
+
+.carousel {
+    transition: transform .5s;
+    border-radius: 0.75rem;
+}
+
+.carousel:hover {
+    transform: scale(1.02);
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3), 3px 6px 20px 0 rgba(0, 0, 0, 0.4);
+}
+
+.card-home {
+    transition: transform .5s;
+    border: none !important;
+}
+
+.card-home:hover {
+    transform: scale(1.02);
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3), 3px 6px 20px 0 rgba(0, 0, 0, 0.4);
+}

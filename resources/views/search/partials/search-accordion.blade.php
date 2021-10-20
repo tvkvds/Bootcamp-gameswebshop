@@ -26,18 +26,18 @@
 
                             <div class="form-check m-2">
                                 
-                                <input class="form-check-input shadow-none" type="checkbox" name="platforms[{{$platform->platform}}]" value="{{$platform->id}}" id="flexCheckChecked">
+                                <input class="form-check-input shadow-none" type="checkbox" name="platforms[{{$platform->platform}}]" value="{{$platform->id}}" id="[{{$platform->platform}}]">
                             
                                 @if (request('platforms'))
                                     @foreach (request('platforms') as $blaat => $yeet)
                                         
                                         @if ($blaat === $platform->platform)
-                                            <input class="form-check-input shadow-none" type="checkbox" name="platforms[{{$platform->platform}}]" value="{{$platform->id}}" id="flexCheckChecked" checked>
+                                            <input class="form-check-input shadow-none" type="checkbox" name="platforms[{{$platform->platform}}]" value="{{$platform->id}}" id="[{{$platform->platform}}]" checked>
                                         @endif
                                     @endforeach
                                 @endif
                                 
-                                <label class="form-check-label" for="flexCheckChecked">
+                                <label class="form-check-label" for="[{{$platform->platform}}]">
                                     {{$platform->platform}}
                                 </label>
 
@@ -66,19 +66,19 @@
                         @foreach ($categories as $category)
                             <div class="form-check m-2">
                                 
-                                <input class="form-check-input shadow-none" type="checkbox" name="categories[{{$category->slug}}]" value="{{$category->id}}" id="flexCheckChecked">
+                                <input class="form-check-input shadow-none" type="checkbox" name="categories[{{$category->slug}}]" value="{{$category->id}}" id="[{{$category->slug}}]">
                                 
                                 @if (request('categories'))
                                     @foreach (request('categories') as $name => $id)
                                         
                                         @if ($name === strtolower($category->name))
-                                            <input class="form-check-input shadow-none" type="checkbox" name="categories[{{$category->slug}}]" value="{{$category->id}}" id="flexCheckChecked" checked>
+                                            <input class="form-check-input shadow-none" type="checkbox" name="categories[{{$category->slug}}]" value="{{$category->id}}" id="[{{$category->slug}}]" checked>
                                         @endif
 
                                     @endforeach
                                 @endif
                                 
-                                <label class="form-check-label" for="flexCheckChecked">
+                                <label class="form-check-label" for="[{{$category->slug}}]">
                                     {{$category->name}}
                                 </label>
                                 
