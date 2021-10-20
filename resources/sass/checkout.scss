@@ -1,0 +1,34 @@
+.form-control,
+.table {
+    border-color: rgb(200, 200, 200);
+}
+
+.form-control:focus {
+    color: black;
+    background-color: white;
+    border-color: black;
+    box-shadow: none;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+#bankDropdown .btn {
+    min-width: 7rem !important;
+    background-color: white;
+    color: black;
+    border-color: rgb(200, 200, 200);
+}
+
+#bankDropdown .dropdown-menu {
+    min-width: 7rem !important;
+}
+
+.dropdown-menu li:hover {
+    background-color: rgb(200, 200, 200);
+}
+
+#idealLogo {
+    height: 18px;
+}
