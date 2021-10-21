@@ -15,15 +15,69 @@ nav .icon:hover {
     fill: gray;
 }
 
+/* search bar */
 .search-wrapper {
     position: relative;
+    width: 200px;
+}
+
+.search {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    border-radius: 100px;
+    margin-left: auto;
+    transition: width 450ms ;
+    width: 41px;
+}
+
+.search-input{
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: transparent;
+    opacity: 0;
+    cursor: pointer;
 }
 
 .search-icon{
-    position: absolute;
-    top: 6px;
-    right: 8px;
+    font-size: 1.5rem;
+    margin-left: auto;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 41px;
+    height: 41px;
+    color: white;
+    background: black;
 }
+
+.search:focus-within {
+    width: 100%;
+    background: white;
+    
+    .search-input {
+      opacity: 1;
+      z-index: initial;
+      cursor: initial;
+      width: 100%;
+    }
+    
+    .search-icon {
+      background: white;
+      color: black;
+      z-index: 2;
+    }
+
+    .bi-search{
+        fill: black;
+    }
+  }
 
 /* no more cross in the search bar */
 input[type="search"]::-webkit-search-decoration,
