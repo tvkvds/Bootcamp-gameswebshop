@@ -160,3 +160,45 @@ input[type="search"]::-webkit-search-results-decoration {
     background-color: white;
     color: black;
 }
+
+/* navbar logo animation */
+.navbar-brand {
+    color: white;
+    position: relative;
+}
+
+.navbar-brand.animated span {
+    display: inline-block;
+    animation: loading 0.5s linear;
+}
+
+.navbar-brand span:nth-child(2) {
+    animation-delay: 0.1s;
+} 
+.navbar-brand span:nth-child(3) {
+    animation-delay: 0.2s;
+} 
+.navbar-brand span:nth-child(4) {
+    animation-delay: 0.3s;
+} 
+.navbar-brand span:nth-child(6) {
+    animation-delay: 0.4s;
+} 
+.navbar-brand span:nth-child(7) {
+    animation-delay: 0.5s;
+} 
+.navbar-brand span:nth-child(8) {
+    animation-delay: 0.6s;
+} 
+.navbar-brand span:nth-child(9) {
+    animation-delay: 0.7s;
+} 
+.navbar-brand span:nth-child(10) {
+    animation-delay: 0.8s;
+} 
+
+@keyframes loading{
+    0%{
+        transform: rotate(-360deg);
+    }
+}

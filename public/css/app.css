@@ -11511,6 +11511,69 @@ input[type=search]::-webkit-search-results-decoration {
   color: black;
 }
 
+/* navbar logo animation */
+.navbar-brand {
+  color: white;
+  position: relative;
+}
+
+.navbar-brand.animated span {
+  display: inline-block;
+  -webkit-animation: loading 0.5s linear;
+          animation: loading 0.5s linear;
+}
+
+.navbar-brand span:nth-child(2) {
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s;
+}
+
+.navbar-brand span:nth-child(3) {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+}
+
+.navbar-brand span:nth-child(4) {
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+}
+
+.navbar-brand span:nth-child(6) {
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
+}
+
+.navbar-brand span:nth-child(7) {
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+}
+
+.navbar-brand span:nth-child(8) {
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s;
+}
+
+.navbar-brand span:nth-child(9) {
+  -webkit-animation-delay: 0.7s;
+          animation-delay: 0.7s;
+}
+
+.navbar-brand span:nth-child(10) {
+  -webkit-animation-delay: 0.8s;
+          animation-delay: 0.8s;
+}
+
+@-webkit-keyframes loading {
+  0% {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(-360deg);
+  }
+}
 .accordion button {
   color: black !important;
   box-shadow: none !important;
@@ -11660,6 +11723,11 @@ input[type=search]::-webkit-search-results-decoration {
 .avg-review {
   top: 1.5rem;
   right: 1rem;
+}
+
+/* overrides bootstrap button group */
+.atc-button {
+  border-radius: 0.2rem !important;
 }
 
 footer {

@@ -65,3 +65,8 @@
     top: 1.5rem;
     right: 1rem;
 }
+
+/* overrides bootstrap button group */
+.atc-button {
+    border-radius: 0.2rem !important;
+}
