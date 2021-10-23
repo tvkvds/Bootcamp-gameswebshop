@@ -21,7 +21,18 @@
                 <li class="nav-item me-4"><a href="/about">ABOUT</a></li>
             </ul>
             <!-- CENTER CONTENT -->
-            <a class="navbar-brand mx-auto d-none d-lg-block" href="/">City Games</a>
+            <div class="navbar-brand mx-auto d-none d-lg-block">
+                <span>C</span>
+                <span>I</span>
+                <span>T</span>
+                <span>Y</span>
+                <span>&nbsp;</span>
+                <span>G</span>
+                <span>A</span>
+                <span>M</span>
+                <span>E</span>
+                <span>S</span>
+            </div>
             
             <!-- SEARCH, ACOUNT AND SHOPPING CART ICONS -->
             <ul class="navbar-nav flex-row">
@@ -55,3 +66,15 @@
         </div>
     </div>
 </nav>
+
+@push('scripts')
+    <script>
+        $(".navbar-brand span:nth-child(10)").on("animationend webkitAnimationEnd oAnimationEnd", function(){
+            $(".navbar-brand").removeClass("animated")  
+        })
+
+        $(".navbar-brand").hover(function(){
+            $(this).addClass("animated");        
+        })
+    </script>
+@endpush
