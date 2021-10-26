@@ -11362,20 +11362,21 @@ nav {
 }
 
 nav a {
-  color: white;
+  color: gray;
   text-decoration: none;
 }
 
 nav a:hover {
-  color: gray;
-}
-
-nav .icon:hover {
-  fill: gray;
+  display: inline-block;
+  color: white;
+  -webkit-box-reflect: below 1px linear-gradient(transparent, #0004);
+  text-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white, 0 0 20px white;
+  line-height: 0.7em;
 }
 
 /* search bar */
 .search-wrapper {
+  display: inline-block;
   position: relative;
   width: 200px;
 }
@@ -11521,6 +11522,7 @@ input[type=search]::-webkit-search-results-decoration {
   display: inline-block;
   -webkit-animation: loading 0.5s linear;
           animation: loading 0.5s linear;
+  text-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white, 0 0 20px white;
 }
 
 .navbar-brand span:nth-child(2) {

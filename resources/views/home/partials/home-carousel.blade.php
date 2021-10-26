@@ -65,9 +65,9 @@
         $(document).ready( function(){
             $('.carousel-main-div').height( $('.active .carousel-main-div').width() / 1.5);
             $('.carousel-sec-div').height($('.carousel-main-div').height());
-            var ratioOne        = $('.active .img1').height() / $('.active .img1').width();
-            var ratioTwo        = $('.active .img2').height() / $('.active .img2').width();
-            var ratioThree      = $('.active .img3').height() / $('.active .img3').width();
+            var ratioOne        = $('.active .img1').prop('naturalHeight') / $('.active .img1').prop('naturalWidth');
+            var ratioTwo        = $('.active .img2').prop('naturalHeight') / $('.active .img2').prop('naturalWidth');
+            var ratioThree      = $('.active .img3').prop('naturalHeight') / $('.active .img3').prop('naturalWidth');
             var ratioSum        = ratioOne + ratioTwo + ratioThree;
             var percentageOne   = (1 / ratioSum) * ratioOne;
             var percentageTwo   = (1 / ratioSum) * ratioTwo;
@@ -83,9 +83,9 @@
         $(window).on( 'resize', function () {
             $('.carousel-main-div').height( $('.active .carousel-main-div').width() / 1.5);
             $('.carousel-sec-div').height($('.carousel-main-div').height());
-            var ratioOne        = $('.active .img1').height() / $('.active .img1').width();
-            var ratioTwo        = $('.active .img2').height() / $('.active .img2').width();
-            var ratioThree      = $('.active .img3').height() / $('.active .img3').width();
+            var ratioOne        = $('.active .img1').prop('naturalHeight') / $('.active .img1').prop('naturalWidth');
+            var ratioTwo        = $('.active .img2').prop('naturalHeight') / $('.active .img2').prop('naturalWidth');
+            var ratioThree      = $('.active .img3').prop('naturalHeight') / $('.active .img3').prop('naturalWidth');
             var ratioSum        = ratioOne + ratioTwo + ratioThree;
             var percentageOne   = (1 / ratioSum) * ratioOne;
             var percentageTwo   = (1 / ratioSum) * ratioTwo;
@@ -101,9 +101,9 @@
         $('#carousel').on('slid.bs.carousel', function() {
             $('.active .carousel-main-div').height( $('.active .carousel-main-div').width() / 1.5);
             $('.active .carousel-sec-div').height($('.active .carousel-main-div').height());
-            var ratioOne        = $('.active .img1').height() / $('.active .img1').width();
-            var ratioTwo        = $('.active .img2').height() / $('.active .img2').width();
-            var ratioThree      = $('.active .img3').height() / $('.active .img3').width();
+            var ratioOne        = $('.active .img1').prop('naturalHeight') / $('.active .img1').prop('naturalWidth');
+            var ratioTwo        = $('.active .img2').prop('naturalHeight') / $('.active .img2').prop('naturalWidth');
+            var ratioThree      = $('.active .img3').prop('naturalHeight') / $('.active .img3').prop('naturalWidth');
             var ratioSum        = ratioOne + ratioTwo + ratioThree;
             console.log("$('.img1').height()");
             var percentageOne   = (1 / ratioSum) * ratioOne;
