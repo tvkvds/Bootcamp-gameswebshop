@@ -46,7 +46,9 @@
     <script>
         // resizes div in the card to make sure the img doesnt stick out
         $(window).on( 'resize', function () {
-            $('.card-img-div').height( $('.card-img-div').width() / 1.5);
+            $('.card-img-div').each(function(){
+                $(this).height( $(this).width() / 1.5);
+            }); 
         }).resize();
     </script>
 @endpush
