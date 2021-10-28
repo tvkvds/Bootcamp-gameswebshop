@@ -1,3 +1,4 @@
+<!-- four social media links -->
 <footer class="text-center text-white">
     <div class="container p-4 pb-0">
         <div class="footer-link-wrapper mb-4">
@@ -26,8 +27,9 @@
                 </svg>
             </a>
         </div>
-    </div>     
-    <div class="text-center p-3">
+    </div> 
+    <!-- coppy right    --> 
+    <div class="text-center pb-3">
         &copy 2021 Copyright:
         <a class="text-white" href="https://bestlifeonline.com/yo-mama-jokes/">Your Mom</a>
     </div>

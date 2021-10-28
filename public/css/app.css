@@ -11361,6 +11361,10 @@ nav {
   background-color: #363636;
 }
 
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
 nav a {
   color: gray;
   text-decoration: none;
@@ -11372,6 +11376,15 @@ nav a:hover {
   -webkit-box-reflect: below 1px linear-gradient(transparent, #0004);
   text-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white, 0 0 20px white;
   line-height: 0.7em;
+}
+
+nav .icon {
+  fill: gray;
+}
+
+nav .nav-link:hover .icon {
+  fill: white;
+  filter: drop-shadow(0 0 5px white) drop-shadow(0 0 15px white);
 }
 
 /* search bar */
@@ -11417,6 +11430,15 @@ nav a:hover {
   background: inherit;
 }
 
+.search .bi-search {
+  fill: gray;
+}
+
+.search:hover .bi-search {
+  fill: white;
+  filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
+}
+
 .search:focus-within {
   width: 100%;
   background: white;
@@ -11434,6 +11456,10 @@ nav a:hover {
 }
 .search:focus-within .bi-search {
   fill: black;
+}
+.search:focus-within .bi-search:hover {
+  fill: black;
+  filter: none;
 }
 
 /* no more cross in the search bar */
