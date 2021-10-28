@@ -77,5 +77,9 @@
         $(".navbar-brand span:nth-child(10)").on("animationend webkitAnimationEnd oAnimationEnd", function(){
             $(".navbar-brand").removeClass("animated")  
         }) 
+        /* shitty hack to make focus within work on a styled svg */
+        $(".search-icon").on("click", function(){
+            $(".search-input").focus();
+        })
     </script>
 @endpush

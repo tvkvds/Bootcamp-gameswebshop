@@ -11434,6 +11434,11 @@ nav .nav-link:hover .icon {
   fill: gray;
 }
 
+.search:hover .bi-search {
+  fill: white;
+  filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
+}
+
 .search:focus-within {
   width: 100%;
   background: white;
@@ -11451,6 +11456,10 @@ nav .nav-link:hover .icon {
 }
 .search:focus-within .bi-search {
   fill: black;
+}
+.search:focus-within .bi-search:hover {
+  fill: black;
+  filter: none;
 }
 
 /* no more cross in the search bar */

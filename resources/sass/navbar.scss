@@ -81,13 +81,12 @@ nav .nav-link:hover .icon{
     fill: gray;
 }
 
-//broken makes svg unclickable
-// .search:hover .bi-search{
-//     fill: white;
-//     filter: 
-//     drop-shadow(0 0 5px white)
-//     drop-shadow(0 0 10px white);
-// }
+.search:hover .bi-search{
+    fill: white;
+    filter: 
+    drop-shadow(0 0 5px white)
+    drop-shadow(0 0 10px white);
+}
 
 .search:focus-within {
     width: 100%;
@@ -110,10 +109,10 @@ nav .nav-link:hover .icon{
         fill: black;
     }
 
-    // .bi-search:hover{
-    //     fill: black;
-    //     filter: none;
-    // }
+    .bi-search:hover{
+        fill: black;
+        filter: none;
+    }
 }
 
 /* no more cross in the search bar */
