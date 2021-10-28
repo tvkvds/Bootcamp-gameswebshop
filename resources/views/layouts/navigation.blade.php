@@ -36,18 +36,18 @@
             
             <!-- SEARCH, ACOUNT AND SHOPPING CART ICONS -->
             <ul class="navbar-nav flex-row">
-                <li class="search-wrapper col-12 col-lg-3">
+                <li class="search-wrapper col-12 col-lg-3 d-none d-lg-block">
                     <form class="search" action="/search" method="POST">
-                    <input type="search" name="search-query" class="form-control form-control-dark search-input" placeholder="Search..." autocomplete="off">
-                    <span class="search-icon text-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" class="bi bi-search" viewBox="0 0 16 16">
-                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                        </svg>
-                    </span>
+                        <input type="search" name="search-query" class="form-control form-control-dark search-input" placeholder="Search..." autocomplete="off">
+                        <span class="search-icon text-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                            </svg>
+                        </span>
                     </form>
                 </li>
                 <li>
-                    <a class="nav-link" href="/account">
+                    <a class="nav-link ms-1" href="/account">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#fff" class="icon bi bi-person" viewBox="0 0 16 16">
                         <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
                         </svg>
@@ -69,12 +69,13 @@
 
 @push('scripts')
     <script>
-        $(".navbar-brand span:nth-child(10)").on("animationend webkitAnimationEnd oAnimationEnd", function(){
-            $(".navbar-brand").removeClass("animated")  
-        })
-
+        /* gives animated class on hover */
         $(".navbar-brand").hover(function(){
             $(this).addClass("animated");        
         })
+        /* removes animated class after the last letter has turned */
+        $(".navbar-brand span:nth-child(10)").on("animationend webkitAnimationEnd oAnimationEnd", function(){
+            $(".navbar-brand").removeClass("animated")  
+        }) 
     </script>
 @endpush
