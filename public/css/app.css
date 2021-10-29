@@ -11391,7 +11391,7 @@ nav .nav-link:hover .icon {
 .search-wrapper {
   display: inline-block;
   position: relative;
-  width: 200px;
+  width: 41px;
 }
 
 .search {
@@ -11400,7 +11400,7 @@ nav .nav-link:hover .icon {
   display: flex;
   border-radius: 100px;
   margin-left: auto;
-  transition: width 450ms;
+  transition: width 500ms;
   width: 41px;
 }
 

@@ -36,7 +36,7 @@
             
             <!-- SEARCH, ACOUNT AND SHOPPING CART ICONS -->
             <ul class="navbar-nav flex-row">
-                <li class="search-wrapper col-12 col-lg-3 d-none d-lg-block">
+                <li class="search-wrapper col-12 col-lg-3 ">
                     <form class="search" action="/search" method="POST">
                         <input type="search" name="search-query" class="form-control form-control-dark search-input" placeholder="Search..." autocomplete="off">
                         <span class="search-icon text-center">
@@ -77,9 +77,13 @@
         $(".navbar-brand span:nth-child(10)").on("animationend webkitAnimationEnd oAnimationEnd", function(){
             $(".navbar-brand").removeClass("animated")  
         }) 
-        /* shitty hack to make focus within work on a styled svg */
-        $(".search-icon").on("click", function(){
+        /* shitty hack to make focus within work on a styled svg and some moving divs*/
+        $(".search").on("click", function(){
             $(".search-input").focus();
+            $(".search-wrapper").animate({width: 200}, 500 );
+        })
+        $(".search").on("focusout", function(){
+            $(".search-wrapper").animate({width: 41}, 500 );
         })
     </script>
 @endpush
