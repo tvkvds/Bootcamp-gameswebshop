@@ -103,7 +103,7 @@
                                     </button>
                                 </span>
 
-                                <button class="ms-4 btn btn-sm">
+                                <button class="atc-button ms-4 btn btn-sm">
                                     Add To Cart
                                 </button>
 

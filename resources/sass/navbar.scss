@@ -1,0 +1,247 @@
+nav {
+    background-color: #363636;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+nav a {
+    color: gray;
+    text-decoration: none;
+}
+
+nav a:hover {
+    display: inline-block;
+    color: white;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, #0004);
+    text-shadow: 
+    0 0 5px white,
+    0 0 10px white,
+    0 0 15px white,
+    0 0 20px white,;
+    line-height: 0.7em;
+}
+
+nav .icon{
+    fill: gray;
+}
+
+nav .nav-link:hover .icon{
+    fill: white;
+    filter: 
+    drop-shadow(0 0 5px white)
+    drop-shadow(0 0 15px white);
+}
+
+/* search bar */
+.search-wrapper {
+    display: inline-block;
+    position: relative;
+    width: 41px;
+}
+
+.search {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    border-radius: 100px;
+    margin-left: auto;
+    transition: width 500ms ;
+    width: 41px;
+}
+
+.search-input{
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: transparent;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.search-icon{
+    font-size: 1.5rem;
+    margin-left: auto;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 41px;
+    height: 41px;
+    color: white;
+    background: inherit;
+}
+
+.search .bi-search {
+    fill: gray;
+}
+
+.search:hover .bi-search{
+    fill: white;
+    filter: 
+    drop-shadow(0 0 5px white)
+    drop-shadow(0 0 10px white);
+}
+
+.search:focus-within {
+    width: 100%;
+    background: white;
+    
+    .search-input {
+      opacity: 1;
+      z-index: initial;
+      cursor: initial;
+      width: 100%;
+    }
+    
+    .search-icon {
+      background: white;
+      color: black;
+      z-index: 2;
+    }
+
+    .bi-search{
+        fill: black;
+    }
+
+    .bi-search:hover{
+        fill: black;
+        filter: none;
+    }
+}
+
+/* no more cross in the search bar */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { 
+    display: none; 
+}
+
+/* modal side animation */
+.modal .modal-dialog {
+    position: fixed;
+    margin: auto;
+    width: 320px;
+    height: 100%;
+    -webkit-transform: translate3d(0%, 0, 0);
+    -ms-transform: translate3d(0%, 0, 0);
+    -o-transform: translate3d(0%, 0, 0);
+    transform: translate3d(0%, 0, 0);
+}
+
+.modal .modal-content {
+    height: 100%;
+    overflow-y: auto;
+}
+
+.modal.fade .modal-dialog {
+    right: -320px;
+    -webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+    -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+    -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+    transition: opacity 0.3s linear, right 0.3s ease-out;
+}
+
+.modal.fade.show .modal-dialog {
+    right: 0;
+}
+
+/* modal */
+#modalClose {
+    position: absolute;
+    top: 1.5rem;
+    right: 1rem;
+}
+
+.close,
+.btn-counter,
+.counter {
+    all: unset;
+}
+
+.counter {
+    max-width: 3ch;
+}
+
+.btn-delete:hover .bi,
+#modalClose:hover .bi {
+    fill: gray;
+}
+
+
+/* cart counter */
+[objects-in-cart-data] {
+    position: relative;
+    display: inline-block;
+}
+
+[objects-in-cart-data]::before {
+    content: attr(objects-in-cart-data);
+    position: absolute;
+    top: -.3rem;
+    right: -.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    font-size: 11px;
+    font-weight: 500;
+    border-radius: 50%;
+    border: 1px solid black;
+    background-color: white;
+    color: black;
+}
+
+/* navbar logo animation */
+.navbar-brand {
+    color: white;
+    position: relative;
+}
+
+.navbar-brand.animated span {
+    display: inline-block;
+    animation: loading 0.5s linear;
+    text-shadow: 
+    0 0 5px white,
+    0 0 10px white,
+    0 0 15px white,
+    0 0 20px white,;
+}
+
+.navbar-brand span:nth-child(2) {
+    animation-delay: 0.1s;
+} 
+.navbar-brand span:nth-child(3) {
+    animation-delay: 0.2s;
+} 
+.navbar-brand span:nth-child(4) {
+    animation-delay: 0.3s;
+} 
+.navbar-brand span:nth-child(6) {
+    animation-delay: 0.4s;
+} 
+.navbar-brand span:nth-child(7) {
+    animation-delay: 0.5s;
+} 
+.navbar-brand span:nth-child(8) {
+    animation-delay: 0.6s;
+} 
+.navbar-brand span:nth-child(9) {
+    animation-delay: 0.7s;
+} 
+.navbar-brand span:nth-child(10) {
+    animation-delay: 0.8s;
+} 
+
+@keyframes loading{
+    0%{
+        transform: rotate(-360deg);
+    }
+}

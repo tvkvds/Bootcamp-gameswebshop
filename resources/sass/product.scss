@@ -1,0 +1,72 @@
+.gallery-img {
+    cursor: pointer;
+    transition: transform .5s;
+}
+
+.gallery-img:hover {
+    transform: scale(1.15);
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3), 3px 6px 20px 0 rgba(0, 0, 0, 0.4);
+    opacity: 0.75;
+}
+.gallery-img:active {
+    transform: scale(1.1);
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3), 3px 6px 20px 0 rgba(0, 0, 0, 0.4);
+    opacity: 0.75;
+}
+
+.stars {
+    position: relative;
+    display: inline-block;
+    color: transparent;
+}
+
+.stars:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '★★★★★';
+    color: rgb(200, 200, 200);
+}
+
+.stars:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '★★★★★';
+    color: black;
+    overflow: hidden;
+}
+
+.stars-0:after {
+    width: 0%;
+}
+
+.stars-1:after {
+    width: 20%;
+}
+
+.stars-2:after {
+    width: 40%;
+}
+
+.stars-3:after {
+    width: 60%;
+}
+
+.stars-4:after {
+    width: 80%;
+}
+
+.stars-5:after {
+    width: 100;
+}
+
+.avg-review {
+    top: 1.5rem;
+    right: 1rem;
+}
+
+/* overrides bootstrap button group */
+.atc-button {
+    border-radius: 0.2rem !important;
+}

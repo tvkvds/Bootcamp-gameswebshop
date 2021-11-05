@@ -7,7 +7,12 @@
             @include('.search.partials.search-accordion')
             <!-- PRODUCT CARDS -->
             <div class="col-12 col-md-8">
-                 @include('.search.partials.search-prod-card')
+                <div id="card-loop">
+                    @include('.search.partials.search-prod-card')
+                </div>    
+
+                <!-- Pagination -->
+                @include('.search.partials.search-pagination')
             </div>
         </div>
     </section>

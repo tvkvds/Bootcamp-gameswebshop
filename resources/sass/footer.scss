@@ -1,0 +1,51 @@
+footer {
+    margin-top: auto;
+    background-color: #363636;
+}
+
+.footer-link-wrapper {
+    position: relative;
+    z-index: 2;
+}
+
+footer .btn,
+footer .btn:hover,
+footer .btn:active,
+footer .btn:focus {
+    border: none;
+    background-color: inherit;
+}
+
+footer .bi {
+    fill: gray;
+    transition: 0.25s;
+}
+
+#light {
+    position: relative;
+    background-color: #363636;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px black;
+} 
+
+#light:hover .bi {
+    fill: white;
+}
+
+#light:hover::after {
+    position: absolute;
+    content: "";
+    transition: 0.5s;
+    top: -4px;
+    left: 8px;
+    width: 26px;
+    height: 15px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 
+    0 0 15px white,
+    0 0 30px white,
+    0 0 45px white,
+    0 0 60px white,;
+    z-index: -3;
+}
