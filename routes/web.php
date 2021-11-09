@@ -27,7 +27,6 @@ Route::get('/products/{slug}', [App\Http\Controllers\ProductController::class, '
 Route::post('/cart', [App\Http\Controllers\CartController::class, 'update']);
 Route::post('/ajaxcart', [App\Http\Controllers\CartController::class, 'ajaxcart'])->name('ajaxcart'); 
 
-Route::get('/search', [App\Http\Controllers\SearchController::class, 'index']);
 Route::post('/search', [App\Http\Controllers\SearchController::class, 'index']); 
 
 Route::get('/checkout', [App\Http\Controllers\OrderController::class, 'create']);
@@ -39,14 +38,14 @@ Route::delete('/myaccount', [App\Http\Controllers\UserController::class, 'delete
 
 Route::post('/ajaxuserupdate', [App\Http\Controllers\UserController::class, 'ajaxupdate'])->name('ajaxuserupdate');
 
-Route::post('/address', [App\Http\Controllers\AddressController::class, 'ajaxcreate'])->name('ajaxaddress');
+Route::post('/addresscreate', [App\Http\Controllers\AddressController::class, 'ajaxcreate'])->name('ajaxaddress');
 Route::post('/address', [App\Http\Controllers\AddressController::class, 'ajaxupdate'])->name('ajaxaddressupdate');
 
 Route::get('/about', [App\Http\Controllers\AboutController::class, 'index']);
 
 Route::get('test',  [App\Http\Controllers\TestController::class, 'index']);
 
-Route::get('/account', [App\Http\Controllers\AccountController::class, 'index']);
+Route::get('/account', [App\Http\Controllers\AccountController::class, 'index'])->middleware('auth');
 
 
 

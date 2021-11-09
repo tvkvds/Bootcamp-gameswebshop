@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Address;
 use App\Models\Order;
 use Exception;
+use Illuminate\Support\Facades\Auth;
 
 class AccountController extends Controller
 {
@@ -13,9 +14,7 @@ class AccountController extends Controller
     {
         try
         {
-            //make sure route needs auth
-            //add logged in user id 
-            $userId = 6;
+            $userId = Auth::id();
 
             $user = User::with(['orders', 'addresses'])->find($userId);
             $latestOrder = Order::where('user_id', $userId)->latest()->first();
