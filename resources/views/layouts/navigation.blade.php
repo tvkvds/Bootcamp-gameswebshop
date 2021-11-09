@@ -37,7 +37,7 @@
             <!-- SEARCH, ACOUNT AND SHOPPING CART ICONS -->
             <ul class="navbar-nav flex-row">
                 <li class="search-wrapper col-12 col-lg-3 ">
-                    <form class="search" action="/search" method="get">
+                    <form class="search" action="/search" method="post">
                      @csrf
                         <input type="search" value="{{request('search')}}" name="search" class="form-control form-control-dark search-input" placeholder="Search..." autocomplete="off">
                         <span class="search-icon text-center">

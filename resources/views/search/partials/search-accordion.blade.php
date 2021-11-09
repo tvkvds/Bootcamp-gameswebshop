@@ -6,10 +6,9 @@
         <form method="post" action="/search">
         @csrf
 
-        <!-- SEARCH BY NAME not implemented in view atm -->
-        {{-- <div class="input-group">
+        <div class="input-group">
             <input type="hidden" value="{{request('search')}}" class="form-control form-control-lg" name="search" placeholder="search...">    
-        </div> --}}
+        </div>
 
             <div class="accordion-item">
 
