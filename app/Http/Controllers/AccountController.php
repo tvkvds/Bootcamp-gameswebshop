@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class AccountController extends Controller
 {
-    public function index()
+    public function show()
     {
         try
         {

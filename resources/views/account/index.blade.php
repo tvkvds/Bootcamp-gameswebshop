@@ -10,10 +10,15 @@
                     <a class="list-group-item account-nav-button d-flex" href="">Previous Orders</a>
                     <a class="list-group-item account-nav-button d-flex" href="">Personal Info</a>
                     <a class="list-group-item account-nav-button d-flex" href="">Adresses</a>
-                    <a class="list-group-item account-nav-button d-flex" href="">Log Out</a>
+                    <a class="list-group-item account-nav-button d-flex" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                     <a class="list-group-item account-nav-button d-flex" href="">Delete Account</a>
                 </div>
             </div>
+            
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+            </form>
+
             <div class="col-12 col-md-8">
                 <!-- PREV ORDERS -->
                 @if (isset($latestOrder))

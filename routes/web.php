@@ -28,13 +28,11 @@ Route::post('/cart', [App\Http\Controllers\CartController::class, 'update']);
 Route::post('/ajaxcart', [App\Http\Controllers\CartController::class, 'ajaxcart'])->name('ajaxcart'); 
 
 Route::post('/search', [App\Http\Controllers\SearchController::class, 'index']); 
+Route::get('/search', [App\Http\Controllers\SearchController::class, 'index']); 
 
 Route::get('/checkout', [App\Http\Controllers\OrderController::class, 'create']);
 Route::post('/orderconfirmed', [App\Http\Controllers\OrderController::class, 'store']);
 Route::get('/order/{id}', [App\Http\Controllers\OrderController::class, 'show']);
-
-Route::get('/myaccount', [App\Http\Controllers\UserController::class, 'show']);
-Route::delete('/myaccount', [App\Http\Controllers\UserController::class, 'delete']);
 
 Route::post('/ajaxuserupdate', [App\Http\Controllers\UserController::class, 'ajaxupdate'])->name('ajaxuserupdate');
 
@@ -43,9 +41,9 @@ Route::post('/address', [App\Http\Controllers\AddressController::class, 'ajaxupd
 
 Route::get('/about', [App\Http\Controllers\AboutController::class, 'index']);
 
-Route::get('test',  [App\Http\Controllers\TestController::class, 'index']);
+Route::get('/test',  [App\Http\Controllers\TestController::class, 'index']);
 
-Route::get('/account', [App\Http\Controllers\AccountController::class, 'index'])->middleware('auth');
+Route::get('/account', [App\Http\Controllers\AccountController::class, 'show'])->middleware('auth');
 
 
 
