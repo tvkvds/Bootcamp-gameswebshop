@@ -10,6 +10,7 @@ class CartController extends Controller
 {
     public function update()
     {
+
         //[0-9]{2} regex for basic validation
 
         Cart::cart(request('product'));

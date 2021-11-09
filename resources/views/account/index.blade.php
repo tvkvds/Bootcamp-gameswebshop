@@ -10,12 +10,18 @@
                     <a class="list-group-item account-nav-button d-flex" href="">Previous Orders</a>
                     <a class="list-group-item account-nav-button d-flex" href="">Personal Info</a>
                     <a class="list-group-item account-nav-button d-flex" href="">Adresses</a>
-                    <a class="list-group-item account-nav-button d-flex" href="">Log Out</a>
+                    <a class="list-group-item account-nav-button d-flex" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                     <a class="list-group-item account-nav-button d-flex" href="">Delete Account</a>
                 </div>
             </div>
+            
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+            </form>
+
             <div class="col-12 col-md-8">
                 <!-- PREV ORDERS -->
+                @if (isset($latestOrder))
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
@@ -45,6 +51,7 @@
                         </div>
                     </div>
                 </div>
+                @endif
 
                 <!-- PERSONAL INFO -->
                 <form>
@@ -99,34 +106,34 @@
                         <div class="col-12">
                             <div class="form-group">
                                 <label for="address">Address *</label>
-                                <input class="form-control form-control-sm" id="billingAddress1" type="text" value="{{$billingAddress->address_1  ?? ''}}">
+                                <input class="form-control form-control-sm" id="billingAddress1" type="text" placeholder="Raspberry lane 112" value="{{$billingAddress->address_1  ?? ''}}">
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-group">
                                 <label for="address">Address *</label>
-                                <input class="form-control form-control-sm" id="billingAddress2" type="text" value="{{$billingAddress->address_2  ?? ''}}">
+                                <input class="form-control form-control-sm" id="billingAddress2" type="text" placeholder="Door two" value="{{$billingAddress->address_2  ?? ''}}">
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-group">
                                 <label for="country">Country *</label>
-                                <input class="form-control form-control-sm" id="billingCountry" type="text" value="{{$billingAddress->country  ?? ''}}">
+                                <input class="form-control form-control-sm" id="billingCountry" type="text" placeholder="NL" value="{{$billingAddress->country  ?? ''}}">
                             </div>
                         </div>
                         <div class="col-12 col-md-6">
                             <div class="form-group">
                                 <label for="city">Town / City *</label>
-                                <input class="form-control form-control-sm" id="billingCity" type="text" value="{{$billingAddress->city  ?? ''}}">
+                                <input class="form-control form-control-sm" id="billingCity" type="text" placeholder="Rotterdam" value="{{$billingAddress->city  ?? ''}}">
                             </div>
                         </div>
                         <div class="col-12 col-md-6">
                             <div class="form-group">
                                 <label for="zip">ZIP / Postcode *</label>
-                                <input class="form-control form-control-sm" id="billingZip" type="text" value="{{$billingAddress->zipcode  ?? ''}}">
+                                <input class="form-control form-control-sm" id="billingZip" type="text" placeholder="AAAA22" value="{{$billingAddress->zipcode  ?? ''}}">
                             </div>
                         </div>
-                        <button class="btn w-100 mt-4 btn-sm" type="button" id="billingUpdate" >Edit Address</button>
+                        <button class="btn w-100 mt-4 btn-sm" type="button" id="billingUpdate">@if (isset($latestShippingAddress)) Edit Address @else Add Address @endif</button>
                     </div>
                 </form>
                 <form>
@@ -163,7 +170,7 @@
                                 <input class="form-control form-control-sm" id="shippingZip" type="text" placeholder="E1W 1BQ" value="{{$shippingAddress->zipcode ?? ''}}">
                             </div>
                         </div>
-                        <button class="btn w-100 mt-4 btn-sm" type="button" id="shippingUpdate" >Edit Address</button>
+                        <button class="btn w-100 mt-4 btn-sm" type="button" id="shippingUpdate">@if (isset($latestBillingAddress)) Edit Address @else Add Address @endif</button>
                     </div>
                 </form>
             </div>

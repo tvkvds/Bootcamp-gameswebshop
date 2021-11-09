@@ -50,7 +50,7 @@ class Product extends Model
 
     public function orders()
     {
-        return $this->belongsToMany(Order::class)->withPivot('amount');; 
+        return $this->belongsToMany(Order::class)->withPivot('amount'); 
     }
 
     //filter products on search/shop page
@@ -60,8 +60,7 @@ class Product extends Model
         
         {
             $query
-                ->where('name', 'like', '%' . request('search') . '%')
-                ->limit(15);    #paginate results?
+                ->where('name', 'like', '%' . request('search') . '%');
         }
         
         if ($filters['categories'] ?? false)

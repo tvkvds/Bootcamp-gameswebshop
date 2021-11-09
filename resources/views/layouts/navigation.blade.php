@@ -37,8 +37,9 @@
             <!-- SEARCH, ACOUNT AND SHOPPING CART ICONS -->
             <ul class="navbar-nav flex-row">
                 <li class="search-wrapper col-12 col-lg-3 ">
-                    <form class="search" action="/search" method="POST">
-                        <input type="search" name="search-query" class="form-control form-control-dark search-input" placeholder="Search..." autocomplete="off">
+                    <form class="search" action="/search" method="post">
+                     @csrf
+                        <input type="search" value="{{request('search')}}" name="search" class="form-control form-control-dark search-input" placeholder="Search..." autocomplete="off">
                         <span class="search-icon text-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" class="bi bi-search" viewBox="0 0 16 16">
                             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>

@@ -15,7 +15,7 @@ class SearchController extends Controller
     {
         try
         {
-            $products = Product::first()->with(['categories', 'images'])
+            $products = Product::with(['categories', 'images'])
             ->withAvg('ratings as ratings_avg', 'rating')
             ->withCount('ratings'); 
         }

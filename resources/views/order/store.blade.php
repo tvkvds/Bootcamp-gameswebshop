@@ -1,16 +1,5 @@
 @extends('layouts.app')
 
-            {{-- 
-            'products' => $products,
-            'cart' => Session::get('cart'),
-            'cart_products' => Cart::products(),
-            'cart_total' => Cart::cost(),
-            'cart_amount' => Cart::amount(),
-            'cart_vat' => Cart::vat(),
-            'order' => $order,
-            'address' => $address, 
-            --}}
-
 @section('content')
 
     <section class="container mt-5 mb-3">

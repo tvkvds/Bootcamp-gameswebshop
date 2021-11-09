@@ -57,7 +57,7 @@
                         <b>Samen Naar Een Oplossing</b>
                     </h6>
                     <p>
-                        Wel weet ze precies wat ze te bieden heeft, mocht het eenmaal zover zijn: ze is een absolute teamspeler, denkt outside of the box en is oplossingsgericht ingesteld. Daarbij is ze enorm leergierig en is blij dat ze zich er nu volledig op kan storten om beter te worden. Ook geeft ze aan open te staan voor traineeships. Tamara vindt coderen heel leuk, en dat zie je terug in haar werk. Toekomstige collega’s zullen dat enthousiasme snel overnemen. En als er ook nog een sportschool in de buurt van haar toekomstige werkplek zit, is het plaatje compleet!
+                        Wel weet ze precies wat ze te bieden heeft, mocht het eenmaal zover zijn: ze is een absolute teamspeler, denkt outside of the box en is oplossingsgericht ingesteld. Daarbij is ze enorm leergierig en is blij dat ze zich er nu volledig op kan storten om beter te worden. Ook geeft ze aan open te staan voor traineeships. Tamara vindt coderen heel leuk, en dat zie je terug in haar werk. Toekomstige collega’s zullen dat enthousiasme snel overnemen!
                     </p>
                 </div>
 
